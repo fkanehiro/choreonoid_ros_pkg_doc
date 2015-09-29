@@ -1,0 +1,320 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hrpsys tutorials 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-20 15:47+0900\n"
+"PO-Revision-Date: 2015-09-29 14:16+0900\n"
+"Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../../manual.rst:6
+msgid "Install"
+msgstr "インストール"
+
+#: ../../manual.rst:8
+msgid "Please follow the procedure of :doc:`install`."
+msgstr ":doc:`install` の手順を参照してください。"
+
+#: ../../manual.rst:12
+msgid "Run"
+msgstr "実行"
+
+#: ../../manual.rst:14
+msgid "Enter following commands to run ROS plugin enabled Choreonoid."
+msgstr ""
+"ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力"
+"してください。"
+
+#: ../../manual.rst:21
+msgid ""
+"You have to configure AISTSimulator item to use High-gain dynamics mode. "
+"Create and place BodyRos item under the robot you want to control."
+msgstr ""
+"ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必"
+"要があります。"
+
+#: ../../manual.rst:24
+msgid "Please refer to :doc:`tutorial` on details."
+msgstr "詳しくは :doc:`tutorial` を参照してください。"
+
+#: ../../manual.rst:28
+msgid "ROS Topics"
+msgstr "ROSトピックス"
+
+#: ../../manual.rst:30
+msgid ""
+"Choreonoid ROS plugin provides following ROS topics, please refer to :doc:"
+"`tutorial` for actual use."
+msgstr ""
+"Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は :"
+"doc:`tutorial` を参照してください。"
+
+#: ../../manual.rst:33
+msgid "/[robotname]/joint\\_states"
+msgstr ""
+
+#: ../../manual.rst:35
+msgid "Each joint states are published to /[robotname]/joint\\_states topic."
+msgstr ""
+"ロボットの各関節の情報は/[robotname]/joint\\_statesトピックにpublishされま"
+"す。"
+
+#: ../../manual.rst:41
+msgid "/[robotname]/set\\_joint\\_trajectory"
+msgstr ""
+
+#: ../../manual.rst:43
+msgid ""
+"Your control signal can be sent using /[robotname]/set\\_joint\\_trajectory "
+"topic."
+msgstr ""
+"ロボットへの制御信号は/[robotname]/set\\_joint\\_trajectoryトピックに送ること"
+"ができます。"
+
+#: ../../manual.rst:49
+msgid "/[robotname]/[sensorname]"
+msgstr ""
+
+#: ../../manual.rst:51
+msgid ""
+"If there are sensors defined on the robot model, ROS plugin will generate "
+"topics correspond to each sensor inputs."
+msgstr ""
+"ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応"
+"したトピックを生成します。"
+
+#: ../../manual.rst:59
+msgid "Input for vision sensors are published using image transport."
+msgstr "画像センサの入力についてはImage Transportを使ってpublishされます。"
+
+#: ../../manual.rst:63
+msgid "ROS Services"
+msgstr "ROSサービス"
+
+#: ../../manual.rst:65
+msgid "Following ROS services are provided to control the simulation."
+msgstr "シミュレーションを制御するために以下のROSサービスが利用できます。"
+
+#: ../../manual.rst:68
+msgid "/[simulatorname]/pause\\_physics"
+msgstr ""
+
+#: ../../manual.rst:70
+msgid "Takes no argument. Pause the simulation."
+msgstr "引数なし。シミュレーションをポーズする。"
+
+#: ../../manual.rst:73
+msgid "/[simulatorname]/unpause\\_physics"
+msgstr ""
+
+#: ../../manual.rst:75
+msgid "Takes no argument. Continue the paused simulation."
+msgstr "引数なし。ポーズしたシミュレーションを再開する。"
+
+#: ../../manual.rst:78
+msgid "/[simulatorname]/spawn\\_vrml\\_model"
+msgstr ""
+
+#: ../../manual.rst:80
+msgid ""
+"Takes [model_name, model_data, namespace, pose, reference_frame] as "
+"arguments. Load the specified model to the simulation."
+msgstr ""
+"[model_name, model_data, namespace, pose, reference_frame]を引数にとる。指定"
+"されたモデルをシミュレータにロードする。"
+
+#: ../../manual.rst:83
+msgid "/[simulatorname]/delete\\_model"
+msgstr ""
+
+#: ../../manual.rst:85
+msgid ""
+"Takes [model_name] as an argument. Delete the specified model from the "
+"simulation."
+msgstr "[model_name]を引数にとる。指定されたモデルをシミュレータから消去する。"
+
+#: ../../manual.rst:3
+msgid "Choreonoid ROS Plugin Manual"
+msgstr "Choreonoid ROSプラグインマニュアル"
+
+#: ../../manual.rst:45
+msgid ""
+"Data type of set\\_joint\\_trajectory topic is `trajectory_msgs::"
+"JointTrajectory <http://docs.ros.org/api/trajectory_msgs/html/msg/"
+"JointTrajectory.html>`_."
+msgstr ""
+"set\\_joint\\_trajectoryトピックのデータ型は `trajectory_msgs::"
+"JointTrajectory <http://docs.ros.org/api/trajectory_msgs/html/msg/"
+"JointTrajectory.html>`_"
+
+#: ../../manual.rst:53
+msgid ""
+"Data type used for force sensors are `geometry_msgs::Wrench <http://docs.ros."
+"org/api/geometry_msgs/html/msg/Wrench.html>`_."
+msgstr ""
+"各力センサの入力に用いられるデータ型は `geometry_msgs::Wrench <http://docs."
+"ros.org/api/geometry_msgs/html/msg/Wrench.html>`_"
+
+#: ../../manual.rst:55
+msgid ""
+"Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros."
+"org/api/sensor_msgs/html/msg/Imu.html>`_."
+msgstr ""
+"各ジャイロセンサの入力に用いられるデータ型は `sensor_msgs::Imu <http://docs."
+"ros.org/api/sensor_msgs/html/msg/Imu.html>`_"
+
+#: ../../manual.rst:57
+msgid ""
+"Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros."
+"org/api/geometry_msgs/html/msg/Accel.html>`_."
+msgstr ""
+"各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel <http://"
+"docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
+
+#: ../../manual.rst:37
+msgid ""
+"Data type of joint\\_states topic is `sensor_msgs::JointState <http://docs."
+"ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
+msgstr ""
+"joint\\_statesトピックのデータ型は `sensor_msgs::JointState <http://docs.ros."
+"org/api/sensor_msgs/html/msg/JointState.html>`_"
+
+#~ msgid ""
+#~ "Data type of joint\\_states topic is `sensor_msgs/JointState <http://docs."
+#~ "ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
+#~ msgstr ""
+#~ "joint\\_statesトピックのデータ型は `sensor_msgs/JointState <http://docs."
+#~ "ros.org/api/sensor_msgs/html/msg/JointState.html>`_"
+
+#~ msgid "Choreonoid Model Editor"
+#~ msgstr "Choreonoidモデル編集機能"
+
+#~ msgid "Architecture"
+#~ msgstr "アーキテクチャ"
+
+#~ msgid ""
+#~ "Choreonoid model editor is realized as a plugin to extend the basic "
+#~ "function of Choreonoid."
+#~ msgstr ""
+#~ "Choreonoidモデル編集機能はChoreonoidの基本機能を拡張するプラグインとして実"
+#~ "装されています。"
+
+#~ msgid ""
+#~ "In Choreonoid, plugin developer can extend its function by defining new "
+#~ "Items which appears in tree view of left panel."
+#~ msgstr ""
+#~ "Choreonoidでは、開発者が左のパネルのツリービュー上に出てくるアイテムを新規"
+#~ "に作成し、機能を拡張することができます。"
+
+#~ msgid ""
+#~ "Original Choreonoid only have \"BodyItem\" to load the simulation model. "
+#~ "Choreonoid model editor adds \"EditableBodyItem\" which you can split the "
+#~ "simulation model into joints and links, and change its properties."
+#~ msgstr ""
+#~ "元のChoreonoidはシミュレーションモデルをロードする「BodyItem」しかありませ"
+#~ "ん。Choreonoidモデル編集機能では、シミュレーションモデルを関節とリンクの各"
+#~ "パーツに分割し、各々のプロパティを変更することができる「EditableBodyItem」"
+#~ "を追加します。"
+
+#~ msgid "From here, we explain each of those new Items."
+#~ msgstr "以下、それら新しい各アイテムについて説明します。"
+
+#~ msgid "EditableBodyItem"
+#~ msgstr "EditableBodyItem"
+
+#~ msgid "This item is created on top of all the items."
+#~ msgstr "このアイテムは、他のアイテムの上位に作成されます。"
+
+#~ msgid ""
+#~ "When you load your existing model, this item is created automatically."
+#~ msgstr "既存のモデルをロードした場合、このアイテムは自動で作成されます。"
+
+#~ msgid ""
+#~ "Even when you create simulation model from scratch, you have to create "
+#~ "this item and connect the other items as a child."
+#~ msgstr ""
+#~ "モデルを新規に一から作成する場合にも、まずこのアイテムを作成し、他の全ての"
+#~ "アイテムを子アイテムとして接続する必要があります。"
+
+#~ msgid "JointItem"
+#~ msgstr "JointItem"
+
+#~ msgid ""
+#~ "When you want to add a joint to your simulation model, you have to create "
+#~ "this item."
+#~ msgstr ""
+#~ "シミュレーションモデルに関節を付与したい場合、このアイテムを作成する必要が"
+#~ "あります。"
+
+#~ msgid ""
+#~ "After created, you can edit the property of the joint by double clicking "
+#~ "the property panel."
+#~ msgstr ""
+#~ "プロパティパネルの各項目をダブルクリックすることで、関節の各プロパティを編"
+#~ "集することができます。"
+
+#~ msgid "Joint type"
+#~ msgstr "Joint type"
+
+#~ msgid ""
+#~ "Specifies type of joint from \"free\", \"rotate\", \"slide\", \"fixed\"."
+#~ msgstr "関節の種類を「free」「rotate」「slide」「fixed」から選択します。"
+
+#~ msgid "Joint axis"
+#~ msgstr "Joint axis"
+
+#~ msgid "Specifies direction of joint in [x, y, z] format."
+#~ msgstr "関節角の方向を「x, y, z」の形式で指定します。"
+
+#~ msgid "Upper limit"
+#~ msgstr "Upper limit"
+
+#~ msgid "Specifies upper limit of joint angle."
+#~ msgstr "関節角の上限を設定します。"
+
+#~ msgid "Lower limit"
+#~ msgstr "Lower limit"
+
+#~ msgid "Specifies lower limit of joint angle."
+#~ msgstr "関節角の下限を設定します。"
+
+#~ msgid "LinkItem"
+#~ msgstr "LinkItem"
+
+#~ msgid "Primitive type"
+#~ msgstr "Primitive type"
+
+#~ msgid ""
+#~ "Specifies type of link from \"Mesh\", \"Cylinder\", \"Cone\", \"Sphere\"."
+#~ msgstr ""
+#~ "リンクの種類を「Mesh」「Cylinder」「Cone」「Sphere」から選択します。"
+
+#~ msgid ""
+#~ "Once primitive type is selected, property for each primitive types (e.g. "
+#~ "color and radius for sphere) will be appeared."
+#~ msgstr ""
+#~ "プリミティブ型が選択されると、色や直径などの各プリミティブ型用のプロパティ"
+#~ "が表示されます。"
+
+#~ msgid "Mass"
+#~ msgstr "Mass"
+
+#~ msgid "Specifies mass."
+#~ msgstr "リンクの重量を設定します。"
+
+#~ msgid "Center of mass"
+#~ msgstr "Center of mass"
+
+#~ msgid "Specifies location of mass center in [x, y, z] format."
+#~ msgstr "リンクの重心を「x, y, z」形式で設定します。"
+
+#~ msgid "Inertia"
+#~ msgstr "Inertia"
+
+#~ msgid "Specifies moment of inertia in 3x3 matrix format."
+#~ msgstr "リンクの慣性モーメントを3x3の行列形式で設定します。"
