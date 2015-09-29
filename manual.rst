@@ -56,8 +56,26 @@ Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros.org/
 
 Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_.
 
+Data type used for range sensors are `sensor_msgs::LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_.
+
 Input for vision sensors are published using image transport.
 
+For RGBD vision sensors, depth image is published in `sensor_msgs::PointCloud2 <http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_ data type as well.
+
+\/clock
+~~~~~~~
+
+Current simulation time is published to /clock topic.
+
+/[simulatorname]/model\_states
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Current position and attitude of models are published to this topic.
+
+/[simulatorname]/links\_states
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Current position and attitude of links in models are published to this topic.
 
 ROS Services
 ============

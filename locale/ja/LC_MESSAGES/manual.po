@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-09-29 14:16+0900\n"
+"PO-Revision-Date: 2015-09-30 06:46+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -88,39 +88,39 @@ msgstr ""
 "ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応"
 "したトピックを生成します。"
 
-#: ../../manual.rst:59
+#: ../../manual.rst:61
 msgid "Input for vision sensors are published using image transport."
 msgstr "画像センサの入力についてはImage Transportを使ってpublishされます。"
 
-#: ../../manual.rst:63
+#: ../../manual.rst:81
 msgid "ROS Services"
 msgstr "ROSサービス"
 
-#: ../../manual.rst:65
+#: ../../manual.rst:83
 msgid "Following ROS services are provided to control the simulation."
 msgstr "シミュレーションを制御するために以下のROSサービスが利用できます。"
 
-#: ../../manual.rst:68
+#: ../../manual.rst:86
 msgid "/[simulatorname]/pause\\_physics"
 msgstr ""
 
-#: ../../manual.rst:70
+#: ../../manual.rst:88
 msgid "Takes no argument. Pause the simulation."
 msgstr "引数なし。シミュレーションをポーズする。"
 
-#: ../../manual.rst:73
+#: ../../manual.rst:91
 msgid "/[simulatorname]/unpause\\_physics"
 msgstr ""
 
-#: ../../manual.rst:75
+#: ../../manual.rst:93
 msgid "Takes no argument. Continue the paused simulation."
 msgstr "引数なし。ポーズしたシミュレーションを再開する。"
 
-#: ../../manual.rst:78
+#: ../../manual.rst:96
 msgid "/[simulatorname]/spawn\\_vrml\\_model"
 msgstr ""
 
-#: ../../manual.rst:80
+#: ../../manual.rst:98
 msgid ""
 "Takes [model_name, model_data, namespace, pose, reference_frame] as "
 "arguments. Load the specified model to the simulation."
@@ -128,11 +128,11 @@ msgstr ""
 "[model_name, model_data, namespace, pose, reference_frame]を引数にとる。指定"
 "されたモデルをシミュレータにロードする。"
 
-#: ../../manual.rst:83
+#: ../../manual.rst:101
 msgid "/[simulatorname]/delete\\_model"
 msgstr ""
 
-#: ../../manual.rst:85
+#: ../../manual.rst:103
 msgid ""
 "Takes [model_name] as an argument. Delete the specified model from the "
 "simulation."
@@ -183,6 +183,48 @@ msgid ""
 msgstr ""
 "joint\\_statesトピックのデータ型は `sensor_msgs::JointState <http://docs.ros."
 "org/api/sensor_msgs/html/msg/JointState.html>`_"
+
+#: ../../manual.rst:66
+msgid "\\/clock"
+msgstr ""
+
+#: ../../manual.rst:68
+msgid "Current simulation time is published to /clock topic."
+msgstr "現在のシミュレーション時刻が/clockトピックにpublishされます。"
+
+#: ../../manual.rst:71
+msgid "/[simulatorname]/model\\_states"
+msgstr ""
+
+#: ../../manual.rst:73
+msgid "Current position and attitude of models are published to this topic."
+msgstr "このトピックには各モデルの現在の位置姿勢がpublishされます。"
+
+#: ../../manual.rst:76
+msgid "/[simulatorname]/links\\_states"
+msgstr ""
+
+#: ../../manual.rst:78
+msgid ""
+"Current position and attitude of links in models are published to this topic."
+msgstr "このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。"
+
+#: ../../manual.rst:59
+msgid ""
+"Data type used for range sensors are `sensor_msgs::LaserScan <http://docs."
+"ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_."
+msgstr ""
+"レンジセンサの入力に用いられるデータ型は `sensor_msgs::LaserScan <http://"
+"docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_"
+
+#: ../../manual.rst:63
+msgid ""
+"For RGBD vision sensors, depth image is published in `sensor_msgs::"
+"PointCloud2 <http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2."
+"html>`_ data type as well."
+msgstr ""
+"RGBDセンサについては、デプス画像が `sensor_msgs::PointCloud2 <http://docs."
+"ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_  型でpublishされます。"
 
 #~ msgid ""
 #~ "Data type of joint\\_states topic is `sensor_msgs/JointState <http://docs."
