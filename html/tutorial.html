@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Choreonoid ROS Plugin Tutorial &mdash; Choreonoid ROS Plugin 0.0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.1 documentation" href="index.html"/>
+        <link rel="prev" title="Choreonoid ROS Plugin Manual" href="manual.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Choreonoid ROS Plugin
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">Choreonoid ROS Plugin Manual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Choreonoid ROS Plugin Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-preconfigured-project">Run preconfigured project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-project-by-hand">Configure the project by hand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-monitor-the-message">Use ROS utility commands to monitor the message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-send-command-to-the-robot">Use Python script to send command to the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-control-the-simulation">Use ROS utility commands to control the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-spawn-the-model">Use Python script to spawn the model</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Choreonoid ROS Plugin</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Choreonoid ROS Plugin Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tutorial.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choreonoid-ros-plugin-tutorial">
+<h1>Choreonoid ROS Plugin Tutorial<a class="headerlink" href="#choreonoid-ros-plugin-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="run-preconfigured-project">
+<h2>Run preconfigured project<a class="headerlink" href="#run-preconfigured-project" title="Permalink to this headline">¶</a></h2>
+<p>You can use preconfigured project prepared for this tutorial.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./devel/bin/choreonoid src/choreonoid_ros_pkg/choreonoid_plugins/test/jvrc1test.cnoid --start-simulation
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-project-by-hand">
+<h2>Configure the project by hand<a class="headerlink" href="#configure-the-project-by-hand" title="Permalink to this headline">¶</a></h2>
+<p>Or you can prepare project of your own.</p>
+<p>To prepare your own project:</p>
+<ol class="arabic simple">
+<li>Create World item and create Body item by opening the robot model data.</li>
+<li>(Optional) Create and place ViewSimulator item under the robot you want to get image input.</li>
+<li>Create and place BodyRos item under the robot you want to control.</li>
+<li>Configure AISTSimulator item to use High-gain dynamics mode.</li>
+</ol>
+<img alt="_images/highgain.png" src="_images/highgain.png" />
+<ol class="arabic simple" start="5">
+<li>Create and place WorldRos item under the world you want to control.</li>
+</ol>
+<p>Item view should be structured as follows after the above configuration.</p>
+<img alt="_images/itemview.png" src="_images/itemview.png" />
+<p>Finally, click &#8220;start simulation&#8221; button to enable the ROS functions.</p>
+</div>
+<div class="section" id="use-ros-utility-commands-to-monitor-the-message">
+<h2>Use ROS utility commands to monitor the message<a class="headerlink" href="#use-ros-utility-commands-to-monitor-the-message" title="Permalink to this headline">¶</a></h2>
+<p>List available topics:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rostopic list
+</pre></div>
+</div>
+<p>Print input of force sensor:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rostopic <span class="nb">echo</span> /JVRC_1/lfsensor
+</pre></div>
+</div>
+<p>Display camera input:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-python-script-to-send-command-to-the-robot">
+<h2>Use Python script to send command to the robot<a class="headerlink" href="#use-python-script-to-send-command-to-the-robot" title="Permalink to this headline">¶</a></h2>
+<p>Following example sends each trajectory commands to joint J1 and J2 of PA10 robot.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
+
+<span class="k">def</span> <span class="nf">jointtrajectory_publisher</span><span class="p">():</span>
+    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s">&#39;/HRP1/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s">&#39;pa10test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">JointTrajectory</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;J1&quot;</span><span class="p">,</span> <span class="s">&quot;J2&quot;</span><span class="p">]</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">JointTrajectoryPoint</span><span class="p">()</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">rostime</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s">&quot;hello world </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">now</span><span class="p">)</span>
+        <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">jointtrajectory_publisher</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-ros-utility-commands-to-control-the-simulation">
+<h2>Use ROS utility commands to control the simulation<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Pause the simulation:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rosservice call /AISTSimulator/pause_physics
+</pre></div>
+</div>
+<p>Continue the paused simulation:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rosservice call /AISTSimulator/unpause_physics
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-python-script-to-spawn-the-model">
+<h2>Use Python script to spawn the model<a class="headerlink" href="#use-python-script-to-spawn-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Following example loads box model dynamically to current simulation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="kn">import</span> <span class="n">SpawnModel</span>
+<span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="kn">import</span> <span class="n">DeleteModel</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
+
+<span class="n">ns</span> <span class="o">=</span> <span class="s">&#39;/AISTSimulator/&#39;</span>
+
+<span class="k">def</span> <span class="nf">modelspawn</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">model_xml</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;spawn_vrml_model&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">spawnsrv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;spawn_vrml_model&#39;</span><span class="p">,</span> <span class="n">SpawnModel</span><span class="p">)</span>
+        <span class="n">spawnsrv</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">model_xml</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pose</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;Service call failed </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+
+<span class="k">def</span> <span class="nf">modeldelete</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;delete_model&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">deletesrv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;delete_model&#39;</span><span class="p">,</span> <span class="n">DeleteModel</span><span class="p">)</span>
+        <span class="n">deletesrv</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;Service call failed </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;spawn model&quot;</span>
+    <span class="n">modelspawn</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="s">&quot;/usr/share/OpenHRP-3.1/sample/model/box.wrl&quot;</span><span class="p">,</span> <span class="n">Pose</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;delete model&quot;</span>
+    <span class="n">modeldelete</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="manual.html" class="btn btn-neutral" title="Choreonoid ROS Plugin Manual" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, AIST.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

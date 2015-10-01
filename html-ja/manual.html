@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.1 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.1 ドキュメント" href="index.html"/>
+        <link rel="next" title="Choreonoid ROSプラグインチュートリアル" href="tutorial.html"/>
+        <link rel="prev" title="インストール" href="install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Choreonoid ROS Plugin
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">インストール</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Choreonoid ROSプラグインマニュアル</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-topics">ROSトピックス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#robotname-joint-states">/[robotname]/joint_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robotname-set-joint-trajectory">/[robotname]/set_joint_trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robotname-sensorname">/[robotname]/[sensorname]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulatorname-model-states">/[simulatorname]/model_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulatorname-links-states">/[simulatorname]/links_states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-services">ROSサービス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simulatorname-pause-physics">/[simulatorname]/pause_physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulatorname-unpause-physics">/[simulatorname]/unpause_physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulatorname-spawn-vrml-model">/[simulatorname]/spawn_vrml_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulatorname-delete-model">/[simulatorname]/delete_model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Choreonoid ROSプラグインチュートリアル</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Choreonoid ROS Plugin</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Choreonoid ROSプラグインマニュアル</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/manual.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choreonoid-ros-plugin-manual">
+<h1>Choreonoid ROSプラグインマニュアル<a class="headerlink" href="#choreonoid-ros-plugin-manual" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="install">
+<h2>インストール<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="install.html"><em>インストール</em></a> の手順を参照してください。</p>
+</div>
+<div class="section" id="run">
+<h2>実行<a class="headerlink" href="#run" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力してください。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roscore <span class="o">(</span>on the different terminal<span class="o">)</span>
+<span class="nv">$ </span>./devel/bin/choreonoid
+</pre></div>
+</div>
+<p>ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。</p>
+<p>詳しくは <a class="reference internal" href="tutorial.html"><em>Choreonoid ROSプラグインチュートリアル</em></a> を参照してください。</p>
+</div>
+<div class="section" id="ros-topics">
+<h2>ROSトピックス<a class="headerlink" href="#ros-topics" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は <a class="reference internal" href="tutorial.html"><em>Choreonoid ROSプラグインチュートリアル</em></a> を参照してください。</p>
+<div class="section" id="robotname-joint-states">
+<h3>/[robotname]/joint_states<a class="headerlink" href="#robotname-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロボットの各関節の情報は/[robotname]/joint_statesトピックにpublishされます。</p>
+<p>joint_statesトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html">sensor_msgs::JointState</a></p>
+</div>
+<div class="section" id="robotname-set-joint-trajectory">
+<h3>/[robotname]/set_joint_trajectory<a class="headerlink" href="#robotname-set-joint-trajectory" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロボットへの制御信号は/[robotname]/set_joint_trajectoryトピックに送ることができます。</p>
+<p>set_joint_trajectoryトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html">trajectory_msgs::JointTrajectory</a></p>
+</div>
+<div class="section" id="robotname-sensorname">
+<h3>/[robotname]/[sensorname]<a class="headerlink" href="#robotname-sensorname" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応したトピックを生成します。</p>
+<p>各力センサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs::Wrench</a></p>
+<p>各ジャイロセンサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a></p>
+<p>各加速度センサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html">geometry_msgs::Accel</a></p>
+<p>レンジセンサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs::LaserScan</a></p>
+<p>画像センサの入力についてはImage Transportを使ってpublishされます。</p>
+<p>RGBDセンサについては、デプス画像が <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs::PointCloud2</a>  型でpublishされます。</p>
+</div>
+<div class="section" id="clock">
+<h3>/clock<a class="headerlink" href="#clock" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>現在のシミュレーション時刻が/clockトピックにpublishされます。</p>
+</div>
+<div class="section" id="simulatorname-model-states">
+<h3>/[simulatorname]/model_states<a class="headerlink" href="#simulatorname-model-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このトピックには各モデルの現在の位置姿勢がpublishされます。</p>
+</div>
+<div class="section" id="simulatorname-links-states">
+<h3>/[simulatorname]/links_states<a class="headerlink" href="#simulatorname-links-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。</p>
+</div>
+</div>
+<div class="section" id="ros-services">
+<h2>ROSサービス<a class="headerlink" href="#ros-services" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>シミュレーションを制御するために以下のROSサービスが利用できます。</p>
+<div class="section" id="simulatorname-pause-physics">
+<h3>/[simulatorname]/pause_physics<a class="headerlink" href="#simulatorname-pause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>引数なし。シミュレーションをポーズする。</p>
+</div>
+<div class="section" id="simulatorname-unpause-physics">
+<h3>/[simulatorname]/unpause_physics<a class="headerlink" href="#simulatorname-unpause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>引数なし。ポーズしたシミュレーションを再開する。</p>
+</div>
+<div class="section" id="simulatorname-spawn-vrml-model">
+<h3>/[simulatorname]/spawn_vrml_model<a class="headerlink" href="#simulatorname-spawn-vrml-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[model_name, model_data, namespace, pose, reference_frame]を引数にとる。指定されたモデルをシミュレータにロードする。</p>
+</div>
+<div class="section" id="simulatorname-delete-model">
+<h3>/[simulatorname]/delete_model<a class="headerlink" href="#simulatorname-delete-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>[model_name]を引数にとる。指定されたモデルをシミュレータから消去する。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Choreonoid ROSプラグインチュートリアル" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="インストール" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, AIST.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
