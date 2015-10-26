@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-09-29 13:38+0900\n"
+"PO-Revision-Date: 2015-10-26 14:58+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,19 +29,27 @@ msgid "choreonoid\\_plugin: Choreonoid plugins to publish ROS topic"
 msgstr ""
 "choreonoid\\_plugin: ROSトピックをpublishするためのChoreonoidプラグイン"
 
-#: ../../install.rst:12
+#: ../../install.rst:18
 msgid "To use the package, you first have to create catkin workspace:"
 msgstr ""
 "パッケージを利用するには、まずcatkinワークスペースを作る必要があります:"
 
-#: ../../install.rst:20
+#: ../../install.rst:29
 msgid "Then, checkout choreonoid\\_ros\\_pkg under catkin\\_ws/src folder:"
 msgstr ""
 "catkin\\_ws/srcフォルダ以下にchoreonoid\\_ros\\_pkgをチェックアウトします:"
 
-#: ../../install.rst:26
+#: ../../install.rst:38
 msgid "Build catkin packages:"
 msgstr "catkinパッケージをビルドします:"
+
+#: ../../install.rst:12
+msgid ""
+"Before beginning the installation process, make sure you have installed "
+"wstool and catkin"
+msgstr ""
+"インストール作業を始める前にwstoolとcatkinがインストールされていることを確認"
+"してください。"
 
 #~ msgid "Clone most recent source from github."
 #~ msgstr "githubから最新のソースコードをクローンします。"
