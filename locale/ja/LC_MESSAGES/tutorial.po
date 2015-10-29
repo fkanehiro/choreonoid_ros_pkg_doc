@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-09-29 13:46+0900\n"
+"PO-Revision-Date: 2015-10-29 11:17+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -83,39 +83,42 @@ msgstr "トピックの一覧を表示する:"
 msgid "Print input of force sensor:"
 msgstr "力センサの入力を表示する:"
 
-#: ../../tutorial.rst:52
-msgid "Display camera input:"
-msgstr "カメラからの入力を表示する:"
-
-#: ../../tutorial.rst:59
+#: ../../tutorial.rst:60
 msgid "Use Python script to send command to the robot"
 msgstr "Pythonスクリプトを利用してロボットを動かす"
 
-#: ../../tutorial.rst:61
+#: ../../tutorial.rst:62
 msgid ""
 "Following example sends each trajectory commands to joint J1 and J2 of PA10 "
 "robot."
 msgstr "以下の例ではPA10ロボットのJ1関節とJ2関節に角度設定コマンドを送ります。"
 
-#: ../../tutorial.rst:67
+#: ../../tutorial.rst:68
 msgid "Use ROS utility commands to control the simulation"
 msgstr "ROSユーティリティコマンドを使ってシミュレーションを制御する"
 
-#: ../../tutorial.rst:69
+#: ../../tutorial.rst:70
 msgid "Pause the simulation:"
 msgstr "シミュレーションを一時停止する:"
 
-#: ../../tutorial.rst:75
+#: ../../tutorial.rst:76
 msgid "Continue the paused simulation:"
 msgstr "一時停止したシミュレーションを再開する:"
 
-#: ../../tutorial.rst:82
+#: ../../tutorial.rst:83
 msgid "Use Python script to spawn the model"
 msgstr "Pythonスクリプトを利用してモデルファイルをロードする"
 
-#: ../../tutorial.rst:84
+#: ../../tutorial.rst:85
 msgid "Following example loads box model dynamically to current simulation."
 msgstr "以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。"
+
+#: ../../tutorial.rst:52
+msgid "Display camera input (using image-view package):"
+msgstr "カメラ画像を表示する（image-viewパッケージを利用）"
+
+#~ msgid "Display camera input:"
+#~ msgstr "カメラからの入力を表示する:"
 
 #~ msgid "Choreonoid Editor Tutorial"
 #~ msgstr "Choreonoidモデル編集機能チュートリアル"
