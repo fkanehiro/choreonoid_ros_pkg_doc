@@ -134,19 +134,31 @@
 <p>本レポジトリは ChoreonoidのROS接続機能を提供します。</p>
 <p>choreonoid_ros_pkg: catkinパッケージ化されたChoreonoid</p>
 <p>choreonoid_plugin: ROSトピックをpublishするためのChoreonoidプラグイン</p>
+<p>インストール作業を始める前にwstoolとcatkinがインストールされていることを確認してください。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools
+</pre></div>
+</div>
 <p>パッケージを利用するには、まずcatkinワークスペースを作る必要があります:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir -p catkin_ws/src
-<span class="nv">$ </span><span class="nb">cd </span>catkin_ws/src
-<span class="nv">$ </span>wstool init
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir -p ~/catkin_ws/src
+<span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws/src
+<span class="nv">$ </span>catkin_init_workspace
+<span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
+<span class="nv">$ </span>catkin_make
+<span class="nv">$ </span><span class="nb">source </span>devel/setup.bash
 </pre></div>
 </div>
 <p>catkin_ws/srcフォルダ以下にchoreonoid_ros_pkgをチェックアウトします:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/fkanehiro/choreonoid_ros_pkg.git
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws/src
+<span class="nv">$ </span>wstool init
+<span class="nv">$ </span>wstool <span class="nb">set </span>choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
+<span class="nv">$ </span>wstool update choreonoid_ros_pkg
 </pre></div>
 </div>
 <p>catkinパッケージをビルドします:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>catkin_make install
+<span class="nv">$ </span>rm -rf build
+<span class="nv">$ </span>catkin build choreonoid_ros
+<span class="nv">$ </span>catkin build choreonoid_plugins
 </pre></div>
 </div>
 </div>

@@ -134,19 +134,31 @@
 <p>This repository provides ROS support for Choreonoid</p>
 <p>choreonoid_ros_pkg: Chorenoid catkin package</p>
 <p>choreonoid_plugin: Choreonoid plugins to publish ROS topic</p>
+<p>Before beginning the installation process, make sure you have installed wstool and catkin</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools
+</pre></div>
+</div>
 <p>To use the package, you first have to create catkin workspace:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir -p catkin_ws/src
-<span class="nv">$ </span><span class="nb">cd </span>catkin_ws/src
-<span class="nv">$ </span>wstool init
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir -p ~/catkin_ws/src
+<span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws/src
+<span class="nv">$ </span>catkin_init_workspace
+<span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
+<span class="nv">$ </span>catkin_make
+<span class="nv">$ </span><span class="nb">source </span>devel/setup.bash
 </pre></div>
 </div>
 <p>Then, checkout choreonoid_ros_pkg under catkin_ws/src folder:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/fkanehiro/choreonoid_ros_pkg.git
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws/src
+<span class="nv">$ </span>wstool init
+<span class="nv">$ </span>wstool <span class="nb">set </span>choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
+<span class="nv">$ </span>wstool update choreonoid_ros_pkg
 </pre></div>
 </div>
 <p>Build catkin packages:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>catkin_make install
+<span class="nv">$ </span>rm -rf build
+<span class="nv">$ </span>catkin build choreonoid_ros
+<span class="nv">$ </span>catkin build choreonoid_plugins
 </pre></div>
 </div>
 </div>

@@ -173,8 +173,9 @@
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rostopic <span class="nb">echo</span> /JVRC_1/lfsensor
 </pre></div>
 </div>
-<p>Display camera input:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera
+<p>Display camera input (using image-view package):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ros-indigo-image-view
+<span class="nv">$ </span>rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera
 </pre></div>
 </div>
 </div>
