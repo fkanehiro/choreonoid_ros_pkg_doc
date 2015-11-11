@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-10-29 11:17+0900\n"
+"PO-Revision-Date: 2015-11-11 14:29+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,24 +24,24 @@ msgstr "設定済みのプロジェクトを開く"
 msgid "You can use preconfigured project prepared for this tutorial."
 msgstr "このチュートリアル用に準備されたプロジェクトファイルを開きます。"
 
-#: ../../tutorial.rst:15
+#: ../../tutorial.rst:19
 msgid "Configure the project by hand"
 msgstr "カスタムプロジェクトの作成"
 
-#: ../../tutorial.rst:17
+#: ../../tutorial.rst:21
 msgid "Or you can prepare project of your own."
 msgstr "プロジェクトファイルは自分で作成することもできます。"
 
-#: ../../tutorial.rst:19
+#: ../../tutorial.rst:23
 msgid "To prepare your own project:"
 msgstr "プロジェクトファイルは以下の手順で作成してください:"
 
-#: ../../tutorial.rst:21
+#: ../../tutorial.rst:25
 msgid "Create World item and create Body item by opening the robot model data."
 msgstr ""
 "Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。"
 
-#: ../../tutorial.rst:22
+#: ../../tutorial.rst:26
 msgid ""
 "(Optional) Create and place ViewSimulator item under the robot you want to "
 "get image input."
@@ -49,73 +49,86 @@ msgstr ""
 "（任意）画像入力が必要な場合はViewSimulatorアイテムをBodyアイテムの下に作成し"
 "ます。"
 
-#: ../../tutorial.rst:23
+#: ../../tutorial.rst:27
 msgid "Create and place BodyRos item under the robot you want to control."
 msgstr "操作したいBody アイテムの下にRodyRosアイテムを作成します。"
 
-#: ../../tutorial.rst:24
+#: ../../tutorial.rst:28
 msgid "Configure AISTSimulator item to use High-gain dynamics mode."
 msgstr "AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。"
 
-#: ../../tutorial.rst:28
+#: ../../tutorial.rst:32
 msgid "Create and place WorldRos item under the world you want to control."
 msgstr "Worldアイテムの下にWorldRosアイテムを作成します。"
 
-#: ../../tutorial.rst:30
+#: ../../tutorial.rst:34
 msgid ""
 "Item view should be structured as follows after the above configuration."
 msgstr "上記の設定を行うと、アイテムビューは以下のような構造になるはずです。"
 
-#: ../../tutorial.rst:34
+#: ../../tutorial.rst:38
 msgid "Finally, click \"start simulation\" button to enable the ROS functions."
 msgstr ""
 "最後に「シミュレーション開始」ボタンを押すとROS接続機能が有効になります。"
 
-#: ../../tutorial.rst:38
+#: ../../tutorial.rst:42
 msgid "Use ROS utility commands to monitor the message"
 msgstr "ROSユーティリティコマンドを使ってメッセージをモニタする"
 
-#: ../../tutorial.rst:40
+#: ../../tutorial.rst:44
 msgid "List available topics:"
 msgstr "トピックの一覧を表示する:"
 
-#: ../../tutorial.rst:46
+#: ../../tutorial.rst:50
 msgid "Print input of force sensor:"
 msgstr "力センサの入力を表示する:"
 
-#: ../../tutorial.rst:60
+#: ../../tutorial.rst:64
 msgid "Use Python script to send command to the robot"
 msgstr "Pythonスクリプトを利用してロボットを動かす"
 
-#: ../../tutorial.rst:62
-msgid ""
-"Following example sends each trajectory commands to joint J1 and J2 of PA10 "
-"robot."
-msgstr "以下の例ではPA10ロボットのJ1関節とJ2関節に角度設定コマンドを送ります。"
-
-#: ../../tutorial.rst:68
+#: ../../tutorial.rst:72
 msgid "Use ROS utility commands to control the simulation"
 msgstr "ROSユーティリティコマンドを使ってシミュレーションを制御する"
 
-#: ../../tutorial.rst:70
+#: ../../tutorial.rst:74
 msgid "Pause the simulation:"
 msgstr "シミュレーションを一時停止する:"
 
-#: ../../tutorial.rst:76
+#: ../../tutorial.rst:80
 msgid "Continue the paused simulation:"
 msgstr "一時停止したシミュレーションを再開する:"
 
-#: ../../tutorial.rst:83
+#: ../../tutorial.rst:87
 msgid "Use Python script to spawn the model"
 msgstr "Pythonスクリプトを利用してモデルファイルをロードする"
 
-#: ../../tutorial.rst:85
+#: ../../tutorial.rst:89
 msgid "Following example loads box model dynamically to current simulation."
 msgstr "以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。"
 
-#: ../../tutorial.rst:52
+#: ../../tutorial.rst:56
 msgid "Display camera input (using image-view package):"
 msgstr "カメラ画像を表示する（image-viewパッケージを利用）"
+
+#: ../../tutorial.rst:14
+msgid ""
+"You should see the JVRC O1 task loaded on Choreonoid with rviz visualization."
+msgstr ""
+"実行に成功するとJVRC O1タスクが rvizによるビジュアライゼーションつきで立ち上"
+"がるはずです。"
+
+#: ../../tutorial.rst:66
+msgid ""
+"Following example sends each trajectory commands to NECK_Y joint of JVRC-1 "
+"robot."
+msgstr "以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。"
+
+#~ msgid ""
+#~ "Following example sends each trajectory commands to joint J1 and J2 of "
+#~ "PA10 robot."
+#~ msgstr ""
+#~ "以下の例ではPA10ロボットのJ1関節とJ2関節に角度設定コマンドを送ります。"
 
 #~ msgid "Display camera input:"
 #~ msgstr "カメラからの入力を表示する:"
