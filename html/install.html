@@ -132,10 +132,14 @@
   <div class="section" id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
 <p>This repository provides ROS support for Choreonoid</p>
-<p>choreonoid_ros_pkg: Chorenoid catkin package</p>
+<p>choreonoid_ros_pkg: Meta-package to build Choreonoid packages</p>
+<p>choreonoid_ros: Choreonoid catkin package</p>
 <p>choreonoid_plugin: Choreonoid plugins to publish ROS topic</p>
-<p>Before beginning the installation process, make sure you have installed wstool and catkin</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools
+<p>jvrc_models: Simulation models and tasks for JVRC</p>
+<p>Before beginning the installation process, make sure you have installed wstool, catkin and rosdep:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools python-rosdep
+<span class="nv">$ </span>sudo rosdep init
+<span class="nv">$ </span>rosdep update
 </pre></div>
 </div>
 <p>To use the package, you first have to create catkin workspace:</p>
@@ -154,11 +158,27 @@
 <span class="nv">$ </span>wstool update choreonoid_ros_pkg
 </pre></div>
 </div>
-<p>Build catkin packages:</p>
+<p>Install dependent packages:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>rm -rf build
-<span class="nv">$ </span>catkin build choreonoid_ros
-<span class="nv">$ </span>catkin build choreonoid_plugins
+<span class="nv">$ </span>rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span> -y
+</pre></div>
+</div>
+<p>To use the VRML based models in rviz, please install simtrans as well:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo add-apt-repository ppa:hrg/daily
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
+<span class="nv">$ </span>git clone https://github.com/fkanehiro/simtrans.git
+<span class="nv">$ </span><span class="nb">cd </span>simtrans
+<span class="nv">$ </span>sudo pip install -r requirements.txt
+<span class="nv">$ </span>sudo python setup.py install
+</pre></div>
+</div>
+<p>Build and install catkin packages:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
+<span class="nv">$ </span>catkin clean -b
+<span class="nv">$ </span>catkin config --install
+<span class="nv">$ </span>catkin build choreonoid_ros_pkg
+<span class="nv">$ </span><span class="nb">source </span>install/setup.bash
 </pre></div>
 </div>
 </div>

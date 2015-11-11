@@ -132,10 +132,14 @@
   <div class="section" id="install">
 <h1>インストール<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>本レポジトリは ChoreonoidのROS接続機能を提供します。</p>
-<p>choreonoid_ros_pkg: catkinパッケージ化されたChoreonoid</p>
+<p>choreonoid_ros_pkg: Choreonoid関連パッケージをビルドするためのメタパッケージ</p>
+<p>choreonoid_ros: Choreonoid本体のcatkinパッケージ</p>
 <p>choreonoid_plugin: ROSトピックをpublishするためのChoreonoidプラグイン</p>
-<p>インストール作業を始める前にwstoolとcatkinがインストールされていることを確認してください。</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools
+<p>jvrc_models: JVRC競技会用シミュレーションモデルとタスクファイル</p>
+<p>インストールを始める前に、wstool, catkin, rosdepの各コマンドがインストールされていることを確認してください:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools python-rosdep
+<span class="nv">$ </span>sudo rosdep init
+<span class="nv">$ </span>rosdep update
 </pre></div>
 </div>
 <p>パッケージを利用するには、まずcatkinワークスペースを作る必要があります:</p>
@@ -154,11 +158,27 @@
 <span class="nv">$ </span>wstool update choreonoid_ros_pkg
 </pre></div>
 </div>
-<p>catkinパッケージをビルドします:</p>
+<p>依存パッケージをインストールします:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>rm -rf build
-<span class="nv">$ </span>catkin build choreonoid_ros
-<span class="nv">$ </span>catkin build choreonoid_plugins
+<span class="nv">$ </span>rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span> -y
+</pre></div>
+</div>
+<p>VRML形式のモデルをrvizで使うには、simtransも追加でインストールします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo add-apt-repository ppa:hrg/daily
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
+<span class="nv">$ </span>git clone https://github.com/fkanehiro/simtrans.git
+<span class="nv">$ </span><span class="nb">cd </span>simtrans
+<span class="nv">$ </span>sudo pip install -r requirements.txt
+<span class="nv">$ </span>sudo python setup.py install
+</pre></div>
+</div>
+<p>catkinパッケージをビルドしインストールします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
+<span class="nv">$ </span>catkin clean -b
+<span class="nv">$ </span>catkin config --install
+<span class="nv">$ </span>catkin build choreonoid_ros_pkg
+<span class="nv">$ </span><span class="nb">source </span>install/setup.bash
 </pre></div>
 </div>
 </div>

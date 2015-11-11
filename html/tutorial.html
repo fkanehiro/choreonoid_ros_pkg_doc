@@ -141,9 +141,11 @@
 <div class="section" id="run-preconfigured-project">
 <h2>Run preconfigured project<a class="headerlink" href="#run-preconfigured-project" title="Permalink to this headline">¶</a></h2>
 <p>You can use preconfigured project prepared for this tutorial.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./devel/bin/choreonoid src/choreonoid_ros_pkg/choreonoid_plugins/test/jvrc1test.cnoid --start-simulation
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
+<p>You should see the JVRC O1 task loaded on Choreonoid with rviz visualization.</p>
+<img alt="_images/choreonoid-rviz.png" src="_images/choreonoid-rviz.png" />
 </div>
 <div class="section" id="configure-the-project-by-hand">
 <h2>Configure the project by hand<a class="headerlink" href="#configure-the-project-by-hand" title="Permalink to this headline">¶</a></h2>
@@ -174,34 +176,36 @@
 </pre></div>
 </div>
 <p>Display camera input (using image-view package):</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ros-indigo-image-view
-<span class="nv">$ </span>rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-image-view
+<span class="nv">$ </span>rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/image_raw
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-python-script-to-send-command-to-the-robot">
 <h2>Use Python script to send command to the robot<a class="headerlink" href="#use-python-script-to-send-command-to-the-robot" title="Permalink to this headline">¶</a></h2>
-<p>Following example sends each trajectory commands to joint J1 and J2 of PA10 robot.</p>
+<p>Following example sends each trajectory commands to NECK_Y joint of JVRC-1 robot.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
 
 <span class="k">def</span> <span class="nf">jointtrajectory_publisher</span><span class="p">():</span>
-    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s">&#39;/HRP1/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s">&#39;pa10test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s">&#39;/JVRC_1/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s">&#39;jvrc1test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">JointTrajectory</span><span class="p">()</span>
-        <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;J1&quot;</span><span class="p">,</span> <span class="s">&quot;J2&quot;</span><span class="p">]</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;NECK_Y&quot;</span><span class="p">]</span>
         <span class="n">msg</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">JointTrajectoryPoint</span><span class="p">()</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">rostime</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
-            <span class="n">msg</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s">&quot;hello world </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">now</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">][</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">JointTrajectoryPoint</span><span class="p">()</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">rostime</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s">&quot;hello world </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">now</span><span class="p">))</span>
         <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">r</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>

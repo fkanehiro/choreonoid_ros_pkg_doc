@@ -9,7 +9,11 @@ You can use preconfigured project prepared for this tutorial.
 
 .. code-block:: bash
    
-   $ ./devel/bin/choreonoid src/choreonoid_ros_pkg/choreonoid_plugins/test/jvrc1test.cnoid --start-simulation
+   $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+You should see the JVRC O1 task loaded on Choreonoid with rviz visualization.
+
+.. image:: choreonoid-rviz.png
 
 Configure the project by hand
 =============================
@@ -53,15 +57,15 @@ Display camera input (using image-view package):
 
 .. code-block:: bash
    
-   $ sudo apt-get install ros-indigo-image-view
-   $ rosrun image_view image_view image:=/JVRC_1/rcamera
+   $ sudo apt-get install ros-$ROS_DISTRO-image-view
+   $ rosrun image_view image_view image:=/JVRC_1/rcamera/image_raw
 
 Use Python script to send command to the robot
 ==============================================
 
-Following example sends each trajectory commands to joint J1 and J2 of PA10 robot.
+Following example sends each trajectory commands to NECK_Y joint of JVRC-1 robot.
 
-.. literalinclude:: test-jointtrajectory-pa10.py
+.. literalinclude:: test-jointtrajectory-jvrc-1.py
    :language: python
 
 Use ROS utility commands to control the simulation
