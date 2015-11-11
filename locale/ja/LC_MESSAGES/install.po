@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-10-26 14:58+0900\n"
+"PO-Revision-Date: 2015-11-11 14:02+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,36 +20,67 @@ msgstr "インストール"
 msgid "This repository provides ROS support for Choreonoid"
 msgstr "本レポジトリは ChoreonoidのROS接続機能を提供します。"
 
-#: ../../install.rst:7
-msgid "choreonoid\\_ros\\_pkg: Chorenoid catkin package"
-msgstr "choreonoid\\_ros\\_pkg: catkinパッケージ化されたChoreonoid"
-
-#: ../../install.rst:9
+#: ../../install.rst:11
 msgid "choreonoid\\_plugin: Choreonoid plugins to publish ROS topic"
 msgstr ""
 "choreonoid\\_plugin: ROSトピックをpublishするためのChoreonoidプラグイン"
 
-#: ../../install.rst:18
+#: ../../install.rst:23
 msgid "To use the package, you first have to create catkin workspace:"
 msgstr ""
 "パッケージを利用するには、まずcatkinワークスペースを作る必要があります:"
 
-#: ../../install.rst:29
+#: ../../install.rst:34
 msgid "Then, checkout choreonoid\\_ros\\_pkg under catkin\\_ws/src folder:"
 msgstr ""
 "catkin\\_ws/srcフォルダ以下にchoreonoid\\_ros\\_pkgをチェックアウトします:"
 
-#: ../../install.rst:38
-msgid "Build catkin packages:"
-msgstr "catkinパッケージをビルドします:"
+#: ../../install.rst:7
+msgid "choreonoid\\_ros\\_pkg: Meta-package to build Choreonoid packages"
+msgstr ""
+"choreonoid\\_ros\\_pkg: Choreonoid関連パッケージをビルドするためのメタパッ"
+"ケージ"
 
-#: ../../install.rst:12
+#: ../../install.rst:9
+msgid "choreonoid\\_ros: Choreonoid catkin package"
+msgstr "choreonoid\\_ros: Choreonoid本体のcatkinパッケージ"
+
+#: ../../install.rst:13
+msgid "jvrc\\_models: Simulation models and tasks for JVRC"
+msgstr "jvrc\\_models: JVRC競技会用シミュレーションモデルとタスクファイル"
+
+#: ../../install.rst:15
 msgid ""
 "Before beginning the installation process, make sure you have installed "
-"wstool and catkin"
+"wstool, catkin and rosdep:"
 msgstr ""
-"インストール作業を始める前にwstoolとcatkinがインストールされていることを確認"
-"してください。"
+"インストールを始める前に、wstool, catkin, rosdepの各コマンドがインストールさ"
+"れていることを確認してください:"
+
+#: ../../install.rst:43
+msgid "Install dependent packages:"
+msgstr "依存パッケージをインストールします:"
+
+#: ../../install.rst:50
+msgid "To use the VRML based models in rviz, please install simtrans as well:"
+msgstr "VRML形式のモデルをrvizで使うには、simtransも追加でインストールします:"
+
+#: ../../install.rst:62
+msgid "Build and install catkin packages:"
+msgstr "catkinパッケージをビルドしインストールします:"
+
+#~ msgid "choreonoid\\_ros\\_pkg: Chorenoid catkin package"
+#~ msgstr "choreonoid\\_ros\\_pkg: catkinパッケージ化されたChoreonoid"
+
+#~ msgid "Build catkin packages:"
+#~ msgstr "catkinパッケージをビルドします:"
+
+#~ msgid ""
+#~ "Before beginning the installation process, make sure you have installed "
+#~ "wstool and catkin"
+#~ msgstr ""
+#~ "インストール作業を始める前にwstoolとcatkinがインストールされていることを確"
+#~ "認してください。"
 
 #~ msgid "Clone most recent source from github."
 #~ msgstr "githubから最新のソースコードをクローンします。"
