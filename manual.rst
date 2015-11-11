@@ -54,7 +54,7 @@ Data type used for force sensors are `geometry_msgs::Wrench <http://docs.ros.org
 
 Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_.
 
-Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_.
+Data type used for accel sensors are `sensor_msgs::Imu <http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_.
 
 Data type used for range sensors are `sensor_msgs::LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_.
 
