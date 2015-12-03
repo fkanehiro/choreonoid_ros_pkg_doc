@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-11-11 14:29+0900\n"
+"PO-Revision-Date: 2015-12-03 12:10+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "Choreonoid ROSプラグインチュートリアル"
 msgid "Run preconfigured project"
 msgstr "設定済みのプロジェクトを開く"
 
-#: ../../tutorial.rst:8
+#: ../../tutorial.rst:8 ../../tutorial.rst:73 ../../tutorial.rst:119
 msgid "You can use preconfigured project prepared for this tutorial."
 msgstr "このチュートリアル用に準備されたプロジェクトファイルを開きます。"
 
@@ -41,19 +41,11 @@ msgid "Create World item and create Body item by opening the robot model data."
 msgstr ""
 "Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。"
 
-#: ../../tutorial.rst:26
-msgid ""
-"(Optional) Create and place ViewSimulator item under the robot you want to "
-"get image input."
-msgstr ""
-"（任意）画像入力が必要な場合はViewSimulatorアイテムをBodyアイテムの下に作成し"
-"ます。"
-
-#: ../../tutorial.rst:27
+#: ../../tutorial.rst:28
 msgid "Create and place BodyRos item under the robot you want to control."
 msgstr "操作したいBody アイテムの下にRodyRosアイテムを作成します。"
 
-#: ../../tutorial.rst:28
+#: ../../tutorial.rst:26
 msgid "Configure AISTSimulator item to use High-gain dynamics mode."
 msgstr "AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。"
 
@@ -87,23 +79,23 @@ msgstr "力センサの入力を表示する:"
 msgid "Use Python script to send command to the robot"
 msgstr "Pythonスクリプトを利用してロボットを動かす"
 
-#: ../../tutorial.rst:72
+#: ../../tutorial.rst:95
 msgid "Use ROS utility commands to control the simulation"
 msgstr "ROSユーティリティコマンドを使ってシミュレーションを制御する"
 
-#: ../../tutorial.rst:74
+#: ../../tutorial.rst:97
 msgid "Pause the simulation:"
 msgstr "シミュレーションを一時停止する:"
 
-#: ../../tutorial.rst:80
+#: ../../tutorial.rst:103
 msgid "Continue the paused simulation:"
 msgstr "一時停止したシミュレーションを再開する:"
 
-#: ../../tutorial.rst:87
+#: ../../tutorial.rst:110
 msgid "Use Python script to spawn the model"
 msgstr "Pythonスクリプトを利用してモデルファイルをロードする"
 
-#: ../../tutorial.rst:89
+#: ../../tutorial.rst:112
 msgid "Following example loads box model dynamically to current simulation."
 msgstr "以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。"
 
@@ -123,6 +115,50 @@ msgid ""
 "Following example sends each trajectory commands to NECK_Y joint of JVRC-1 "
 "robot."
 msgstr "以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。"
+
+#: ../../tutorial.rst:27
+msgid ""
+"(Optional) Create and place ViewSimulator item under the AISTSimulator you "
+"want to get image input."
+msgstr ""
+"（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの"
+"下に作成します。"
+
+#: ../../tutorial.rst:71 ../../tutorial.rst:117
+msgid "The script you can run in the following procedure."
+msgstr "スクリプトは以下の手順で実行できます。"
+
+#: ../../tutorial.rst:79 ../../tutorial.rst:125
+msgid "Open a new terminal."
+msgstr "新しい端末を起動します。"
+
+#: ../../tutorial.rst:80 ../../tutorial.rst:126
+msgid "Start any text editor, and then copy-paste the example script."
+msgstr ""
+"任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。"
+
+#: ../../tutorial.rst:86 ../../tutorial.rst:132
+msgid "Saving the edits, and exit the text editor."
+msgstr "編集内容を保存し、テキストエディタを終了します。"
+
+#: ../../tutorial.rst:133
+msgid "Change of the file permission, and execute script."
+msgstr "ファイルのパーミッションを変更し、スクリプトを実行します。"
+
+#: ../../tutorial.rst:87
+msgid ""
+"Change of the file permission, and execute script. (If you want to stop the "
+"script, please press ctrl + c)"
+msgstr ""
+"パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は Ctrl + "
+"c を押してください)"
+
+#~ msgid ""
+#~ "(Optional) Create and place ViewSimulator item under the robot you want "
+#~ "to get image input."
+#~ msgstr ""
+#~ "（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテム"
+#~ "の下に作成します。"
 
 #~ msgid ""
 #~ "Following example sends each trajectory commands to joint J1 and J2 of "
