@@ -23,9 +23,9 @@ Or you can prepare project of your own.
 To prepare your own project:
 
 1. Create World item and create Body item by opening the robot model data.
-2. (Optional) Create and place ViewSimulator item under the robot you want to get image input.
-3. Create and place BodyRos item under the robot you want to control.
-4. Configure AISTSimulator item to use High-gain dynamics mode.
+2. Configure AISTSimulator item to use High-gain dynamics mode.
+3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
+4. Create and place BodyRos item under the robot you want to control.
 
 .. image:: highgain.png
 
@@ -68,6 +68,29 @@ Following example sends each trajectory commands to NECK_Y joint of JVRC-1 robot
 .. literalinclude:: test-jointtrajectory-jvrc-1.py
    :language: python
 
+The script you can run in the following procedure.
+
+1. You can use preconfigured project prepared for this tutorial.
+
+.. code-block:: bash
+   
+   $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+2. Open a new terminal.
+3. Start any text editor, and then copy-paste the example script.
+
+.. code-block:: bash
+
+   $ gedit test-jointtrajectory-jvrc-1.py
+
+4. Saving the edits, and exit the text editor.
+5. Change of the file permission, and execute script. (If you want to stop the script, please press ctrl + c)
+
+.. code-block:: bash
+
+   $ chmod 0744 test-jointtrajectory-jvrc-1.py
+   $ ./test-jointtrajectory-jvrc-1.py
+
 Use ROS utility commands to control the simulation
 ==================================================
 
@@ -90,4 +113,27 @@ Following example loads box model dynamically to current simulation.
 
 .. literalinclude:: test-model-spawn.py
    :language: python
+
+The script you can run in the following procedure.
+
+1. You can use preconfigured project prepared for this tutorial.
+
+.. code-block:: bash
+   
+   $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+2. Open a new terminal.
+3. Start any text editor, and then copy-paste the example script.
+
+.. code-block:: bash
+
+   $ gedit test-model-spawn.py
+
+4. Saving the edits, and exit the text editor.
+5. Change of the file permission, and execute script.
+
+.. code-block:: bash
+
+   $ chmod 0744 test-model-spawn.py
+   $ ./test-model-spawn.py
 

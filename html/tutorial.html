@@ -153,9 +153,9 @@
 <p>To prepare your own project:</p>
 <ol class="arabic simple">
 <li>Create World item and create Body item by opening the robot model data.</li>
-<li>(Optional) Create and place ViewSimulator item under the robot you want to get image input.</li>
-<li>Create and place BodyRos item under the robot you want to control.</li>
 <li>Configure AISTSimulator item to use High-gain dynamics mode.</li>
+<li>(Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.</li>
+<li>Create and place BodyRos item under the robot you want to control.</li>
 </ol>
 <img alt="_images/highgain.png" src="_images/highgain.png" />
 <ol class="arabic simple" start="5">
@@ -215,6 +215,28 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
+<p>The script you can run in the following procedure.</p>
+<ol class="arabic simple">
+<li>You can use preconfigured project prepared for this tutorial.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Open a new terminal.</li>
+<li>Start any text editor, and then copy-paste the example script.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gedit <span class="nb">test</span>-jointtrajectory-jvrc-1.py
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Saving the edits, and exit the text editor.</li>
+<li>Change of the file permission, and execute script. (If you want to stop the script, please press ctrl + c)</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>chmod <span class="m">0744</span> <span class="nb">test</span>-jointtrajectory-jvrc-1.py
+<span class="nv">$ </span>./test-jointtrajectory-jvrc-1.py
+</pre></div>
+</div>
 </div>
 <div class="section" id="use-ros-utility-commands-to-control-the-simulation">
 <h2>Use ROS utility commands to control the simulation<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="Permalink to this headline">¶</a></h2>
@@ -264,6 +286,28 @@
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
     <span class="k">print</span> <span class="s">&quot;delete model&quot;</span>
     <span class="n">modeldelete</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The script you can run in the following procedure.</p>
+<ol class="arabic simple">
+<li>You can use preconfigured project prepared for this tutorial.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Open a new terminal.</li>
+<li>Start any text editor, and then copy-paste the example script.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gedit <span class="nb">test</span>-model-spawn.py
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Saving the edits, and exit the text editor.</li>
+<li>Change of the file permission, and execute script.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>chmod <span class="m">0744</span> <span class="nb">test</span>-model-spawn.py
+<span class="nv">$ </span>./test-model-spawn.py
 </pre></div>
 </div>
 </div>

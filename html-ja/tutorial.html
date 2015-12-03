@@ -154,11 +154,11 @@
 <ol class="arabic simple">
 <li><p class="first">Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。</p>
 </li>
-<li><p class="first">（任意）画像入力が必要な場合はViewSimulatorアイテムをBodyアイテムの下に作成します。</p>
+<li><p class="first">AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。</p>
+</li>
+<li><p class="first">（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの下に作成します。</p>
 </li>
 <li><p class="first">操作したいBody アイテムの下にRodyRosアイテムを作成します。</p>
-</li>
-<li><p class="first">AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。</p>
 </li>
 </ol>
 <img alt="_images/highgain.png" src="_images/highgain.png" />
@@ -220,6 +220,33 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
+<p>スクリプトは以下の手順で実行できます。</p>
+<ol class="arabic simple">
+<li><p class="first">このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p class="first">新しい端末を起動します。</p>
+</li>
+<li><p class="first">任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gedit <span class="nb">test</span>-jointtrajectory-jvrc-1.py
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p class="first">編集内容を保存し、テキストエディタを終了します。</p>
+</li>
+<li><p class="first">パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は Ctrl + c を押してください)</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>chmod <span class="m">0744</span> <span class="nb">test</span>-jointtrajectory-jvrc-1.py
+<span class="nv">$ </span>./test-jointtrajectory-jvrc-1.py
+</pre></div>
+</div>
 </div>
 <div class="section" id="use-ros-utility-commands-to-control-the-simulation">
 <h2>ROSユーティリティコマンドを使ってシミュレーションを制御する<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -269,6 +296,33 @@
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
     <span class="k">print</span> <span class="s">&quot;delete model&quot;</span>
     <span class="n">modeldelete</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>スクリプトは以下の手順で実行できます。</p>
+<ol class="arabic simple">
+<li><p class="first">このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p class="first">新しい端末を起動します。</p>
+</li>
+<li><p class="first">任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gedit <span class="nb">test</span>-model-spawn.py
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p class="first">編集内容を保存し、テキストエディタを終了します。</p>
+</li>
+<li><p class="first">ファイルのパーミッションを変更し、スクリプトを実行します。</p>
+</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>chmod <span class="m">0744</span> <span class="nb">test</span>-model-spawn.py
+<span class="nv">$ </span>./test-model-spawn.py
 </pre></div>
 </div>
 </div>
