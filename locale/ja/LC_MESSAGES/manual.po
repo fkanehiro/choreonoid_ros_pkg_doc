@@ -210,10 +210,13 @@ msgstr ""
 "型でpublishされます。"
 
 #: ../../manual.rst:57
+#, fuzzy
 msgid ""
 "Data type used for accel sensors are `sensor_msgs::Imu "
 "<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_."
 msgstr ""
+"各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel "
+"<http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
 
 #~ msgid ""
 #~ "Data type used for accel sensors are `geometry_msgs::Accel "
