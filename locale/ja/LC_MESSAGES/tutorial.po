@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-12-03 12:10+0900\n"
+"PO-Revision-Date: 2015-12-14 15:16+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgid "Create World item and create Body item by opening the robot model data."
 msgstr ""
 "Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。"
 
-#: ../../tutorial.rst:28
+#: ../../tutorial.rst:31
 msgid "Create and place BodyRos item under the robot you want to control."
 msgstr "操作したいBody アイテムの下にRodyRosアイテムを作成します。"
 
@@ -99,10 +99,6 @@ msgstr "Pythonスクリプトを利用してモデルファイルをロードす
 msgid "Following example loads box model dynamically to current simulation."
 msgstr "以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。"
 
-#: ../../tutorial.rst:56
-msgid "Display camera input (using image-view package):"
-msgstr "カメラ画像を表示する（image-viewパッケージを利用）"
-
 #: ../../tutorial.rst:14
 msgid ""
 "You should see the JVRC O1 task loaded on Choreonoid with rviz visualization."
@@ -116,7 +112,7 @@ msgid ""
 "robot."
 msgstr "以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。"
 
-#: ../../tutorial.rst:27
+#: ../../tutorial.rst:30
 msgid ""
 "(Optional) Create and place ViewSimulator item under the AISTSimulator you "
 "want to get image input."
@@ -152,6 +148,13 @@ msgid ""
 msgstr ""
 "パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は Ctrl + "
 "c を押してください)"
+
+#: ../../tutorial.rst:56
+msgid "Display camera input (using image-view2 package):"
+msgstr "カメラ画像を表示する（image-view2パッケージを利用）"
+
+#~ msgid "Display camera input (using image-view package):"
+#~ msgstr "カメラ画像を表示する（image-view2パッケージを利用）"
 
 #~ msgid ""
 #~ "(Optional) Create and place ViewSimulator item under the robot you want "

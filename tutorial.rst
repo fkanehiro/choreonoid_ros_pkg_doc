@@ -24,11 +24,11 @@ To prepare your own project:
 
 1. Create World item and create Body item by opening the robot model data.
 2. Configure AISTSimulator item to use High-gain dynamics mode.
-3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
-4. Create and place BodyRos item under the robot you want to control.
 
 .. image:: highgain.png
 
+3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
+4. Create and place BodyRos item under the robot you want to control.
 5. Create and place WorldRos item under the world you want to control.
 
 Item view should be structured as follows after the above configuration.
@@ -53,12 +53,12 @@ Print input of force sensor:
 
    $ rostopic echo /JVRC_1/lfsensor
 
-Display camera input (using image-view package):
+Display camera input (using image-view2 package):
 
 .. code-block:: bash
    
-   $ sudo apt-get install ros-$ROS_DISTRO-image-view
-   $ rosrun image_view image_view image:=/JVRC_1/rcamera/image_raw
+   $ sudo apt-get install ros-$ROS_DISTRO-image-view2
+   $ rosrun image_view2 image_view2 image:=/JVRC_1/rcamera/image_raw
 
 Use Python script to send command to the robot
 ==============================================
