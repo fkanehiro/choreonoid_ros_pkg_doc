@@ -53,12 +53,12 @@ Print input of force sensor:
 
    $ rostopic echo /JVRC_1/lfsensor
 
-Display camera input (using image-view2 package):
+Display camera input (using image-view package):
 
 .. code-block:: bash
    
-   $ sudo apt-get install ros-$ROS_DISTRO-image-view2
-   $ rosrun image_view2 image_view2 image:=/JVRC_1/rcamera/image_raw
+   $ sudo apt-get install ros-$ROS_DISTRO-image-view
+   $ rosrun image_view image_view image:=/JVRC_1/rcamera/image_raw
 
 Use Python script to send command to the robot
 ==============================================

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-12-14 15:16+0900\n"
+"PO-Revision-Date: 2015-12-15 16:16+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -150,10 +150,10 @@ msgstr ""
 "c を押してください)"
 
 #: ../../tutorial.rst:56
-msgid "Display camera input (using image-view2 package):"
-msgstr "カメラ画像を表示する（image-view2パッケージを利用）"
+msgid "Display camera input (using image-view package):"
+msgstr "カメラ画像を表示する（image-viewパッケージを利用）"
 
-#~ msgid "Display camera input (using image-view package):"
+#~ msgid "Display camera input (using image-view2 package):"
 #~ msgstr "カメラ画像を表示する（image-view2パッケージを利用）"
 
 #~ msgid ""
