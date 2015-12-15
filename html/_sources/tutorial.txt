@@ -24,11 +24,11 @@ To prepare your own project:
 
 1. Create World item and create Body item by opening the robot model data.
 2. Configure AISTSimulator item to use High-gain dynamics mode.
-3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
-4. Create and place BodyRos item under the robot you want to control.
 
 .. image:: highgain.png
 
+3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
+4. Create and place BodyRos item under the robot you want to control.
 5. Create and place WorldRos item under the world you want to control.
 
 Item view should be structured as follows after the above configuration.
