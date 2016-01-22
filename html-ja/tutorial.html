@@ -141,7 +141,7 @@
 <div class="section" id="run-preconfigured-project">
 <h2>設定済みのプロジェクトを開く<a class="headerlink" href="#run-preconfigured-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+<div class="highlight-bash"><div class="highlight"><pre>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
 <p>実行に成功するとJVRC O1タスクが rvizによるビジュアライゼーションつきで立ち上がるはずです。</p>
@@ -173,47 +173,47 @@
 <div class="section" id="use-ros-utility-commands-to-monitor-the-message">
 <h2>ROSユーティリティコマンドを使ってメッセージをモニタする<a class="headerlink" href="#use-ros-utility-commands-to-monitor-the-message" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>トピックの一覧を表示する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rostopic list
+<div class="highlight-bash"><div class="highlight"><pre>$ rostopic list
 </pre></div>
 </div>
 <p>力センサの入力を表示する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rostopic <span class="nb">echo</span> /JVRC_1/lfsensor
+<div class="highlight-bash"><div class="highlight"><pre>$ rostopic <span class="nb">echo</span> /JVRC_1/lfsensor
 </pre></div>
 </div>
 <p>カメラ画像を表示する（image-viewパッケージを利用）</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-image-view
-<span class="nv">$ </span>rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/image_raw
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get install ros-$ROS_DISTRO-image-view
+$ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/image_raw
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-python-script-to-send-command-to-the-robot">
 <h2>Pythonスクリプトを利用してロボットを動かす<a class="headerlink" href="#use-python-script-to-send-command-to-the-robot" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
 
 <span class="k">def</span> <span class="nf">jointtrajectory_publisher</span><span class="p">():</span>
-    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s">&#39;/JVRC_1/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s">&#39;jvrc1test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/JVRC_1/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;jvrc1test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">JointTrajectory</span><span class="p">()</span>
-        <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;NECK_Y&quot;</span><span class="p">]</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NECK_Y&quot;</span><span class="p">]</span>
         <span class="n">msg</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">][</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">JointTrajectoryPoint</span><span class="p">()</span>
         <span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">rostime</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">p</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
         <span class="n">msg</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s">&quot;hello world </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">now</span><span class="p">))</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;hello world </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">now</span><span class="p">))</span>
         <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">r</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">jointtrajectory_publisher</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
@@ -225,7 +225,7 @@
 <li><p class="first">このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+<div class="highlight-bash"><div class="highlight"><pre>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -234,7 +234,7 @@
 <li><p class="first">任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gedit <span class="nb">test</span>-jointtrajectory-jvrc-1.py
+<div class="highlight-bash"><div class="highlight"><pre>$ gedit test-jointtrajectory-jvrc-1.py
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -243,26 +243,26 @@
 <li><p class="first">パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は Ctrl + c を押してください)</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>chmod <span class="m">0744</span> <span class="nb">test</span>-jointtrajectory-jvrc-1.py
-<span class="nv">$ </span>./test-jointtrajectory-jvrc-1.py
+<div class="highlight-bash"><div class="highlight"><pre>$ chmod <span class="m">0744</span> test-jointtrajectory-jvrc-1.py
+$ ./test-jointtrajectory-jvrc-1.py
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-ros-utility-commands-to-control-the-simulation">
 <h2>ROSユーティリティコマンドを使ってシミュレーションを制御する<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>シミュレーションを一時停止する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rosservice call /AISTSimulator/pause_physics
+<div class="highlight-bash"><div class="highlight"><pre>$ rosservice call /AISTSimulator/pause_physics
 </pre></div>
 </div>
 <p>一時停止したシミュレーションを再開する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rosservice call /AISTSimulator/unpause_physics
+<div class="highlight-bash"><div class="highlight"><pre>$ rosservice call /AISTSimulator/unpause_physics
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-python-script-to-spawn-the-model">
 <h2>Pythonスクリプトを利用してモデルファイルをロードする<a class="headerlink" href="#use-python-script-to-spawn-the-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
@@ -270,32 +270,32 @@
 <span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="kn">import</span> <span class="n">DeleteModel</span>
 <span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
 
-<span class="n">ns</span> <span class="o">=</span> <span class="s">&#39;/AISTSimulator/&#39;</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;/AISTSimulator/&#39;</span>
 
 <span class="k">def</span> <span class="nf">modelspawn</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
     <span class="n">model_xml</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;spawn_vrml_model&#39;</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s1">&#39;spawn_vrml_model&#39;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">spawnsrv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;spawn_vrml_model&#39;</span><span class="p">,</span> <span class="n">SpawnModel</span><span class="p">)</span>
+        <span class="n">spawnsrv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s1">&#39;spawn_vrml_model&#39;</span><span class="p">,</span> <span class="n">SpawnModel</span><span class="p">)</span>
         <span class="n">spawnsrv</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">model_xml</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pose</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&quot;Service call failed </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+        <span class="k">print</span> <span class="s2">&quot;Service call failed </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
 
 <span class="k">def</span> <span class="nf">modeldelete</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;delete_model&#39;</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s1">&#39;delete_model&#39;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">deletesrv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s">&#39;delete_model&#39;</span><span class="p">,</span> <span class="n">DeleteModel</span><span class="p">)</span>
+        <span class="n">deletesrv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">ns</span> <span class="o">+</span> <span class="s1">&#39;delete_model&#39;</span><span class="p">,</span> <span class="n">DeleteModel</span><span class="p">)</span>
         <span class="n">deletesrv</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span> <span class="s">&quot;Service call failed </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+        <span class="k">print</span> <span class="s2">&quot;Service call failed </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&quot;spawn model&quot;</span>
-    <span class="n">modelspawn</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="s">&quot;/usr/share/OpenHRP-3.1/sample/model/box.wrl&quot;</span><span class="p">,</span> <span class="n">Pose</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;spawn model&quot;</span>
+    <span class="n">modelspawn</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;/usr/share/OpenHRP-3.1/sample/model/box.wrl&quot;</span><span class="p">,</span> <span class="n">Pose</span><span class="p">())</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="k">print</span> <span class="s">&quot;delete model&quot;</span>
-    <span class="n">modeldelete</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s2">&quot;delete model&quot;</span>
+    <span class="n">modeldelete</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>スクリプトは以下の手順で実行できます。</p>
@@ -303,7 +303,7 @@
 <li><p class="first">このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>roslaunch choreonoid_ros jvrc-1-rviz.launch
+<div class="highlight-bash"><div class="highlight"><pre>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -312,7 +312,7 @@
 <li><p class="first">任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>gedit <span class="nb">test</span>-model-spawn.py
+<div class="highlight-bash"><div class="highlight"><pre>$ gedit test-model-spawn.py
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -321,8 +321,8 @@
 <li><p class="first">ファイルのパーミッションを変更し、スクリプトを実行します。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>chmod <span class="m">0744</span> <span class="nb">test</span>-model-spawn.py
-<span class="nv">$ </span>./test-model-spawn.py
+<div class="highlight-bash"><div class="highlight"><pre>$ chmod <span class="m">0744</span> test-model-spawn.py
+$ ./test-model-spawn.py
 </pre></div>
 </div>
 </div>

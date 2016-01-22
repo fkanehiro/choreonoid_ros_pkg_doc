@@ -137,48 +137,56 @@
 <p>choreonoid_plugin: Choreonoid plugins to publish ROS topic</p>
 <p>jvrc_models: Simulation models and tasks for JVRC</p>
 <p>Before beginning the installation process, make sure you have installed wstool, catkin and rosdep:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install python-wstool python-catkin-tools python-rosdep
-<span class="nv">$ </span>sudo rosdep init
-<span class="nv">$ </span>rosdep update
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get install python-wstool python-catkin-tools python-rosdep
+$ sudo rosdep init
+$ rosdep update
 </pre></div>
 </div>
 <p>To use the package, you first have to create catkin workspace:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir -p ~/catkin_ws/src
-<span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws/src
-<span class="nv">$ </span>catkin_init_workspace
-<span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>catkin_make
-<span class="nv">$ </span><span class="nb">source </span>devel/setup.bash
+<div class="highlight-bash"><div class="highlight"><pre>$ mkdir -p ~/catkin_ws/src
+$ <span class="nb">cd</span> ~/catkin_ws/src
+$ catkin_init_workspace
+$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin_make
+$ <span class="nb">source</span> devel/setup.bash
 </pre></div>
 </div>
 <p>Then, checkout choreonoid_ros_pkg under catkin_ws/src folder:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws/src
-<span class="nv">$ </span>wstool init
-<span class="nv">$ </span>wstool <span class="nb">set </span>choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
-<span class="nv">$ </span>wstool update choreonoid_ros_pkg
+<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool init
+$ wstool <span class="nb">set</span> choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
+$ wstool update choreonoid_ros_pkg
 </pre></div>
 </div>
 <p>Install dependent packages:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS_DISTRO</span> -y
+<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws
+$ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
 </pre></div>
 </div>
 <p>To use the VRML based models in rviz, please install simtrans as well:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo add-apt-repository ppa:hrg/daily
-<span class="nv">$ </span>sudo apt-get update
-<span class="nv">$ </span>sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
-<span class="nv">$ </span>git clone https://github.com/fkanehiro/simtrans.git
-<span class="nv">$ </span><span class="nb">cd </span>simtrans
-<span class="nv">$ </span>sudo pip install -r requirements.txt
-<span class="nv">$ </span>sudo python setup.py install
+<div class="highlight-bash"><div class="highlight"><pre>$ sudo add-apt-repository ppa:hrg/daily
+$ sudo apt-get update
+$ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
+$ git clone https://github.com/fkanehiro/simtrans.git
+$ <span class="nb">cd</span> simtrans
+$ sudo pip install -r requirements.txt
+$ sudo python setup.py install
 </pre></div>
 </div>
 <p>Build and install catkin packages:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/catkin_ws
-<span class="nv">$ </span>catkin clean -b
-<span class="nv">$ </span>catkin config --install
-<span class="nv">$ </span>catkin build choreonoid_ros_pkg
-<span class="nv">$ </span><span class="nb">source </span>install/setup.bash
+<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin clean -b
+$ catkin config --install
+$ catkin build choreonoid_ros_pkg
+$ <span class="nb">source</span> install/setup.bash
+</pre></div>
+</div>
+<p>To use the URDF/SDF based models in Choreonoid, please install sdfloader as well:</p>
+<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool <span class="nb">set</span> choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git
+$ wstool update
+$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin build choreonoid_sdfloader_plugin
 </pre></div>
 </div>
 </div>

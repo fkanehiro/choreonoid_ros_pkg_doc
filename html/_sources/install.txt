@@ -68,3 +68,14 @@ Build and install catkin packages:
    $ catkin config --install
    $ catkin build choreonoid_ros_pkg
    $ source install/setup.bash
+
+To use the URDF/SDF based models in Choreonoid, please install sdfloader as well:
+
+.. code-block:: bash
+
+   $ cd ~/catkin_ws/src
+   $ wstool set choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git
+   $ wstool update
+   $ cd ~/catkin_ws
+   $ catkin build choreonoid_sdfloader_plugin
+
