@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2015-11-11 14:02+0900\n"
+"PO-Revision-Date: 2016-01-22 10:06+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -68,6 +68,14 @@ msgstr "VRML形式のモデルをrvizで使うには、simtransも追加でイ�
 #: ../../install.rst:62
 msgid "Build and install catkin packages:"
 msgstr "catkinパッケージをビルドしインストールします:"
+
+#: ../../install.rst:72
+msgid ""
+"To use the URDF/SDF based models in Choreonoid, please install sdfloader as "
+"well:"
+msgstr ""
+"URDF/SDF形式のモデルをChoreonoidで使うには、sdfloaderも追加でインストールしま"
+"す:"
 
 #~ msgid "choreonoid\\_ros\\_pkg: Chorenoid catkin package"
 #~ msgstr "choreonoid\\_ros\\_pkg: catkinパッケージ化されたChoreonoid"
