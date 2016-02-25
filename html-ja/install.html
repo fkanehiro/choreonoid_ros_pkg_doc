@@ -82,7 +82,20 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">インストール</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">インストール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about">概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumed-environment-for-install">動作環境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-preparation-for-install">インストール前準備</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-ros-indigo">ROS Indigo のインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-required-package-without-simtrans">必須パッケージのインストール (simtrans 以外)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-required-package-simtrans">必須パッケージのインストール (simtrans)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-choreonoid-ros-plugin">Choreonoid ROS プラグインのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-choreonoid-ros-plugin">Choreonoid ROS プラグインのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshoot">トラブルシュート</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Choreonoid ROSプラグインマニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Choreonoid ROSプラグインチュートリアル</a></li>
 </ul>
@@ -131,63 +144,203 @@
             
   <div class="section" id="install">
 <h1>インストール<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>本レポジトリは ChoreonoidのROS接続機能を提供します。</p>
-<p>choreonoid_ros_pkg: Choreonoid関連パッケージをビルドするためのメタパッケージ</p>
-<p>choreonoid_ros: Choreonoid本体のcatkinパッケージ</p>
-<p>choreonoid_plugin: ROSトピックをpublishするためのChoreonoidプラグイン</p>
-<p>jvrc_models: JVRC競技会用シミュレーションモデルとタスクファイル</p>
-<p>インストールを始める前に、wstool, catkin, rosdepの各コマンドがインストールされていることを確認してください:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get install python-wstool python-catkin-tools python-rosdep
-$ sudo rosdep init
+<div class="section" id="about">
+<h2>概要<a class="headerlink" href="#about" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本プラグインは ChoreonoidのROS接続機能を提供します。</p>
+<p>本プラグインは以下のパッケージで構成されています。</p>
+<ul class="simple">
+<li><p class="first">choreonoid_ros_pkg: Choreonoid関連パッケージをビルドするためのメタパッケージ</p>
+</li>
+<li><p class="first">choreonoid_ros: Choreonoid本体のcatkinパッケージ</p>
+</li>
+<li><p class="first">choreonoid_plugin: ROSトピックをpublishするためのChoreonoidプラグイン</p>
+</li>
+<li><p class="first">jvrc_models: JVRC競技会用シミュレーションモデルとタスクファイル</p>
+</li>
+</ul>
+</div>
+<div class="section" id="assumed-environment-for-install">
+<h2>動作環境<a class="headerlink" href="#assumed-environment-for-install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本プラグインは以下の環境で動作する事を確認しています。</p>
+<ul class="simple">
+<li>Ubuntu 14.04 64-bit PC (AMD) desktop + ROS Indigo</li>
+</ul>
+<p>OS のインストールは事前に完了しておいてください。</p>
+<p>OS のインストール方法については <a class="reference external" href="http://www.ubuntu.com/download/desktop/install-ubuntu-desktop">http://www.ubuntu.com/download/desktop/install-ubuntu-desktop</a> を参照してください。</p>
+<p>ROS および、ビルド時に必須となるパッケージのインストール方法は、次節で説明します。</p>
+</div>
+<div class="section" id="preliminary-preparation-for-install">
+<h2>インストール前準備<a class="headerlink" href="#preliminary-preparation-for-install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ROS および、ビルド時に必須となるパッケージのインストール方法を以下に記します。</p>
+<div class="section" id="install-ros-indigo">
+<h3>ROS Indigo のインストール<a class="headerlink" href="#install-ros-indigo" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA116
+$ sudo apt-get update
+$ sudo apt-get install ros-indigo-desktop-full
+$ <span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/indigo/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+<p>手順の詳細については <a class="reference external" href="http://wiki.ros.org/indigo/Installation/Ubuntu">http://wiki.ros.org/indigo/Installation/Ubuntu</a> を参照してください。</p>
+</div>
+<div class="section" id="install-required-package-without-simtrans">
+<h3>必須パッケージのインストール (simtrans 以外)<a class="headerlink" href="#install-required-package-without-simtrans" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install python-rosinstall python-catkin-tools
+</pre></div>
+</div>
+<p>インストール後、ROS のパッケージデータベースの初期化および更新を実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo rosdep init
 $ rosdep update
 </pre></div>
 </div>
-<p>パッケージを利用するには、まずcatkinワークスペースを作る必要があります:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ mkdir -p ~/catkin_ws/src
-$ <span class="nb">cd</span> ~/catkin_ws/src
-$ catkin_init_workspace
-$ <span class="nb">cd</span> ~/catkin_ws
-$ catkin_make
-$ <span class="nb">source</span> devel/setup.bash
+<p>以下のコマンドを実行し、エラーが発生しない事を確認します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosdep db
+          :
+        &lt;snip&gt;
+          :
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+0
 </pre></div>
 </div>
-<p>catkin_ws/srcフォルダ以下にchoreonoid_ros_pkgをチェックアウトします:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws/src
-$ wstool init
-$ wstool <span class="nb">set</span> choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
-$ wstool update choreonoid_ros_pkg
-</pre></div>
+<p>rosdep コマンドの詳細については <a class="reference external" href="http://wiki.ros.org/rosdep">http://wiki.ros.org/rosdep</a> を参照してください。</p>
 </div>
-<p>依存パッケージをインストールします:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws
-$ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
-</pre></div>
-</div>
-<p>VRML形式のモデルをrvizで使うには、simtransも追加でインストールします:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ sudo add-apt-repository ppa:hrg/daily
+<div class="section" id="install-required-package-simtrans">
+<h3>必須パッケージのインストール (simtrans)<a class="headerlink" href="#install-required-package-simtrans" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:hrg/daily
 $ sudo apt-get update
-$ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
+$ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python
 $ git clone https://github.com/fkanehiro/simtrans.git
 $ <span class="nb">cd</span> simtrans
 $ sudo pip install -r requirements.txt
 $ sudo python setup.py install
 </pre></div>
 </div>
+<p>インストールの確認をします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ which simtrans
+/usr/local/bin/simtrans
+$ simtrans -h
+usage: simtrans <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span> <span class="o">[</span>-o FILE<span class="o">]</span> <span class="o">[</span>-f FORMAT<span class="o">]</span> <span class="o">[</span>-c<span class="o">]</span> <span class="o">[</span>-b<span class="o">]</span> <span class="o">[</span>-t FORMAT<span class="o">]</span>
+                <span class="o">[</span>-p PREFIX<span class="o">]</span> <span class="o">[</span>-s<span class="o">]</span> <span class="o">[</span>-e SPGR<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span>
+
+Convert robot simulation model from one another.
+          :
+        &lt;snip&gt;
+          :
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+0
+</pre></div>
+</div>
+<p>simtrans コマンドの詳細については <a class="reference external" href="https://github.com/fkanehiro/simtrans">https://github.com/fkanehiro/simtrans</a> を参照してください。</p>
+</div>
+</div>
+<div class="section" id="install-choreonoid-ros-plugin">
+<h2>Choreonoid ROS プラグインのインストール<a class="headerlink" href="#install-choreonoid-ros-plugin" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Choreonoid ROS plugin のインストール方法を以下に記します。</p>
+<p>パッケージの利用に際し、catkin ワークスペースを作る必要があります:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ mkdir -p ~/catkin_ws/src
+$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin init
+</pre></div>
+</div>
+<p>catkin_ws/srcフォルダ以下にchoreonoid_ros_pkgをチェックアウトします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool init
+$ wstool <span class="nb">set</span> choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git -y
+$ wstool update choreonoid_ros_pkg
+</pre></div>
+</div>
+<p>依存パッケージをインストールします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
+</pre></div>
+</div>
 <p>catkinパッケージをビルドしインストールします:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws
-$ catkin clean -b
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
 $ catkin config --install
 $ catkin build choreonoid_ros_pkg
 $ <span class="nb">source</span> install/setup.bash
 </pre></div>
 </div>
-<p>URDF/SDF形式のモデルをChoreonoidで使うには、sdfloaderも追加でインストールします:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws/src
-$ wstool <span class="nb">set</span> choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git
-$ wstool update
+<p>URDF/SDF形式のモデルをChoreonoidで使用する場合、sdfloaderを追加でインストールします:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool <span class="nb">set</span> choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git -y
+$ wstool update choreonoid_sdfloader_plugin
 $ <span class="nb">cd</span> ~/catkin_ws
 $ catkin build choreonoid_sdfloader_plugin
 </pre></div>
+</div>
+</div>
+<div class="section" id="update-choreonoid-ros-plugin">
+<h2>Choreonoid ROS プラグインのアップデート<a class="headerlink" href="#update-choreonoid-ros-plugin" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Choreonoid ROS plugin の更新方法を以下に記します。</p>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ <span class="nb">source</span> install/setup.bash
+$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool update choreonoid_ros_pkg
+$ wstool update choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin clean -b
+$ catkin build choreonoid_ros_pkg
+$ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">source</span> install/setup.bash
+</pre></div>
+</div>
+<p>(*) sdfloader をインストールした場合のみ実行します。</p>
+</div>
+<div class="section" id="troubleshoot">
+<h2>トラブルシュート<a class="headerlink" href="#troubleshoot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>インストール後に問題が発生した場合の解決方法を以下に記します。</p>
+<ul>
+<li><p class="first">&#8216;roslaunch choreonoid_ros jvrc-1-rviz.launch&#8217;の起動において問題が発生した場合</p>
+<p>catkin の設定&#8217;Extending&#8217;の値を確認します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin config
+           :
+         &lt;snip&gt;
+           :
+Extending:             <span class="o">[</span>env<span class="o">]</span> /opt/ros/indigo
+           :
+         &lt;snip&gt;
+           :
+</pre></div>
+</div>
+<ul>
+<li><p class="first">値が&#8217;[env | cached] &lt;path to your home directory&gt;/catkin_ws/devel:/opt/ros/indigo&#8217;の場合:</p>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> install/setup.bash
+$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">値が&#8217;[env] /opt/ros/indigo&#8217;の場合:</p>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
+$ <span class="nb">source</span> install/setup.bash
+$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">値が&#8217;[cached] /opt/ros/indigo&#8217;もしくは、これまでのケースに合致しない場合:</p>
+<p>以下のコマンドを実行します:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin clean -a
+$ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
+$ catkin build choreonoid_ros_pkg
+$ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">source</span> install/setup.bash
+$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+<p>(*) sdfloader を使用する場合のみ実行します。</p>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 

@@ -2,34 +2,133 @@
  Install
 =========
 
-This repository provides ROS support for Choreonoid
+About
+=====
 
-choreonoid\_ros\_pkg: Meta-package to build Choreonoid packages
+This plugin provides ROS support for Choreonoid.
 
-choreonoid\_ros: Choreonoid catkin package
+This plugin are comprised of the following package.
 
-choreonoid\_plugin: Choreonoid plugins to publish ROS topic
+- choreonoid\_ros\_pkg: Meta-package to build Choreonoid packages
 
-jvrc\_models: Simulation models and tasks for JVRC
+- choreonoid\_ros: Choreonoid catkin package
 
-Before beginning the installation process, make sure you have installed wstool, catkin and rosdep:
+- choreonoid\_plugin: Choreonoid plugins to publish ROS topic
+
+- jvrc\_models: Simulation models and tasks for JVRC
+
+
+Assumed environment for install
+===============================
+
+Verified that this plugin operates on the following platform.
+
+- Ubuntu 14.04 64-bit PC (AMD) desktop + ROS Indigo
+
+OS installation, please finish in advance.
+
+How to install OS, please see http://www.ubuntu.com/download/desktop/install-ubuntu-desktop
+
+ROS and required package installation is described in the next section.
+
+
+Preliminary preparation for install
+===================================
+
+How to install ROS and required package.
+
+Install ROS Indigo
+------------------
+
+Run the following command:
 
 .. code-block:: bash
 
-   $ sudo apt-get install python-wstool python-catkin-tools python-rosdep
+   $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+   $ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA116
+   $ sudo apt-get update
+   $ sudo apt-get install ros-indigo-desktop-full
+   $ echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+   $ source ~/.bashrc
+
+Procedure details, please see http://wiki.ros.org/indigo/Installation/Ubuntu
+
+Install required package (without simtrans)
+-------------------------------------------
+
+Run the following command:
+
+.. code-block:: bash
+
+   $ sudo apt-get install python-rosinstall python-catkin-tools
+
+After the intstallation, run the initialization and update of ROS package database:
+
+.. code-block:: bash
+
    $ sudo rosdep init
    $ rosdep update
+
+Run the following command, make sure without error:
+
+.. code-block:: bash
+
+   $ rosdep db
+             :
+           <snip>
+             :
+   $ echo $?
+   0
+
+Command rosdep details, please see http://wiki.ros.org/rosdep
+
+Install required package (simtrans)
+-----------------------------------
+
+Run the following command:
+
+.. code-block:: bash
+
+   $ sudo add-apt-repository ppa:hrg/daily
+   $ sudo apt-get update
+   $ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python
+   $ git clone https://github.com/fkanehiro/simtrans.git
+   $ cd simtrans
+   $ sudo pip install -r requirements.txt
+   $ sudo python setup.py install
+
+Confirm installation:
+
+.. code-block:: bash
+
+   $ which simtrans
+   /usr/local/bin/simtrans
+   $ simtrans -h
+   usage: simtrans [-h] [-i FILE] [-o FILE] [-f FORMAT] [-c] [-b] [-t FORMAT]
+                   [-p PREFIX] [-s] [-e SPGR] [-v]
+   
+   Convert robot simulation model from one another.
+             :
+           <snip>
+             :
+   $ echo $?
+   0
+
+Command simtrans details, please see https://github.com/fkanehiro/simtrans
+
+
+Install Choreonoid ROS Plugin
+=============================
+
+How to install Choreonoid ROS plugin.
 
 To use the package, you first have to create catkin workspace:
 
 .. code-block:: bash
    
    $ mkdir -p ~/catkin_ws/src
-   $ cd ~/catkin_ws/src
-   $ catkin_init_workspace
    $ cd ~/catkin_ws
-   $ catkin_make
-   $ source devel/setup.bash
+   $ catkin init
 
 Then, checkout choreonoid\_ros\_pkg under catkin\_ws/src folder:
 
@@ -37,7 +136,7 @@ Then, checkout choreonoid\_ros\_pkg under catkin\_ws/src folder:
 
    $ cd ~/catkin_ws/src
    $ wstool init
-   $ wstool set choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
+   $ wstool set choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git -y
    $ wstool update choreonoid_ros_pkg
 
 Install dependent packages:
@@ -47,24 +146,12 @@ Install dependent packages:
    $ cd ~/catkin_ws
    $ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
 
-To use the VRML based models in rviz, please install simtrans as well:
-
-.. code-block:: bash
-
-   $ sudo add-apt-repository ppa:hrg/daily
-   $ sudo apt-get update
-   $ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
-   $ git clone https://github.com/fkanehiro/simtrans.git
-   $ cd simtrans
-   $ sudo pip install -r requirements.txt
-   $ sudo python setup.py install
-
 Build and install catkin packages:
 
 .. code-block:: bash
 
    $ cd ~/catkin_ws
-   $ catkin clean -b
+   $ export CMAKE_PREFIX_PATH=~/catkin_ws/devel:/opt/ros/indigo
    $ catkin config --install
    $ catkin build choreonoid_ros_pkg
    $ source install/setup.bash
@@ -74,8 +161,87 @@ To use the URDF/SDF based models in Choreonoid, please install sdfloader as well
 .. code-block:: bash
 
    $ cd ~/catkin_ws/src
-   $ wstool set choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git
-   $ wstool update
+   $ wstool set choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git -y
+   $ wstool update choreonoid_sdfloader_plugin
    $ cd ~/catkin_ws
    $ catkin build choreonoid_sdfloader_plugin
+
+
+Update Choreonoid ROS Plugin
+============================
+
+How to update Choreonoid ROS plugin.
+
+Run the following command:
+
+.. code-block:: bash
+
+   $ cd ~/catkin_ws
+   $ source install/setup.bash
+   $ cd ~/catkin_ws/src
+   $ wstool update choreonoid_ros_pkg
+   $ wstool update choreonoid_sdfloader_plugin (*)
+   $ cd ~/catkin_ws
+   $ catkin clean -b
+   $ catkin build choreonoid_ros_pkg
+   $ catkin build choreonoid_sdfloader_plugin (*)
+   $ source install/setup.bash
+
+(*) If you have installed.
+
+
+Troubleshoot
+============
+
+Solve of a problem of after installation.
+
+- If startup problem of 'roslaunch choreonoid_ros jvrc-1-rviz.launch'.
+
+  Checking the catkin config value of 'Extending':
+
+  .. code-block:: bash
+
+     $ cd ~/catkin_ws
+     $ catkin config
+                :
+              <snip>
+                :
+     Extending:             [env] /opt/ros/indigo
+                :
+              <snip>
+                :
+
+  - if case '[env | cached] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo':
+
+    Run the following command:
+
+    .. code-block:: bash
+
+       $ source install/setup.bash
+       $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+  - if case '[env] /opt/ros/indigo':
+
+    Run the following command:
+
+    .. code-block:: bash
+
+       $ export CMAKE_PREFIX_PATH=~/catkin_ws/devel:/opt/ros/indigo
+       $ source install/setup.bash
+       $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+  - if case '[cached] /opt/ros/indigo' or other case:
+
+    Run the following command:
+
+    .. code-block:: bash
+
+       $ catkin clean -a
+       $ export CMAKE_PREFIX_PATH=~/catkin_ws/devel:/opt/ros/indigo
+       $ catkin build choreonoid_ros_pkg
+       $ catkin build choreonoid_sdfloader_plugin (*)
+       $ source install/setup.bash
+       $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+    (*) If you want to install.
 

@@ -141,7 +141,7 @@
 <div class="section" id="run-preconfigured-project">
 <h2>設定済みのプロジェクトを開く<a class="headerlink" href="#run-preconfigured-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
 <p>実行に成功するとJVRC O1タスクが rvizによるビジュアライゼーションつきで立ち上がるはずです。</p>
@@ -173,15 +173,15 @@
 <div class="section" id="use-ros-utility-commands-to-monitor-the-message">
 <h2>ROSユーティリティコマンドを使ってメッセージをモニタする<a class="headerlink" href="#use-ros-utility-commands-to-monitor-the-message" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>トピックの一覧を表示する:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ rostopic list
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rostopic list
 </pre></div>
 </div>
 <p>力センサの入力を表示する:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ rostopic <span class="nb">echo</span> /JVRC_1/lfsensor
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rostopic <span class="nb">echo</span> /JVRC_1/lfsensor
 </pre></div>
 </div>
 <p>カメラ画像を表示する（image-viewパッケージを利用）</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get install ros-$ROS_DISTRO-image-view
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install ros-$ROS_DISTRO-image-view
 $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/image_raw
 </pre></div>
 </div>
@@ -189,7 +189,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <div class="section" id="use-python-script-to-send-command-to-the-robot">
 <h2>Pythonスクリプトを利用してロボットを動かす<a class="headerlink" href="#use-python-script-to-send-command-to-the-robot" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
 
@@ -225,7 +225,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <li><p class="first">このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -234,7 +234,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <li><p class="first">任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ gedit test-jointtrajectory-jvrc-1.py
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit test-jointtrajectory-jvrc-1.py
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -243,7 +243,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <li><p class="first">パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は Ctrl + c を押してください)</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ chmod <span class="m">0744</span> test-jointtrajectory-jvrc-1.py
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ chmod <span class="m">0744</span> test-jointtrajectory-jvrc-1.py
 $ ./test-jointtrajectory-jvrc-1.py
 </pre></div>
 </div>
@@ -251,18 +251,18 @@ $ ./test-jointtrajectory-jvrc-1.py
 <div class="section" id="use-ros-utility-commands-to-control-the-simulation">
 <h2>ROSユーティリティコマンドを使ってシミュレーションを制御する<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>シミュレーションを一時停止する:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ rosservice call /AISTSimulator/pause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/pause_physics
 </pre></div>
 </div>
 <p>一時停止したシミュレーションを再開する:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ rosservice call /AISTSimulator/unpause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/unpause_physics
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-python-script-to-spawn-the-model">
 <h2>Pythonスクリプトを利用してモデルファイルをロードする<a class="headerlink" href="#use-python-script-to-spawn-the-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
@@ -303,7 +303,7 @@ $ ./test-jointtrajectory-jvrc-1.py
 <li><p class="first">このチュートリアル用に準備されたプロジェクトファイルを開きます。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -312,7 +312,7 @@ $ ./test-jointtrajectory-jvrc-1.py
 <li><p class="first">任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ gedit test-model-spawn.py
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit test-model-spawn.py
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
@@ -321,7 +321,7 @@ $ ./test-jointtrajectory-jvrc-1.py
 <li><p class="first">ファイルのパーミッションを変更し、スクリプトを実行します。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ chmod <span class="m">0744</span> test-model-spawn.py
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ chmod <span class="m">0744</span> test-model-spawn.py
 $ ./test-model-spawn.py
 </pre></div>
 </div>

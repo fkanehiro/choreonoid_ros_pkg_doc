@@ -82,7 +82,20 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumed-environment-for-install">Assumed environment for install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preliminary-preparation-for-install">Preliminary preparation for install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-ros-indigo">Install ROS Indigo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-required-package-without-simtrans">Install required package (without simtrans)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-required-package-simtrans">Install required package (simtrans)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-choreonoid-ros-plugin">Install Choreonoid ROS Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-choreonoid-ros-plugin">Update Choreonoid ROS Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshoot">Troubleshoot</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Choreonoid ROS Plugin Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Choreonoid ROS Plugin Tutorial</a></li>
 </ul>
@@ -131,63 +144,199 @@
             
   <div class="section" id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<p>This repository provides ROS support for Choreonoid</p>
-<p>choreonoid_ros_pkg: Meta-package to build Choreonoid packages</p>
-<p>choreonoid_ros: Choreonoid catkin package</p>
-<p>choreonoid_plugin: Choreonoid plugins to publish ROS topic</p>
-<p>jvrc_models: Simulation models and tasks for JVRC</p>
-<p>Before beginning the installation process, make sure you have installed wstool, catkin and rosdep:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ sudo apt-get install python-wstool python-catkin-tools python-rosdep
-$ sudo rosdep init
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>This plugin provides ROS support for Choreonoid.</p>
+<p>This plugin are comprised of the following package.</p>
+<ul class="simple">
+<li>choreonoid_ros_pkg: Meta-package to build Choreonoid packages</li>
+<li>choreonoid_ros: Choreonoid catkin package</li>
+<li>choreonoid_plugin: Choreonoid plugins to publish ROS topic</li>
+<li>jvrc_models: Simulation models and tasks for JVRC</li>
+</ul>
+</div>
+<div class="section" id="assumed-environment-for-install">
+<h2>Assumed environment for install<a class="headerlink" href="#assumed-environment-for-install" title="Permalink to this headline">¶</a></h2>
+<p>Verified that this plugin operates on the following platform.</p>
+<ul class="simple">
+<li>Ubuntu 14.04 64-bit PC (AMD) desktop + ROS Indigo</li>
+</ul>
+<p>OS installation, please finish in advance.</p>
+<p>How to install OS, please see <a class="reference external" href="http://www.ubuntu.com/download/desktop/install-ubuntu-desktop">http://www.ubuntu.com/download/desktop/install-ubuntu-desktop</a></p>
+<p>ROS and required package installation is described in the next section.</p>
+</div>
+<div class="section" id="preliminary-preparation-for-install">
+<h2>Preliminary preparation for install<a class="headerlink" href="#preliminary-preparation-for-install" title="Permalink to this headline">¶</a></h2>
+<p>How to install ROS and required package.</p>
+<div class="section" id="install-ros-indigo">
+<h3>Install ROS Indigo<a class="headerlink" href="#install-ros-indigo" title="Permalink to this headline">¶</a></h3>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-key 0xB01FA116
+$ sudo apt-get update
+$ sudo apt-get install ros-indigo-desktop-full
+$ <span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/indigo/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+$ <span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+<p>Procedure details, please see <a class="reference external" href="http://wiki.ros.org/indigo/Installation/Ubuntu">http://wiki.ros.org/indigo/Installation/Ubuntu</a></p>
+</div>
+<div class="section" id="install-required-package-without-simtrans">
+<h3>Install required package (without simtrans)<a class="headerlink" href="#install-required-package-without-simtrans" title="Permalink to this headline">¶</a></h3>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install python-rosinstall python-catkin-tools
+</pre></div>
+</div>
+<p>After the intstallation, run the initialization and update of ROS package database:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo rosdep init
 $ rosdep update
 </pre></div>
 </div>
-<p>To use the package, you first have to create catkin workspace:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ mkdir -p ~/catkin_ws/src
-$ <span class="nb">cd</span> ~/catkin_ws/src
-$ catkin_init_workspace
-$ <span class="nb">cd</span> ~/catkin_ws
-$ catkin_make
-$ <span class="nb">source</span> devel/setup.bash
+<p>Run the following command, make sure without error:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosdep db
+          :
+        &lt;snip&gt;
+          :
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+0
 </pre></div>
 </div>
-<p>Then, checkout choreonoid_ros_pkg under catkin_ws/src folder:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws/src
-$ wstool init
-$ wstool <span class="nb">set</span> choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git
-$ wstool update choreonoid_ros_pkg
-</pre></div>
+<p>Command rosdep details, please see <a class="reference external" href="http://wiki.ros.org/rosdep">http://wiki.ros.org/rosdep</a></p>
 </div>
-<p>Install dependent packages:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws
-$ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
-</pre></div>
-</div>
-<p>To use the VRML based models in rviz, please install simtrans as well:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ sudo add-apt-repository ppa:hrg/daily
+<div class="section" id="install-required-package-simtrans">
+<h3>Install required package (simtrans)<a class="headerlink" href="#install-required-package-simtrans" title="Permalink to this headline">¶</a></h3>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:hrg/daily
 $ sudo apt-get update
-$ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python python-numpy
+$ sudo apt-get install python-pip openhrp meshlab imagemagick python-omniorb openrtm-aist-python
 $ git clone https://github.com/fkanehiro/simtrans.git
 $ <span class="nb">cd</span> simtrans
 $ sudo pip install -r requirements.txt
 $ sudo python setup.py install
 </pre></div>
 </div>
+<p>Confirm installation:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ which simtrans
+/usr/local/bin/simtrans
+$ simtrans -h
+usage: simtrans <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span> <span class="o">[</span>-o FILE<span class="o">]</span> <span class="o">[</span>-f FORMAT<span class="o">]</span> <span class="o">[</span>-c<span class="o">]</span> <span class="o">[</span>-b<span class="o">]</span> <span class="o">[</span>-t FORMAT<span class="o">]</span>
+                <span class="o">[</span>-p PREFIX<span class="o">]</span> <span class="o">[</span>-s<span class="o">]</span> <span class="o">[</span>-e SPGR<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span>
+
+Convert robot simulation model from one another.
+          :
+        &lt;snip&gt;
+          :
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+0
+</pre></div>
+</div>
+<p>Command simtrans details, please see <a class="reference external" href="https://github.com/fkanehiro/simtrans">https://github.com/fkanehiro/simtrans</a></p>
+</div>
+</div>
+<div class="section" id="install-choreonoid-ros-plugin">
+<h2>Install Choreonoid ROS Plugin<a class="headerlink" href="#install-choreonoid-ros-plugin" title="Permalink to this headline">¶</a></h2>
+<p>How to install Choreonoid ROS plugin.</p>
+<p>To use the package, you first have to create catkin workspace:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ mkdir -p ~/catkin_ws/src
+$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin init
+</pre></div>
+</div>
+<p>Then, checkout choreonoid_ros_pkg under catkin_ws/src folder:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool init
+$ wstool <span class="nb">set</span> choreonoid_ros_pkg https://github.com/fkanehiro/choreonoid_ros_pkg.git --git -y
+$ wstool update choreonoid_ros_pkg
+</pre></div>
+</div>
+<p>Install dependent packages:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
+</pre></div>
+</div>
 <p>Build and install catkin packages:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws
-$ catkin clean -b
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
 $ catkin config --install
 $ catkin build choreonoid_ros_pkg
 $ <span class="nb">source</span> install/setup.bash
 </pre></div>
 </div>
 <p>To use the URDF/SDF based models in Choreonoid, please install sdfloader as well:</p>
-<div class="highlight-bash"><div class="highlight"><pre>$ <span class="nb">cd</span> ~/catkin_ws/src
-$ wstool <span class="nb">set</span> choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git
-$ wstool update
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool <span class="nb">set</span> choreonoid_sdfloader_plugin https://github.com/fkanehiro/choreonoid-sdfloader-plugin.git --git -y
+$ wstool update choreonoid_sdfloader_plugin
 $ <span class="nb">cd</span> ~/catkin_ws
 $ catkin build choreonoid_sdfloader_plugin
 </pre></div>
+</div>
+</div>
+<div class="section" id="update-choreonoid-ros-plugin">
+<h2>Update Choreonoid ROS Plugin<a class="headerlink" href="#update-choreonoid-ros-plugin" title="Permalink to this headline">¶</a></h2>
+<p>How to update Choreonoid ROS plugin.</p>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ <span class="nb">source</span> install/setup.bash
+$ <span class="nb">cd</span> ~/catkin_ws/src
+$ wstool update choreonoid_ros_pkg
+$ wstool update choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin clean -b
+$ catkin build choreonoid_ros_pkg
+$ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">source</span> install/setup.bash
+</pre></div>
+</div>
+<p>(*) If you have installed.</p>
+</div>
+<div class="section" id="troubleshoot">
+<h2>Troubleshoot<a class="headerlink" href="#troubleshoot" title="Permalink to this headline">¶</a></h2>
+<p>Solve of a problem of after installation.</p>
+<ul>
+<li><p class="first">If startup problem of &#8216;roslaunch choreonoid_ros jvrc-1-rviz.launch&#8217;.</p>
+<p>Checking the catkin config value of &#8216;Extending&#8217;:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin config
+           :
+         &lt;snip&gt;
+           :
+Extending:             <span class="o">[</span>env<span class="o">]</span> /opt/ros/indigo
+           :
+         &lt;snip&gt;
+           :
+</pre></div>
+</div>
+<ul>
+<li><p class="first">if case &#8216;[env | cached] &lt;path to your home directory&gt;/catkin_ws/devel:/opt/ros/indigo&#8217;:</p>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> install/setup.bash
+$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">if case &#8216;[env] /opt/ros/indigo&#8217;:</p>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
+$ <span class="nb">source</span> install/setup.bash
+$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+</li>
+<li><p class="first">if case &#8216;[cached] /opt/ros/indigo&#8217; or other case:</p>
+<p>Run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin clean -a
+$ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
+$ catkin build choreonoid_ros_pkg
+$ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">source</span> install/setup.bash
+$ roslaunch choreonoid_ros jvrc-1-rviz.launch
+</pre></div>
+</div>
+<p>(*) If you want to install.</p>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
