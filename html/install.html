@@ -270,14 +270,29 @@ $ <span class="nb">cd</span> ~/catkin_ws
 $ catkin build choreonoid_sdfloader_plugin
 </pre></div>
 </div>
+<p>Changing ROS default setup.</p>
+<p>Modify line of &#8216;source /opt/ros/indigo/setup.bash&#8217; in the ~/.bashrc by any text editor:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/catkin_ws/install/setup.bash
+</pre></div>
+</div>
+<ul>
+<li><p class="first">If reverting ROS default setup.</p>
+<p>Modify line of &#8216;source ~/catkin_ws/install/setup.bash&#8217; in the ~/.bashrc by any text editor:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/indigo/setup.bash
+</pre></div>
+</div>
+<p>After reverting, run the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 <div class="section" id="update-choreonoid-ros-plugin">
 <h2>Update Choreonoid ROS Plugin<a class="headerlink" href="#update-choreonoid-ros-plugin" title="Permalink to this headline">¶</a></h2>
 <p>How to update Choreonoid ROS plugin.</p>
 <p>Run the following command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
-$ <span class="nb">source</span> install/setup.bash
-$ <span class="nb">cd</span> ~/catkin_ws/src
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws/src
 $ wstool update choreonoid_ros_pkg
 $ wstool update choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">cd</span> ~/catkin_ws
