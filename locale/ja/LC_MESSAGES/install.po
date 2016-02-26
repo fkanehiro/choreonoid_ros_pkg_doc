@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-02-25 13:52+0900\n"
+"PO-Revision-Date: 2016-02-26 10:53+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,8 @@ msgstr "パッケージの利用に際し、catkin ワークスペースを作�
 
 #: ../../install.rst:133
 msgid "Then, checkout choreonoid\\_ros\\_pkg under catkin\\_ws/src folder:"
-msgstr "catkin\\_ws/srcフォルダ以下にchoreonoid\\_ros\\_pkgをチェックアウトします:"
+msgstr ""
+"catkin\\_ws/srcフォルダ以下にchoreonoid\\_ros\\_pkgをチェックアウトします:"
 
 #: ../../install.rst:142
 msgid "Install dependent packages:"
@@ -32,7 +33,9 @@ msgstr "catkinパッケージをビルドしインストールします:"
 msgid ""
 "To use the URDF/SDF based models in Choreonoid, please install sdfloader as "
 "well:"
-msgstr "URDF/SDF形式のモデルをChoreonoidで使用する場合、sdfloaderを追加でインストールします:"
+msgstr ""
+"URDF/SDF形式のモデルをChoreonoidで使用する場合、sdfloaderを追加でインストール"
+"します:"
 
 #: ../../install.rst:6
 msgid "About"
@@ -50,7 +53,7 @@ msgstr "インストール前準備"
 msgid "Install Choreonoid ROS Plugin"
 msgstr "Choreonoid ROS プラグインのインストール"
 
-#: ../../install.rst:171
+#: ../../install.rst:193
 msgid "Update Choreonoid ROS Plugin"
 msgstr "Choreonoid ROS プラグインのアップデート"
 
@@ -76,11 +79,14 @@ msgstr "本プラグインは ChoreonoidのROS接続機能を提供します。"
 
 #: ../../install.rst:16
 msgid "choreonoid\\_plugin: Choreonoid plugins to publish ROS topic"
-msgstr "choreonoid\\_plugin: ROSトピックをpublishするためのChoreonoidプラグイン"
+msgstr ""
+"choreonoid\\_plugin: ROSトピックをpublishするためのChoreonoidプラグイン"
 
 #: ../../install.rst:12
 msgid "choreonoid\\_ros\\_pkg: Meta-package to build Choreonoid packages"
-msgstr "choreonoid\\_ros\\_pkg: Choreonoid関連パッケージをビルドするためのメタパッケージ"
+msgstr ""
+"choreonoid\\_ros\\_pkg: Choreonoid関連パッケージをビルドするためのメタパッ"
+"ケージ"
 
 #: ../../install.rst:14
 msgid "choreonoid\\_ros: Choreonoid catkin package"
@@ -90,13 +96,14 @@ msgstr "choreonoid\\_ros: Choreonoid本体のcatkinパッケージ"
 msgid "jvrc\\_models: Simulation models and tasks for JVRC"
 msgstr "jvrc\\_models: JVRC競技会用シミュレーションモデルとタスクファイル"
 
-#: ../../install.rst:194
+#: ../../install.rst:214
 msgid "Troubleshoot"
 msgstr "トラブルシュート"
 
-#: ../../install.rst:198
+#: ../../install.rst:218
 msgid "If startup problem of 'roslaunch choreonoid_ros jvrc-1-rviz.launch'."
-msgstr "'roslaunch choreonoid_ros jvrc-1-rviz.launch'の起動において問題が発生した場合"
+msgstr ""
+"'roslaunch choreonoid_ros jvrc-1-rviz.launch'の起動において問題が発生した場合"
 
 #: ../../install.rst:10
 msgid "This plugin are comprised of the following package."
@@ -116,20 +123,21 @@ msgstr "OS のインストールは事前に完了しておいてください。
 
 #: ../../install.rst:30
 msgid ""
-"How to install OS, please see http://www.ubuntu.com/download/desktop"
-"/install-ubuntu-desktop"
+"How to install OS, please see http://www.ubuntu.com/download/desktop/install-"
+"ubuntu-desktop"
 msgstr ""
-"OS のインストール方法については http://www.ubuntu.com/download/desktop/install-ubuntu-"
-"desktop を参照してください。"
+"OS のインストール方法については http://www.ubuntu.com/download/desktop/"
+"install-ubuntu-desktop を参照してください。"
 
 #: ../../install.rst:32
-msgid ""
-"ROS and required package installation is described in the next section."
-msgstr "ROS および、ビルド時に必須となるパッケージのインストール方法は、次節で説明します。"
+msgid "ROS and required package installation is described in the next section."
+msgstr ""
+"ROS および、ビルド時に必須となるパッケージのインストール方法は、次節で説明し"
+"ます。"
 
 #: ../../install.rst:43 ../../install.rst:59 ../../install.rst:88
-#: ../../install.rst:175 ../../install.rst:216 ../../install.rst:225
-#: ../../install.rst:235
+#: ../../install.rst:197 ../../install.rst:236 ../../install.rst:245
+#: ../../install.rst:255
 msgid "Run the following command:"
 msgstr "以下のコマンドを実行します:"
 
@@ -137,7 +145,8 @@ msgstr "以下のコマンドを実行します:"
 msgid ""
 "After the intstallation, run the initialization and update of ROS package "
 "database:"
-msgstr "インストール後、ROS のパッケージデータベースの初期化および更新を実行します:"
+msgstr ""
+"インストール後、ROS のパッケージデータベースの初期化および更新を実行します:"
 
 #: ../../install.rst:72
 msgid "Run the following command, make sure without error:"
@@ -147,23 +156,23 @@ msgstr "以下のコマンドを実行し、エラーが発生しない事を確
 msgid "Confirm installation:"
 msgstr "インストールの確認をします:"
 
-#: ../../install.rst:190
+#: ../../install.rst:210
 msgid "(*) If you have installed."
 msgstr "(*) sdfloader をインストールした場合のみ実行します。"
 
-#: ../../install.rst:196
+#: ../../install.rst:216
 msgid "Solve of a problem of after installation."
 msgstr "インストール後に問題が発生した場合の解決方法を以下に記します。"
 
-#: ../../install.rst:200
+#: ../../install.rst:220
 msgid "Checking the catkin config value of 'Extending':"
 msgstr "catkin の設定'Extending'の値を確認します:"
 
-#: ../../install.rst:246
+#: ../../install.rst:266
 msgid "(*) If you want to install."
 msgstr "(*) sdfloader を使用する場合のみ実行します。"
 
-#: ../../install.rst:223
+#: ../../install.rst:243
 msgid "if case '[env] /opt/ros/indigo':"
 msgstr "値が'[env] /opt/ros/indigo'の場合:"
 
@@ -171,70 +180,116 @@ msgstr "値が'[env] /opt/ros/indigo'の場合:"
 msgid "How to install Choreonoid ROS plugin."
 msgstr "Choreonoid ROS plugin のインストール方法を以下に記します。"
 
-#: ../../install.rst:173
+#: ../../install.rst:195
 msgid "How to update Choreonoid ROS plugin."
 msgstr "Choreonoid ROS plugin の更新方法を以下に記します。"
 
-#: ../../install.rst:214
+#: ../../install.rst:234
 msgid ""
-"if case '[env | cached] <path to your home "
-"directory>/catkin_ws/devel:/opt/ros/indigo':"
+"if case '[env | cached] <path to your home directory>/catkin_ws/devel:/opt/"
+"ros/indigo':"
 msgstr ""
-"値が'[env | cached] <path to your home "
-"directory>/catkin_ws/devel:/opt/ros/indigo'の場合:"
+"値が'[env | cached] <path to your home directory>/catkin_ws/devel:/opt/ros/"
+"indigo'の場合:"
 
-#: ../../install.rst:233
+#: ../../install.rst:253
 msgid "if case '[cached] /opt/ros/indigo' or other case:"
-msgstr "値が'[cached] /opt/ros/indigo'もしくは、これまでのケースに合致しない場合:"
+msgstr ""
+"値が'[cached] /opt/ros/indigo'もしくは、これまでのケースに合致しない場合:"
 
 #: ../../install.rst:38
 msgid "How to install ROS and required package."
-msgstr "ROS および、ビルド時に必須となるパッケージのインストール方法を以下に記します。"
+msgstr ""
+"ROS および、ビルド時に必須となるパッケージのインストール方法を以下に記しま"
+"す。"
 
 #: ../../install.rst:54
 msgid ""
 "Procedure details, please see http://wiki.ros.org/indigo/Installation/Ubuntu"
-msgstr "手順の詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照してください。"
+msgstr ""
+"手順の詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照し"
+"てください。"
 
 #: ../../install.rst:83
 msgid "Command rosdep details, please see http://wiki.ros.org/rosdep"
-msgstr "rosdep コマンドの詳細については http://wiki.ros.org/rosdep を参照してください。"
+msgstr ""
+"rosdep コマンドの詳細については http://wiki.ros.org/rosdep を参照してくださ"
+"い。"
 
 #: ../../install.rst:117
 msgid ""
 "Command simtrans details, please see https://github.com/fkanehiro/simtrans"
 msgstr ""
-"simtrans コマンドの詳細については https://github.com/fkanehiro/simtrans を参照してください。"
+"simtrans コマンドの詳細については https://github.com/fkanehiro/simtrans を参"
+"照してください。"
+
+#: ../../install.rst:169
+msgid "Changing ROS default setup."
+msgstr "ROS のデフォルトセットアップを変更します。"
+
+#: ../../install.rst:171
+msgid ""
+"Modify line of 'source /opt/ros/indigo/setup.bash' in the ~/.bashrc by any "
+"text editor:"
+msgstr ""
+"任意のテキストエディタで ~/.bashrc の'source /opt/ros/indigo/setup.bash'の行"
+"を以下のように変更します:"
+
+#: ../../install.rst:177
+msgid "If reverting ROS default setup."
+msgstr "ROS のデフォルトセットアップに戻す場合。"
+
+#: ../../install.rst:179
+msgid ""
+"Modify line of 'source ~/catkin_ws/install/setup.bash' in the ~/.bashrc by "
+"any text editor:"
+msgstr ""
+"任意のテキストエディタで ~/.bashrc の'source ~/catkin_ws/install/setup."
+"bash'の行を以下のように変更します:"
+
+#: ../../install.rst:185
+msgid "After reverting, run the following command:"
+msgstr "変更後、以下のコマンドを実行します。"
 
 #~ msgid "Details see http://wiki.ros.org/indigo/Installation/Ubuntu"
-#~ msgstr "詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照してください。"
+#~ msgstr ""
+#~ "詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照してく"
+#~ "ださい。"
 
 #~ msgid "'rosdep' details see http://wiki.ros.org/rosdep"
-#~ msgstr "rosdep コマンドの詳細については http://wiki.ros.org/rosdep を参照してください。"
+#~ msgstr ""
+#~ "rosdep コマンドの詳細については http://wiki.ros.org/rosdep を参照してくだ"
+#~ "さい。"
 
 #~ msgid "'simtrans' details see https://github.com/fkanehiro/simtrans"
 #~ msgstr ""
-#~ "simtrans コマンドの詳細については https://github.com/fkanehiro/simtrans を参照してください。"
+#~ "simtrans コマンドの詳細については https://github.com/fkanehiro/simtrans を"
+#~ "参照してください。"
 
 #~ msgid "Run the following command."
 #~ msgstr "以下のコマンドを実行します。"
 
 #~ msgid "Detail see http://wiki.ros.org/indigo/Installation/Ubuntu"
-#~ msgstr "詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照してください。"
+#~ msgstr ""
+#~ "詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照してく"
+#~ "ださい。"
 
 #~ msgid ""
-#~ "if case '[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo':"
+#~ "if case '[*] <path to your home directory>/catkin_ws/devel:/opt/ros/"
+#~ "indigo':"
 #~ msgstr ""
-#~ "値が'[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'の場合。"
+#~ "値が'[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'の"
+#~ "場合。"
 
 #~ msgid "if case '[cached] /opt/ros/indigo':"
 #~ msgstr "値が'[env] /opt/ros/indigo'の場合。"
 
 #~ msgid ""
-#~ "-- if case '[*] <path to your home "
-#~ "directory>/catkin_ws/devel:/opt/ros/indigo':"
+#~ "-- if case '[*] <path to your home directory>/catkin_ws/devel:/opt/ros/"
+#~ "indigo':"
 #~ msgstr ""
-#~ "値が'[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'の場合。"
+#~ "値が'[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'の"
+#~ "場合。"
 
 #~ msgid "-- if case '[env] /opt/ros/indigo':"
 #~ msgstr "値が'[env] /opt/ros/indigo'の場合。"
@@ -245,7 +300,9 @@ msgstr ""
 #~ msgid ""
 #~ "After the intstallation, run the initialization and update of ROS package "
 #~ "database."
-#~ msgstr "インストール後、ROS のパッケージデータベースの初期化および更新を実行します。"
+#~ msgstr ""
+#~ "インストール後、ROS のパッケージデータベースの初期化および更新を実行しま"
+#~ "す。"
 
 #~ msgid "Run the following command, make sure without error."
 #~ msgstr "以下のコマンドを実行し、エラーが発生しない事を確認します。"
@@ -254,9 +311,11 @@ msgstr ""
 #~ msgstr "インストールの確認をします。"
 
 #~ msgid ""
-#~ "if case '[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'."
+#~ "if case '[*] <path to your home directory>/catkin_ws/devel:/opt/ros/"
+#~ "indigo'."
 #~ msgstr ""
-#~ "値が'[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'の場合。"
+#~ "値が'[*] <path to your home directory>/catkin_ws/devel:/opt/ros/indigo'の"
+#~ "場合。"
 
 #~ msgid "if case '[env] /opt/ros/indigo'."
 #~ msgstr "値が'[env] /opt/ros/indigo'の場合。"
@@ -268,13 +327,16 @@ msgstr ""
 #~ msgstr "catkin の設定'Extending'の値を確認します。"
 
 #~ msgid "choreonoid\\_ros\\_pkg Meta-package to build Choreonoid packages"
-#~ msgstr "choreonoid\\_ros\\_pkg: Choreonoid関連パッケージをビルドするためのメタパッケージ"
+#~ msgstr ""
+#~ "choreonoid\\_ros\\_pkg: Choreonoid関連パッケージをビルドするためのメタパッ"
+#~ "ケージ"
 
 #~ msgid "choreonoid\\_ros Choreonoid catkin package"
 #~ msgstr "choreonoid\\_ros: Choreonoid本体のcatkinパッケージ"
 
 #~ msgid "choreonoid\\_plugin Choreonoid plugins to publish ROS topic"
-#~ msgstr "choreonoid\\_plugin: ROSトピックをpublishするためのChoreonoidプラグイン"
+#~ msgstr ""
+#~ "choreonoid\\_plugin: ROSトピックをpublishするためのChoreonoidプラグイン"
 
 #~ msgid "jvrc\\_models Simulation models and tasks for JVRC"
 #~ msgstr "jvrc\\_models: JVRC競技会用シミュレーションモデルとタスクファイル"
@@ -285,10 +347,14 @@ msgstr ""
 #~ msgid ""
 #~ "Before beginning the installation process, make sure you have installed "
 #~ "wstool, catkin and rosdep:"
-#~ msgstr "インストールを始める前に、wstool, catkin, rosdepの各コマンドがインストールされていることを確認してください:"
+#~ msgstr ""
+#~ "インストールを始める前に、wstool, catkin, rosdepの各コマンドがインストール"
+#~ "されていることを確認してください:"
 
-#~ msgid "To use the VRML based models in rviz, please install simtrans as well:"
-#~ msgstr "VRML形式のモデルをrvizで使うには、simtransも追加でインストールします:"
+#~ msgid ""
+#~ "To use the VRML based models in rviz, please install simtrans as well:"
+#~ msgstr ""
+#~ "VRML形式のモデルをrvizで使うには、simtransも追加でインストールします:"
 
 #~ msgid "choreonoid\\_ros\\_pkg: Chorenoid catkin package"
 #~ msgstr "choreonoid\\_ros\\_pkg: catkinパッケージ化されたChoreonoid"
@@ -299,14 +365,18 @@ msgstr ""
 #~ msgid ""
 #~ "Before beginning the installation process, make sure you have installed "
 #~ "wstool and catkin"
-#~ msgstr "インストール作業を始める前にwstoolとcatkinがインストールされていることを確認してください。"
+#~ msgstr ""
+#~ "インストール作業を始める前にwstoolとcatkinがインストールされていることを確"
+#~ "認してください。"
 
 #~ msgid "Clone most recent source from github."
 #~ msgstr "githubから最新のソースコードをクローンします。"
 
 #~ msgid ""
 #~ "To install Choreonoid editor plugin, you first have to install Choreonoid."
-#~ msgstr "Choreonoid Editorプラグインをインストールするには、まずChoreonoid本体をインストールする必要があります。"
+#~ msgstr ""
+#~ "Choreonoid Editorプラグインをインストールするには、まずChoreonoid本体をイ"
+#~ "ンストールする必要があります。"
 
 #~ msgid "Install Choreonoid from ppa (recommended)"
 #~ msgstr "Choreonoidをppaからインストールする（推奨）"
@@ -320,12 +390,15 @@ msgstr ""
 #~ msgid ""
 #~ "Source based installation is hard way. ppa based installation is highly "
 #~ "recommended."
-#~ msgstr "ソースコードからのインストールは上級者向けの方法です。ppaからのインストールを強く推奨します。"
+#~ msgstr ""
+#~ "ソースコードからのインストールは上級者向けの方法です。ppaからのインストー"
+#~ "ルを強く推奨します。"
 
 #~ msgid ""
 #~ "If you want to install Choreonoid from source, please follow following "
 #~ "instructions:"
-#~ msgstr "Choreonoidをソースからインストールしたい場合、以下の手順に従ってください:"
+#~ msgstr ""
+#~ "Choreonoidをソースからインストールしたい場合、以下の手順に従ってください:"
 
 #~ msgid "Install Choreonoid Editor Plugin"
 #~ msgstr "Choreonoid Editorプラグインのインストール"
@@ -334,7 +407,8 @@ msgstr ""
 #~ msgstr "次にcmakeを実行します。"
 
 #~ msgid "Then, run following commands to compile, install and run."
-#~ msgstr "コンパイル、インストール、実行するために以下のコマンドを実行してください。"
+#~ msgstr ""
+#~ "コンパイル、インストール、実行するために以下のコマンドを実行してください。"
 
 #~ msgid "Instructions in Japanese:"
 #~ msgstr "日本語での説明:"
@@ -357,13 +431,17 @@ msgstr ""
 #~ msgid "Then, run cmake or ccmake."
 #~ msgstr "次にcmakeかccmakeを実行します。"
 
-#~ msgid "If you use cmake, please specify following option on the command line."
-#~ msgstr "cmakeを使う場合、コマンドラインで以下のオプションを指定してください。"
+#~ msgid ""
+#~ "If you use cmake, please specify following option on the command line."
+#~ msgstr ""
+#~ "cmakeを使う場合、コマンドラインで以下のオプションを指定してください。"
 
 #~ msgid ""
-#~ "If you use ccmake, please turn setting of \"BUILD_MODELEDIT_PLUGIN\" item to"
-#~ " \"ON\"."
-#~ msgstr "ccmakeを使う場合、 \"BUILD_MODELEDIT_PLUGIN\" 項目を \"ON\" に設定してください。"
+#~ "If you use ccmake, please turn setting of \"BUILD_MODELEDIT_PLUGIN\" item "
+#~ "to \"ON\"."
+#~ msgstr ""
+#~ "ccmakeを使う場合、 \"BUILD_MODELEDIT_PLUGIN\" 項目を \"ON\" に設定してくだ"
+#~ "さい。"
 
 #~ msgid "Then, run following commands to compile and run."
 #~ msgstr "以下のコマンドでコンパイルして実行してください。"

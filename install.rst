@@ -166,6 +166,28 @@ To use the URDF/SDF based models in Choreonoid, please install sdfloader as well
    $ cd ~/catkin_ws
    $ catkin build choreonoid_sdfloader_plugin
 
+Changing ROS default setup.
+
+Modify line of 'source /opt/ros/indigo/setup.bash' in the ~/.bashrc by any text editor:
+
+.. code-block:: bash
+
+   source ~/catkin_ws/install/setup.bash
+
+- If reverting ROS default setup.
+
+  Modify line of 'source ~/catkin_ws/install/setup.bash' in the ~/.bashrc by any text editor:
+
+  .. code-block:: bash
+
+     source /opt/ros/indigo/setup.bash
+
+  After reverting, run the following command:
+
+  .. code-block:: bash
+
+     $ source ~/.bashrc
+
 
 Update Choreonoid ROS Plugin
 ============================
@@ -176,8 +198,6 @@ Run the following command:
 
 .. code-block:: bash
 
-   $ cd ~/catkin_ws
-   $ source install/setup.bash
    $ cd ~/catkin_ws/src
    $ wstool update choreonoid_ros_pkg
    $ wstool update choreonoid_sdfloader_plugin (*)
