@@ -91,15 +91,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#robotname-set-joint-trajectory">/[robotname]/set_joint_trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-sensorname">/[robotname]/[sensorname]</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simulatorname-model-states">/[simulatorname]/model_states</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simulatorname-links-states">/[simulatorname]/links_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worldname-model-states">/[worldname]/model_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worldname-links-states">/[worldname]/links_states</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-services">ROSサービス</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#simulatorname-pause-physics">/[simulatorname]/pause_physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simulatorname-unpause-physics">/[simulatorname]/unpause_physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simulatorname-spawn-vrml-model">/[simulatorname]/spawn_vrml_model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#simulatorname-delete-model">/[simulatorname]/delete_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worldname-pause-physics">/[worldname]/pause_physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worldname-unpause-physics">/[worldname]/unpause_physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worldname-spawn-vrml-model">/[worldname]/spawn_vrml_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worldname-delete-model">/[worldname]/delete_model</a></li>
 </ul>
 </li>
 </ul>
@@ -192,32 +192,32 @@ $ ./devel/bin/choreonoid
 <h3>/clock<a class="headerlink" href="#clock" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>現在のシミュレーション時刻が/clockトピックにpublishされます。</p>
 </div>
-<div class="section" id="simulatorname-model-states">
-<h3>/[simulatorname]/model_states<a class="headerlink" href="#simulatorname-model-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="worldname-model-states">
+<h3>/[worldname]/model_states<a class="headerlink" href="#worldname-model-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このトピックには各モデルの現在の位置姿勢がpublishされます。</p>
 </div>
-<div class="section" id="simulatorname-links-states">
-<h3>/[simulatorname]/links_states<a class="headerlink" href="#simulatorname-links-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="worldname-links-states">
+<h3>/[worldname]/links_states<a class="headerlink" href="#worldname-links-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。</p>
 </div>
 </div>
 <div class="section" id="ros-services">
 <h2>ROSサービス<a class="headerlink" href="#ros-services" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>シミュレーションを制御するために以下のROSサービスが利用できます。</p>
-<div class="section" id="simulatorname-pause-physics">
-<h3>/[simulatorname]/pause_physics<a class="headerlink" href="#simulatorname-pause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="worldname-pause-physics">
+<h3>/[worldname]/pause_physics<a class="headerlink" href="#worldname-pause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>引数なし。シミュレーションをポーズする。</p>
 </div>
-<div class="section" id="simulatorname-unpause-physics">
-<h3>/[simulatorname]/unpause_physics<a class="headerlink" href="#simulatorname-unpause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="worldname-unpause-physics">
+<h3>/[worldname]/unpause_physics<a class="headerlink" href="#worldname-unpause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>引数なし。ポーズしたシミュレーションを再開する。</p>
 </div>
-<div class="section" id="simulatorname-spawn-vrml-model">
-<h3>/[simulatorname]/spawn_vrml_model<a class="headerlink" href="#simulatorname-spawn-vrml-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="worldname-spawn-vrml-model">
+<h3>/[worldname]/spawn_vrml_model<a class="headerlink" href="#worldname-spawn-vrml-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>[model_name, model_data, namespace, pose, reference_frame]を引数にとる。指定されたモデルをシミュレータにロードする。</p>
 </div>
-<div class="section" id="simulatorname-delete-model">
-<h3>/[simulatorname]/delete_model<a class="headerlink" href="#simulatorname-delete-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="worldname-delete-model">
+<h3>/[worldname]/delete_model<a class="headerlink" href="#worldname-delete-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>[model_name]を引数にとる。指定されたモデルをシミュレータから消去する。</p>
 </div>
 </div>
