@@ -87,8 +87,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#run-preconfigured-project">Run preconfigured project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-the-project-by-hand">Configure the project by hand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-monitor-the-message">Use ROS utility commands to monitor the message</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-send-command-to-the-robot">Use Python script to send command to the robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-control-the-simulation">Use ROS utility commands to control the simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-send-command-to-the-robot">Use Python script to send command to the robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-spawn-the-model">Use Python script to spawn the model</a></li>
 </ul>
 </li>
@@ -181,9 +181,20 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </pre></div>
 </div>
 </div>
+<div class="section" id="use-ros-utility-commands-to-control-the-simulation">
+<h2>Use ROS utility commands to control the simulation<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Pause the simulation:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/pause_physics
+</pre></div>
+</div>
+<p>Continue the paused simulation:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/unpause_physics
+</pre></div>
+</div>
+</div>
 <div class="section" id="use-python-script-to-send-command-to-the-robot">
 <h2>Use Python script to send command to the robot<a class="headerlink" href="#use-python-script-to-send-command-to-the-robot" title="Permalink to this headline">¶</a></h2>
-<p>Following example sends each trajectory commands to NECK_Y joint of JVRC-1 robot.</p>
+<p>Following example (test-jointtrajectory-jvrc-1.py) sends each trajectory commands to NECK_Y joint of JVRC-1 robot.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
@@ -215,6 +226,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
         <span class="k">pass</span>
 </pre></div>
 </div>
+<p>The script contains under directory of ~/catkin_ws/install/share/choreonoid_plugins/test.</p>
 <p>The script you can run in the following procedure.</p>
 <ol class="arabic simple">
 <li>You can use preconfigured project prepared for this tutorial.</li>
@@ -224,34 +236,15 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </div>
 <ol class="arabic simple" start="2">
 <li>Open a new terminal.</li>
-<li>Start any text editor, and then copy-paste the example script.</li>
+<li>Run the following command. (If you want to stop the script, please press ctrl + c)</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit test-jointtrajectory-jvrc-1.py
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li>Saving the edits, and exit the text editor.</li>
-<li>Change of the file permission, and execute script. (If you want to stop the script, please press ctrl + c)</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ chmod <span class="m">0744</span> test-jointtrajectory-jvrc-1.py
-$ ./test-jointtrajectory-jvrc-1.py
-</pre></div>
-</div>
-</div>
-<div class="section" id="use-ros-utility-commands-to-control-the-simulation">
-<h2>Use ROS utility commands to control the simulation<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Pause the simulation:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/pause_physics
-</pre></div>
-</div>
-<p>Continue the paused simulation:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/unpause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosrun choreonoid_plugins test-jointtrajectory-jvrc-1.py
 </pre></div>
 </div>
 </div>
 <div class="section" id="use-python-script-to-spawn-the-model">
 <h2>Use Python script to spawn the model<a class="headerlink" href="#use-python-script-to-spawn-the-model" title="Permalink to this headline">¶</a></h2>
-<p>Following example loads box model dynamically to current simulation.</p>
+<p>Following example (test-model-spawn.py) loads box model dynamically to current simulation.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
@@ -260,7 +253,7 @@ $ ./test-jointtrajectory-jvrc-1.py
 <span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="kn">import</span> <span class="n">DeleteModel</span>
 <span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
 
-<span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;/AISTSimulator/&#39;</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;/World/&#39;</span>
 
 <span class="k">def</span> <span class="nf">modelspawn</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -288,6 +281,7 @@ $ ./test-jointtrajectory-jvrc-1.py
     <span class="n">modeldelete</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>The script contains under directory of ~/catkin_ws/install/share/choreonoid_plugins/test.</p>
 <p>The script you can run in the following procedure.</p>
 <ol class="arabic simple">
 <li>You can use preconfigured project prepared for this tutorial.</li>
@@ -297,17 +291,9 @@ $ ./test-jointtrajectory-jvrc-1.py
 </div>
 <ol class="arabic simple" start="2">
 <li>Open a new terminal.</li>
-<li>Start any text editor, and then copy-paste the example script.</li>
+<li>Run the following command.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit test-model-spawn.py
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li>Saving the edits, and exit the text editor.</li>
-<li>Change of the file permission, and execute script.</li>
-</ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ chmod <span class="m">0744</span> test-model-spawn.py
-$ ./test-model-spawn.py
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosrun choreonoid_plugins test-model-spawn.py
 </pre></div>
 </div>
 </div>
