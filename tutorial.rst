@@ -15,6 +15,7 @@ You should see the JVRC O1 task loaded on Choreonoid with rviz visualization.
 
 .. image:: choreonoid-rviz.png
 
+
 Configure the project by hand
 =============================
 
@@ -60,36 +61,6 @@ Display camera input (using image-view package):
    $ sudo apt-get install ros-$ROS_DISTRO-image-view
    $ rosrun image_view image_view image:=/JVRC_1/rcamera/image_raw
 
-Use Python script to send command to the robot
-==============================================
-
-Following example sends each trajectory commands to NECK_Y joint of JVRC-1 robot.
-
-.. literalinclude:: test-jointtrajectory-jvrc-1.py
-   :language: python
-
-The script you can run in the following procedure.
-
-1. You can use preconfigured project prepared for this tutorial.
-
-.. code-block:: bash
-   
-   $ roslaunch choreonoid_ros jvrc-1-rviz.launch
-
-2. Open a new terminal.
-3. Start any text editor, and then copy-paste the example script.
-
-.. code-block:: bash
-
-   $ gedit test-jointtrajectory-jvrc-1.py
-
-4. Saving the edits, and exit the text editor.
-5. Change of the file permission, and execute script. (If you want to stop the script, please press ctrl + c)
-
-.. code-block:: bash
-
-   $ chmod 0744 test-jointtrajectory-jvrc-1.py
-   $ ./test-jointtrajectory-jvrc-1.py
 
 Use ROS utility commands to control the simulation
 ==================================================
@@ -106,34 +77,58 @@ Continue the paused simulation:
 
    $ rosservice call /AISTSimulator/unpause_physics
 
-Use Python script to spawn the model
-====================================
 
-Following example loads box model dynamically to current simulation.
+Use Python script to send command to the robot
+==============================================
 
-.. literalinclude:: test-model-spawn.py
+Following example (test-jointtrajectory-jvrc-1.py) sends each trajectory commands to NECK_Y joint of JVRC-1 robot.
+
+.. literalinclude:: test-jointtrajectory-jvrc-1.py
    :language: python
+
+The script contains under directory of ~/catkin_ws/install/share/choreonoid_plugins/test.
 
 The script you can run in the following procedure.
 
 1. You can use preconfigured project prepared for this tutorial.
 
 .. code-block:: bash
-   
+
    $ roslaunch choreonoid_ros jvrc-1-rviz.launch
 
 2. Open a new terminal.
-3. Start any text editor, and then copy-paste the example script.
+
+3. Run the following command. (If you want to stop the script, please press ctrl + c)
 
 .. code-block:: bash
 
-   $ gedit test-model-spawn.py
+   $ rosrun choreonoid_plugins test-jointtrajectory-jvrc-1.py
 
-4. Saving the edits, and exit the text editor.
-5. Change of the file permission, and execute script.
+
+Use Python script to spawn the model
+====================================
+
+Following example (test-model-spawn.py) loads box model dynamically to current simulation.
+
+.. literalinclude:: test-model-spawn.py
+   :language: python
+
+The script contains under directory of ~/catkin_ws/install/share/choreonoid_plugins/test.
+
+The script you can run in the following procedure.
+
+1. You can use preconfigured project prepared for this tutorial.
 
 .. code-block:: bash
 
-   $ chmod 0744 test-model-spawn.py
-   $ ./test-model-spawn.py
+   $ roslaunch choreonoid_ros jvrc-1-rviz.launch
+
+2. Open a new terminal.
+
+3. Run the following command.
+
+.. code-block:: bash
+
+   $ rosrun choreonoid_plugins test-model-spawn.py
+
 
