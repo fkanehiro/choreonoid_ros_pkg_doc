@@ -67,12 +67,12 @@ For RGBD vision sensors, depth image is published in `sensor_msgs::PointCloud2 <
 
 Current simulation time is published to /clock topic.
 
-/[simulatorname]/model\_states
+/[worldname]/model\_states
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Current position and attitude of models are published to this topic.
 
-/[simulatorname]/links\_states
+/[worldname]/links\_states
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Current position and attitude of links in models are published to this topic.
@@ -82,22 +82,22 @@ ROS Services
 
 Following ROS services are provided to control the simulation.
 
-/[simulatorname]/pause\_physics
+/[worldname]/pause\_physics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes no argument. Pause the simulation.
 
-/[simulatorname]/unpause\_physics
+/[worldname]/unpause\_physics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes no argument. Continue the paused simulation.
 
-/[simulatorname]/spawn\_vrml\_model
+/[worldname]/spawn\_vrml\_model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes [model_name, model_data, namespace, pose, reference_frame] as arguments. Load the specified model to the simulation.
 
-/[simulatorname]/delete\_model
+/[worldname]/delete\_model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes [model_name] as an argument. Delete the specified model from the simulation.
