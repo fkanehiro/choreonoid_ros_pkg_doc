@@ -114,7 +114,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -181,7 +181,7 @@
 </pre></div>
 </div>
 <p>カメラ画像を表示する（image-viewパッケージを利用）</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install ros-$ROS_DISTRO-image-view
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ sudo apt-get install ros-<span class="nv">$ROS_DISTRO</span>-image-view
 $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/image_raw
 </pre></div>
 </div>
@@ -189,11 +189,11 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <div class="section" id="use-ros-utility-commands-to-control-the-simulation">
 <h2>ROSユーティリティコマンドを使ってシミュレーションを制御する<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>シミュレーションを一時停止する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/pause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /World/pause_physics
 </pre></div>
 </div>
 <p>一時停止したシミュレーションを再開する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /AISTSimulator/unpause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /World/unpause_physics
 </pre></div>
 </div>
 </div>
