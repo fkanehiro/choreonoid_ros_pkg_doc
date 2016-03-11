@@ -3,7 +3,7 @@ import rospy
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 def jointtrajectory_publisher():
-    pub = rospy.Publisher('/JVRC_1/set_joint_trajectory', JointTrajectory, queue_size=10)
+    pub = rospy.Publisher('/JVRC_1/highgain_control/set_joint_trajectory', JointTrajectory, queue_size=10)
     rospy.init_node('jvrc1test', anonymous=True)
     r = rospy.Rate(1)
     i = 0
