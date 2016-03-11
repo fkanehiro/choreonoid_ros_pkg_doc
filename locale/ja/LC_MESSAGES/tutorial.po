@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-02-29 11:34+0900\n"
+"PO-Revision-Date: 2016-03-11 10:59+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,78 +20,74 @@ msgstr "Choreonoid ROSプラグインチュートリアル"
 msgid "Run preconfigured project"
 msgstr "設定済みのプロジェクトを開く"
 
-#: ../../tutorial.rst:8 ../../tutorial.rst:93 ../../tutorial.rst:120
+#: ../../tutorial.rst:8 ../../tutorial.rst:106 ../../tutorial.rst:133
 msgid "You can use preconfigured project prepared for this tutorial."
 msgstr "このチュートリアル用に準備されたプロジェクトファイルを開きます。"
 
-#: ../../tutorial.rst:20
+#: ../../tutorial.rst:24
 msgid "Configure the project by hand"
 msgstr "カスタムプロジェクトの作成"
 
-#: ../../tutorial.rst:22
-msgid "Or you can prepare project of your own."
-msgstr "プロジェクトファイルは自分で作成することもできます。"
-
-#: ../../tutorial.rst:24
-msgid "To prepare your own project:"
-msgstr "プロジェクトファイルは以下の手順で作成してください:"
-
 #: ../../tutorial.rst:26
+msgid "Or you can prepare project of your own."
+msgstr "プロジェクトファイルは自身で作成する事も可能です。"
+
+#: ../../tutorial.rst:28
+msgid "To prepare your own project:"
+msgstr "プロジェクトファイルは以下の手順で作成します:"
+
+#: ../../tutorial.rst:30
 msgid "Create World item and create Body item by opening the robot model data."
 msgstr ""
 "Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。"
 
-#: ../../tutorial.rst:32
+#: ../../tutorial.rst:40
 msgid "Create and place BodyRos item under the robot you want to control."
-msgstr "操作したいBody アイテムの下にRodyRosアイテムを作成します。"
+msgstr "操作するBody アイテムの下に、BodyRosアイテムを作成します。"
 
-#: ../../tutorial.rst:27
-msgid "Configure AISTSimulator item to use High-gain dynamics mode."
-msgstr "AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。"
-
-#: ../../tutorial.rst:33
+#: ../../tutorial.rst:42
 msgid "Create and place WorldRos item under the world you want to control."
 msgstr "Worldアイテムの下にWorldRosアイテムを作成します。"
 
-#: ../../tutorial.rst:35
+#: ../../tutorial.rst:44
 msgid ""
 "Item view should be structured as follows after the above configuration."
-msgstr "上記の設定を行うと、アイテムビューは以下のような構造になるはずです。"
+msgstr "上記の設定を行うと、アイテムビューは以下のような構造になります。"
 
-#: ../../tutorial.rst:39
+#: ../../tutorial.rst:52
 msgid "Finally, click \"start simulation\" button to enable the ROS functions."
 msgstr ""
 "最後に「シミュレーション開始」ボタンを押すとROS接続機能が有効になります。"
 
-#: ../../tutorial.rst:43
+#: ../../tutorial.rst:56
 msgid "Use ROS utility commands to monitor the message"
 msgstr "ROSユーティリティコマンドを使ってメッセージをモニタする"
 
-#: ../../tutorial.rst:45
+#: ../../tutorial.rst:58
 msgid "List available topics:"
 msgstr "トピックの一覧を表示する:"
 
-#: ../../tutorial.rst:51
+#: ../../tutorial.rst:64
 msgid "Print input of force sensor:"
 msgstr "力センサの入力を表示する:"
 
-#: ../../tutorial.rst:82
+#: ../../tutorial.rst:95
 msgid "Use Python script to send command to the robot"
 msgstr "Pythonスクリプトを利用してロボットを動かす"
 
-#: ../../tutorial.rst:66
+#: ../../tutorial.rst:79
 msgid "Use ROS utility commands to control the simulation"
 msgstr "ROSユーティリティコマンドを使ってシミュレーションを制御する"
 
-#: ../../tutorial.rst:68
+#: ../../tutorial.rst:81
 msgid "Pause the simulation:"
 msgstr "シミュレーションを一時停止する:"
 
-#: ../../tutorial.rst:74
+#: ../../tutorial.rst:87
 msgid "Continue the paused simulation:"
 msgstr "一時停止したシミュレーションを再開する:"
 
-#: ../../tutorial.rst:109
+#: ../../tutorial.rst:122
 msgid "Use Python script to spawn the model"
 msgstr "Pythonスクリプトを利用してモデルファイルをロードする"
 
@@ -100,9 +96,9 @@ msgid ""
 "You should see the JVRC O1 task loaded on Choreonoid with rviz visualization."
 msgstr ""
 "実行に成功するとJVRC O1タスクが rvizによるビジュアライゼーションつきで立ち上"
-"がるはずです。"
+"がります。"
 
-#: ../../tutorial.rst:31
+#: ../../tutorial.rst:39
 msgid ""
 "(Optional) Create and place ViewSimulator item under the AISTSimulator you "
 "want to get image input."
@@ -110,30 +106,23 @@ msgstr ""
 "（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの"
 "下に作成します。"
 
-#: ../../tutorial.rst:91 ../../tutorial.rst:118
+#: ../../tutorial.rst:104 ../../tutorial.rst:131
 msgid "The script you can run in the following procedure."
-msgstr "スクリプトは以下の手順で実行できます。"
+msgstr "スクリプトは以下の手順で実行します。"
 
-#: ../../tutorial.rst:57
+#: ../../tutorial.rst:70
 msgid "Display camera input (using image-view package):"
 msgstr "カメラ画像を表示する（image-viewパッケージを利用）"
 
-#: ../../tutorial.rst:99 ../../tutorial.rst:126
+#: ../../tutorial.rst:112 ../../tutorial.rst:139
 msgid "Open a new terminal."
 msgstr "新しい端末を起動します。"
 
-#: ../../tutorial.rst:101
-msgid ""
-"Run the following command. (If you want to stop the script, please press "
-"ctrl + c)"
-msgstr ""
-"以下のコマンドを実行します。 (実行を停止する場合は Ctrl + c を押してください)"
-
-#: ../../tutorial.rst:128
+#: ../../tutorial.rst:141
 msgid "Run the following command."
 msgstr "以下のコマンドを実行します。"
 
-#: ../../tutorial.rst:89 ../../tutorial.rst:116
+#: ../../tutorial.rst:102 ../../tutorial.rst:129
 msgid ""
 "The script contains under directory of ~/catkin_ws/install/share/"
 "choreonoid_plugins/test."
@@ -141,21 +130,71 @@ msgstr ""
 "このスクリプトは ~/catkin_ws/install/share/choreonoid_plugins/test 以下に収め"
 "ています。"
 
-#: ../../tutorial.rst:84
-msgid ""
-"Following example (test-jointtrajectory-jvrc-1.py) sends each trajectory "
-"commands to NECK_Y joint of JVRC-1 robot."
-msgstr ""
-"以下の例 (test-jointtrajectory-jvrc-1.py) は、JVRC-1ロボットのNECK_Y関節に角"
-"度設定コマンドを送ります。"
-
-#: ../../tutorial.rst:111
+#: ../../tutorial.rst:124
 msgid ""
 "Following example (test-model-spawn.py) loads box model dynamically to "
 "current simulation."
 msgstr ""
 "以下の例 (test-model-spawn.py) は、現在のシミュレーション上にboxモデルを動的"
 "にロードします。"
+
+#: ../../tutorial.rst:31
+msgid ""
+"Configure AISTSimulator item to use Foward dynamics mode or High-gain "
+"dynamics mode."
+msgstr ""
+"AISTSimulatorアイテムを作成し、順動力学モードもしくは、ハイゲインモードに設定"
+"します。"
+
+#: ../../tutorial.rst:41
+msgid ""
+"Create and place BodyRosTorqueController item (in the case of Foward "
+"dynamics mode) or BodyRosHighgainController item (in the case of High-gain "
+"dynamics mode) under the robot you want to control."
+msgstr ""
+"操作するBodyアイテムの下に、BodyRosTorqueController アイテム (順動力学モード"
+"の場合) もしくは、BodyRosHighgainController アイテム (ハイゲインモードの場"
+"合) を作成します。"
+
+#: ../../tutorial.rst:35 ../../tutorial.rst:48
+msgid "Or"
+msgstr "もしくは"
+
+#: ../../tutorial.rst:97
+msgid ""
+"Following example (test-torque-control-jvrc1.py) sends each trajectory "
+"commands to any joint of JVRC-1 robot."
+msgstr ""
+"以下の例 (test-torque-control-jvrc1.py) は、JVRC-1ロボットの任意の関節に角度"
+"設定コマンドを送ります。"
+
+#: ../../tutorial.rst:114
+msgid ""
+"For example, if you want to rotate 45 degrees for the neck. Run the "
+"following command."
+msgstr "例えば、ロボットの首を45°回す場合。以下のコマンドを実行します。"
+
+#: ../../tutorial.rst:20
+msgid "Preconfigured project has been created in the Foward dynamics mode."
+msgstr ""
+"設定済みのプロジェクトは、順動力学モードを使用する設定で作成しています。"
+
+#~ msgid ""
+#~ "Run the following command. (If you want to stop the script, please press "
+#~ "ctrl + c)"
+#~ msgstr ""
+#~ "以下のコマンドを実行します。 (実行を停止する場合は Ctrl + c を押してくださ"
+#~ "い)"
+
+#~ msgid ""
+#~ "Following example (test-jointtrajectory-jvrc-1.py) sends each trajectory "
+#~ "commands to NECK_Y joint of JVRC-1 robot."
+#~ msgstr ""
+#~ "以下の例 (test-jointtrajectory-jvrc-1.py) は、JVRC-1ロボットのNECK_Y関節に"
+#~ "角度設定コマンドを送ります。"
+
+#~ msgid "Configure AISTSimulator item to use High-gain dynamics mode."
+#~ msgstr "AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。"
 
 #~ msgid "Following example loads box model dynamically to current simulation."
 #~ msgstr ""

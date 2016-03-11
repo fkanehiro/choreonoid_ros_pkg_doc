@@ -16,10 +16,12 @@ Enter following commands to run ROS plugin enabled Choreonoid.
 .. code-block:: bash
    
    $ roscore (on the different terminal)
-   $ ./devel/bin/choreonoid
+   $ choreonoid
 
-You have to configure AISTSimulator item to use High-gain dynamics mode.
+You have to configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.
 Create and place BodyRos item under the robot you want to control.
+
+Also, in the case of Foward dynamics mode a create BodyRosTorqueController item and in the case of High-gain dynamics mode a create BodyRosHighgainController item.
 
 Please refer to :doc:`tutorial` on details.
 
@@ -29,18 +31,18 @@ ROS Topics
 
 Choreonoid ROS plugin provides following ROS topics, please refer to :doc:`tutorial` for actual use.
 
-/[robotname]/joint\_states
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+/[robotname]/[controlmode]/joint\_states
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Each joint states are published to /[robotname]/joint\_states topic.
+Each joint states are published to /[robotname]/[controlmode]/joint\_states topic.
 
 Data type of joint\_states topic is `sensor_msgs::JointState <http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_.
 
 
-/[robotname]/set\_joint\_trajectory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/[robotname]/[controlmode]/set\_joint\_trajectory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Your control signal can be sent using /[robotname]/set\_joint\_trajectory topic.
+Your control signal can be sent using /[robotname]/[controlmode]/set\_joint\_trajectory topic.
 
 Data type of set\_joint\_trajectory topic is `trajectory_msgs::JointTrajectory <http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html>`_.
 
@@ -54,7 +56,7 @@ Data type used for force sensors are `geometry_msgs::Wrench <http://docs.ros.org
 
 Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_.
 
-Data type used for accel sensors are `sensor_msgs::Imu <http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_.
+Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_.
 
 Data type used for range sensors are `sensor_msgs::LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_.
 
@@ -101,3 +103,4 @@ Takes [model_name, model_data, namespace, pose, reference_frame] as arguments. L
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes [model_name] as an argument. Delete the specified model from the simulation.
+
