@@ -146,6 +146,10 @@
 </div>
 <p>You should see the JVRC O1 task loaded on Choreonoid with rviz visualization.</p>
 <img alt="_images/choreonoid-rviz.png" src="_images/choreonoid-rviz.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Preconfigured project has been created in the Foward dynamics mode.</p>
+</div>
 </div>
 <div class="section" id="configure-the-project-by-hand">
 <h2>Configure the project by hand<a class="headerlink" href="#configure-the-project-by-hand" title="Permalink to this headline">¶</a></h2>
@@ -153,16 +157,21 @@
 <p>To prepare your own project:</p>
 <ol class="arabic simple">
 <li>Create World item and create Body item by opening the robot model data.</li>
-<li>Configure AISTSimulator item to use High-gain dynamics mode.</li>
+<li>Configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.</li>
 </ol>
-<img alt="_images/highgain.png" src="_images/highgain.png" />
+<img alt="_images/forward-dynamics-mode.png" src="_images/forward-dynamics-mode.png" />
+<p>Or</p>
+<img alt="_images/highgain-dynamics-mode.png" src="_images/highgain-dynamics-mode.png" />
 <ol class="arabic simple" start="3">
 <li>(Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.</li>
 <li>Create and place BodyRos item under the robot you want to control.</li>
+<li>Create and place BodyRosTorqueController item (in the case of Foward dynamics mode) or BodyRosHighgainController item (in the case of High-gain dynamics mode) under the robot you want to control.</li>
 <li>Create and place WorldRos item under the world you want to control.</li>
 </ol>
 <p>Item view should be structured as follows after the above configuration.</p>
-<img alt="_images/itemview.png" src="_images/itemview.png" />
+<img alt="_images/itemview-forward.png" src="_images/itemview-forward.png" />
+<p>Or</p>
+<img alt="_images/itemview-highgain.png" src="_images/itemview-highgain.png" />
 <p>Finally, click &#8220;start simulation&#8221; button to enable the ROS functions.</p>
 </div>
 <div class="section" id="use-ros-utility-commands-to-monitor-the-message">
@@ -194,36 +203,106 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </div>
 <div class="section" id="use-python-script-to-send-command-to-the-robot">
 <h2>Use Python script to send command to the robot<a class="headerlink" href="#use-python-script-to-send-command-to-the-robot" title="Permalink to this headline">¶</a></h2>
-<p>Following example (test-jointtrajectory-jvrc-1.py) sends each trajectory commands to NECK_Y joint of JVRC-1 robot.</p>
+<p>Following example (test-torque-control-jvrc1.py) sends each trajectory commands to any joint of JVRC-1 robot.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">rospy</span> 
 <span class="kn">from</span> <span class="nn">trajectory_msgs.msg</span> <span class="kn">import</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">JointTrajectoryPoint</span>
 
-<span class="k">def</span> <span class="nf">jointtrajectory_publisher</span><span class="p">():</span>
-    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/JVRC_1/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;jvrc1test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
-        <span class="n">now</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="n">JointTrajectory</span><span class="p">()</span>
-        <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NECK_Y&quot;</span><span class="p">]</span>
-        <span class="n">msg</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">][</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">JointTrajectoryPoint</span><span class="p">()</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">rostime</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span>
-        <span class="n">msg</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;hello world </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">now</span><span class="p">))</span>
-        <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">r</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<span class="c1">#</span>
+<span class="c1"># Functions.</span>
+<span class="c1">#</span>
+
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">publish_jvrc1_jointtrajectory</span><span class="p">(</span><span class="n">jname</span><span class="o">=</span><span class="s1">&#39;NECK_Y&#39;</span><span class="p">,</span> <span class="n">jdegree</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">rad</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;{0:.4f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">jdegree</span><span class="p">))))</span>
+    <span class="n">pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/JVRC_1/torque_control/set_joint_trajectory&#39;</span><span class="p">,</span> <span class="n">JointTrajectory</span><span class="p">,</span> <span class="n">latch</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;jvrc1_choreonoid_ros_test&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">JointTrajectory</span><span class="p">()</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">joint_names</span> <span class="o">=</span> <span class="p">[</span> <span class="n">jname</span> <span class="p">]</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">JointTrajectoryPoint</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">time_from_start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">rostime</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">positions</span> <span class="o">=</span> <span class="p">[</span> <span class="n">rad</span> <span class="p">]</span>
+
+    <span class="n">msg</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">check_jvrc1_joint_name</span><span class="p">(</span><span class="n">jname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">{</span> 
+        <span class="s1">&#39;R_HIP_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;R_HIP_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;R_HIP_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;R_KNEE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;R_ANKLE_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;R_ANKLE_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_HIP_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;L_HIP_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;L_HIP_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;L_KNEE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;L_ANKLE_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_ANKLE_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;WAIST_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;WAIST_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>      <span class="s1">&#39;WAIST_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;NECK_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;NECK_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;NECK_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>       <span class="s1">&#39;R_SHOULDER_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;R_SHOULDER_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;R_SHOULDER_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;R_ELBOW_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;R_ELBOW_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;R_WRIST_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;R_WRIST_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;R_UTHUMB&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;R_LTHUMB&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;R_UINDEX&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;R_LINDEX&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;R_ULITTLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;R_LLITTLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_SHOULDER_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;L_SHOULDER_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;L_SHOULDER_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;L_ELBOW_P&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;L_ELBOW_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_WRIST_R&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_WRIST_Y&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_UTHUMB&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;L_LTHUMB&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;L_UINDEX&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;L_LINDEX&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="s1">&#39;L_ULITTLE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="s1">&#39;L_LLITTLE&#39;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span> 
+
+    <span class="k">return</span> <span class="n">jname</span> <span class="ow">in</span> <span class="n">names</span>
+
+<span class="c1">#</span>
+<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">print</span> <span class="s1">&#39;usage: &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; [joint name] [joint angle (degree)]&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;Set joint angle for JVRC-1 robot.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;[joint name] setting choose one of them:&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  R_HIP_P      R_HIP_R      R_HIP_Y      R_KNEE       R_ANKLE_R,&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  R_ANKLE_P    L_HIP_P      L_HIP_R      L_HIP_Y      L_KNEE&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  L_ANKLE_R    L_ANKLE_P    WAIST_Y      WAIST_P      WAIST_R&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  NECK_Y       NECK_R       NECK_P       R_SHOULDER_P R_SHOULDER_R&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  R_SHOULDER_Y R_ELBOW_P    R_ELBOW_Y    R_WRIST_R    R_WRIST_Y&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  R_UTHUMB     R_LTHUMB     R_UINDEX     R_LINDEX     R_ULITTLE&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  R_LLITTLE    L_SHOULDER_P L_SHOULDER_R L_SHOULDER_Y L_ELBOW_P&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  L_ELBOW_Y    L_WRIST_R    L_WRIST_Y    L_UTHUMB     L_LTHUMB&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  L_UINDEX     L_LINDEX     L_ULITTLE    L_LLITTLE&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;[joint angle] setting is range from 360.0 to -360.0.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;e.g. if you want to change the joint angle of the NECK_Y to dgree of 40.&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; NECK_Y 40.0&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">return</span>
+
+<span class="c1"># </span>
+<span class="c1"># Main.  </span>
+<span class="c1">#</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">is_error</span> <span class="o">=</span> <span class="bp">True</span>
+
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">jointtrajectory_publisher</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">check_jvrc1_joint_name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">f</span> <span class="o">&lt;=</span> <span class="mf">360.0</span> <span class="ow">and</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">360.0</span><span class="p">)):</span>
+                <span class="n">publish_jvrc1_jointtrajectory</span><span class="p">(</span><span class="n">jname</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">jdegree</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+                <span class="n">is_error</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
         <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">is_error</span><span class="p">):</span>
+        <span class="n">usage</span><span class="p">()</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The script contains under directory of ~/catkin_ws/install/share/choreonoid_plugins/test.</p>
@@ -236,9 +315,9 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </div>
 <ol class="arabic simple" start="2">
 <li>Open a new terminal.</li>
-<li>Run the following command. (If you want to stop the script, please press ctrl + c)</li>
+<li>For example, if you want to rotate 45 degrees for the neck. Run the following command.</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosrun choreonoid_plugins test-jointtrajectory-jvrc-1.py
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosrun choreonoid_plugins test-torque-control-jvrc1.py NECK_Y 45.0
 </pre></div>
 </div>
 </div>

@@ -87,8 +87,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#install">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run">実行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-topics">ROSトピックス</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#robotname-joint-states">/[robotname]/joint_states</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#robotname-set-joint-trajectory">/[robotname]/set_joint_trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robotname-controlmode-joint-states">/[robotname]/[controlmode]/joint_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robotname-controlmode-set-joint-trajectory">/[robotname]/[controlmode]/set_joint_trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-sensorname">/[robotname]/[sensorname]</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#worldname-model-states">/[worldname]/model_states</a></li>
@@ -157,25 +157,26 @@
 </div>
 <div class="section" id="run">
 <h2>実行<a class="headerlink" href="#run" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力してください。</p>
+<p>ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力します。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ roscore <span class="o">(</span>on the different terminal<span class="o">)</span>
-$ ./devel/bin/choreonoid
+$ choreonoid
 </pre></div>
 </div>
-<p>ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。</p>
+<p>順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。</p>
+<p>また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモードの場合 BodyRosHighgainController アイテムを配置する必要があります。</p>
 <p>詳しくは <a class="reference internal" href="tutorial.html"><em>Choreonoid ROSプラグインチュートリアル</em></a> を参照してください。</p>
 </div>
 <div class="section" id="ros-topics">
 <h2>ROSトピックス<a class="headerlink" href="#ros-topics" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は <a class="reference internal" href="tutorial.html"><em>Choreonoid ROSプラグインチュートリアル</em></a> を参照してください。</p>
-<div class="section" id="robotname-joint-states">
-<h3>/[robotname]/joint_states<a class="headerlink" href="#robotname-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ロボットの各関節の情報は/[robotname]/joint_statesトピックにpublishされます。</p>
+<div class="section" id="robotname-controlmode-joint-states">
+<h3>/[robotname]/[controlmode]/joint_states<a class="headerlink" href="#robotname-controlmode-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロボットの各関節の情報は/[robotname]/[controlmode]/joint_statesトピックにパブリッシュします。[controlmode]は、RosBodyTorqueController アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control となります。</p>
 <p>joint_statesトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html">sensor_msgs::JointState</a></p>
 </div>
-<div class="section" id="robotname-set-joint-trajectory">
-<h3>/[robotname]/set_joint_trajectory<a class="headerlink" href="#robotname-set-joint-trajectory" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ロボットへの制御信号は/[robotname]/set_joint_trajectoryトピックに送ることができます。</p>
+<div class="section" id="robotname-controlmode-set-joint-trajectory">
+<h3>/[robotname]/[controlmode]/set_joint_trajectory<a class="headerlink" href="#robotname-controlmode-set-joint-trajectory" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロボットへの制御信号は/[robotname]/[controlmode]/set_joint_trajectoryトピックへ送ります。[controlmode]は、RosBodyTorqueController アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control となります。</p>
 <p>set_joint_trajectoryトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html">trajectory_msgs::JointTrajectory</a></p>
 </div>
 <div class="section" id="robotname-sensorname">
@@ -183,7 +184,7 @@ $ ./devel/bin/choreonoid
 <p>ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応したトピックを生成します。</p>
 <p>各力センサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs::Wrench</a></p>
 <p>各ジャイロセンサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a></p>
-<p>Data type used for accel sensors are <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a>.</p>
+<p>各加速度センサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html">geometry_msgs::Accel</a></p>
 <p>レンジセンサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs::LaserScan</a></p>
 <p>画像センサの入力についてはImage Transportを使ってpublishされます。</p>
 <p>RGBDセンサについては、デプス画像が <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs::PointCloud2</a>  型でpublishされます。</p>
@@ -206,19 +207,19 @@ $ ./devel/bin/choreonoid
 <p>シミュレーションを制御するために以下のROSサービスが利用できます。</p>
 <div class="section" id="worldname-pause-physics">
 <h3>/[worldname]/pause_physics<a class="headerlink" href="#worldname-pause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>引数なし。シミュレーションをポーズする。</p>
+<p>引数なし。シミュレーションを一時停止します。</p>
 </div>
 <div class="section" id="worldname-unpause-physics">
 <h3>/[worldname]/unpause_physics<a class="headerlink" href="#worldname-unpause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>引数なし。ポーズしたシミュレーションを再開する。</p>
+<p>引数なし。一時停止したシミュレーションを再開します。</p>
 </div>
 <div class="section" id="worldname-spawn-vrml-model">
 <h3>/[worldname]/spawn_vrml_model<a class="headerlink" href="#worldname-spawn-vrml-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[model_name, model_data, namespace, pose, reference_frame]を引数にとる。指定されたモデルをシミュレータにロードする。</p>
+<p>[model_name, model_data, namespace, pose, reference_frame]を引数にとります。指定されたモデルをシミュレータにロードします。</p>
 </div>
 <div class="section" id="worldname-delete-model">
 <h3>/[worldname]/delete_model<a class="headerlink" href="#worldname-delete-model" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>[model_name]を引数にとる。指定されたモデルをシミュレータから消去する。</p>
+<p>[model_name]を引数にとります。指定されたモデルをシミュレータから消去します。</p>
 </div>
 </div>
 </div>
