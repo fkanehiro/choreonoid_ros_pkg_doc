@@ -93,6 +93,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#install-choreonoid-ros-plugin">Choreonoid ROS プラグインのインストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#update-choreonoid-ros-plugin">Choreonoid ROS プラグインのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-of-the-cmake-at-the-build-of-the-choreonoid">Choreonoid ビルド時の CMake 設定</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshoot">トラブルシュート</a></li>
 </ul>
 </li>
@@ -307,6 +308,37 @@ $ <span class="nb">source</span> install/setup.bash
 </pre></div>
 </div>
 <p>(*) sdfloader をインストールした場合のみ実行します。</p>
+</div>
+<div class="section" id="setting-of-the-cmake-at-the-build-of-the-choreonoid">
+<h2>Choreonoid ビルド時の CMake 設定<a class="headerlink" href="#setting-of-the-cmake-at-the-build-of-the-choreonoid" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Choreonoid のビルド時に他のプラグインを含むビルドを実施する場合、以下の手順にて実施できます。</p>
+<ol class="arabic">
+<li><p class="first">~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros ディレクトリ下に、additional_cmake_args ファイルを作成します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ touch ~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros/additional_cmake_args
+</pre></div>
+</div>
+</li>
+<li><p class="first">additional_cmake_args ファイルを編集します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit ~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros/additional_cmake_args
+</pre></div>
+</div>
+<p>例えば、OpenRTM プラグインを追加する場合、以下の内容となります。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-DENABLE_CORBA<span class="o">=</span>ON -DBUILD_CORBA_PLUGIN<span class="o">=</span>ON -DBUILD_OPENRTM_PLUGIN<span class="o">=</span>ON -DBUILD_OPENRTM_SAMPLES<span class="o">=</span>ON
+</pre></div>
+</div>
+</li>
+<li><p class="first">以下のコマンドを実行します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
+$ catkin clean -a
+$ catkin build choreonoid_ros_pkg
+$ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
+$ <span class="nb">source</span> install/setup.bash
+</pre></div>
+</div>
+<p>(*) sdfloader を使用する場合のみ実行します。</p>
+</li>
+</ol>
+<p>指定可能な CMake 設定については、<a class="reference external" href="http://choreonoid.org/ja/manuals/1.5/install/options.html">http://choreonoid.org/ja/manuals/1.5/install/options.html</a> 等を参照してください。</p>
 </div>
 <div class="section" id="troubleshoot">
 <h2>トラブルシュート<a class="headerlink" href="#troubleshoot" title="このヘッドラインへのパーマリンク">¶</a></h2>

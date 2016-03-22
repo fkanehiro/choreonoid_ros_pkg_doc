@@ -210,6 +210,45 @@ Run the following command:
 (*) If you have installed.
 
 
+Setting of the CMake at the build of the Choreonoid
+===================================================
+
+If you want to including the other plugins at the time of build of the Choreonoid.
+In the following steps, you can make it.
+
+1. Create 'additional_cmake_args' file under the '~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros' directory.
+
+   .. code-block:: bash
+
+      $ touch ~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros/additional_cmake_args
+
+2. Edit 'additional_cmake_args' file.
+
+   .. code-block:: bash
+
+      $ gedit ~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros/additional_cmake_args
+
+   e.g. If you want to append the OpenRTM plugin.
+
+   .. code-block:: bash
+
+      -DENABLE_CORBA=ON -DBUILD_CORBA_PLUGIN=ON -DBUILD_OPENRTM_PLUGIN=ON -DBUILD_OPENRTM_SAMPLES=ON
+
+3. Run the following command.
+
+   .. code-block:: bash
+
+      $ cd ~/catkin_ws
+      $ catkin clean -a
+      $ catkin build choreonoid_ros_pkg
+      $ catkin build choreonoid_sdfloader_plugin (*)
+      $ source install/setup.bash
+
+   (*) If you want to install.
+
+For setting information, please refer to the http://choreonoid.org/en/manuals/1.5/install/options.html and the like.
+
+
 Troubleshoot
 ============
 
