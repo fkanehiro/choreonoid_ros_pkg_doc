@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.1 ドキュメント</title>
+  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.2 ドキュメント</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.1 ドキュメント" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 ドキュメント" href="index.html"/>
         <link rel="next" title="Choreonoid ROSプラグインチュートリアル" href="tutorial.html"/>
         <link rel="prev" title="インストール" href="install.html"/> 
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.0.2
               </div>
             
           
@@ -83,11 +83,11 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Choreonoid ROSプラグインマニュアル</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Choreonoid ROSプラグインマニュアル</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install">インストール</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run">実行</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-topics">ROSトピックス</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#robotname-controlmode-joint-states">/[robotname]/[controlmode]/joint_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#robotname-joint-states">/[robotname]/joint_states</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-controlmode-set-joint-trajectory">/[robotname]/[controlmode]/set_joint_trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-sensorname">/[robotname]/[sensorname]</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
@@ -153,7 +153,7 @@
 <h1>Choreonoid ROSプラグインマニュアル<a class="headerlink" href="#choreonoid-ros-plugin-manual" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="install">
 <h2>インストール<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="install.html"><em>インストール</em></a> の手順を参照してください。</p>
+<p><a class="reference internal" href="install.html"><span class="doc">インストール</span></a> の手順を参照してください。</p>
 </div>
 <div class="section" id="run">
 <h2>実行<a class="headerlink" href="#run" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -164,14 +164,19 @@ $ choreonoid
 </div>
 <p>順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。</p>
 <p>また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモードの場合 BodyRosHighgainController アイテムを配置する必要があります。</p>
-<p>詳しくは <a class="reference internal" href="tutorial.html"><em>Choreonoid ROSプラグインチュートリアル</em></a> を参照してください。</p>
+<p>詳しくは <a class="reference internal" href="tutorial.html"><span class="doc">Choreonoid ROSプラグインチュートリアル</span></a> を参照してください。</p>
 </div>
 <div class="section" id="ros-topics">
 <h2>ROSトピックス<a class="headerlink" href="#ros-topics" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は <a class="reference internal" href="tutorial.html"><em>Choreonoid ROSプラグインチュートリアル</em></a> を参照してください。</p>
-<div class="section" id="robotname-controlmode-joint-states">
-<h3>/[robotname]/[controlmode]/joint_states<a class="headerlink" href="#robotname-controlmode-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ロボットの各関節の情報は/[robotname]/[controlmode]/joint_statesトピックにパブリッシュします。[controlmode]は、RosBodyTorqueController アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control となります。</p>
+<p>Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は <a class="reference internal" href="tutorial.html"><span class="doc">Choreonoid ROSプラグインチュートリアル</span></a> を参照してください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>データ型が sensor_msgs および geometry_msgs のトピックは、BodyRos アイテムが提供します。</p>
+<p class="last">データ型が trajectory_msgs のトピックは、BodyRosTorqueContorller もしくは BodyRosHighgainController アイテムが提供します。</p>
+</div>
+<div class="section" id="robotname-joint-states">
+<h3>/[robotname]/joint_states<a class="headerlink" href="#robotname-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ロボットの各関節の情報は/[robotname]/joint_statesトピックにpublishされます。</p>
 <p>joint_statesトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html">sensor_msgs::JointState</a></p>
 </div>
 <div class="section" id="robotname-controlmode-set-joint-trajectory">
@@ -265,7 +270,7 @@ $ choreonoid
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
