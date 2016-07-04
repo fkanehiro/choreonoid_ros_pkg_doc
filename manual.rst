@@ -31,10 +31,17 @@ ROS Topics
 
 Choreonoid ROS plugin provides following ROS topics, please refer to :doc:`tutorial` for actual use.
 
-/[robotname]/[controlmode]/joint\_states
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. note::
 
-Each joint states are published to /[robotname]/[controlmode]/joint\_states topic.
+   Data type of sensor\_msgs and geometry\_msgs provides by the BodyRos item.
+
+   Data type of trajectory\_msgs provides by the BodyRosTorqueContorller or BodyRosHighgainController item.
+
+
+/[robotname]/joint\_states
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each joint states are published to /[robotname]/joint\_states topic.
 
 Data type of joint\_states topic is `sensor_msgs::JointState <http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_.
 
