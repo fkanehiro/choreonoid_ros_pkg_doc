@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROS Plugin Tutorial &mdash; Choreonoid ROS Plugin 0.0.2 documentation</title>
+  <title>Choreonoid ROS Plugin Tutorial &mdash; Choreonoid ROS Plugin 0.0.3 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 documentation" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 documentation" href="index.html"/>
         <link rel="prev" title="Choreonoid ROS Plugin Manual" href="manual.html"/> 
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
             
           
@@ -85,11 +85,11 @@
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Choreonoid ROS Plugin Manual</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Choreonoid ROS Plugin Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#run-preconfigured-project">Run preconfigured project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-the-project-by-hand">Configure the project by hand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-monitor-the-message">Use ROS utility commands to monitor the message</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-control-the-simulation">Use ROS utility commands to control the simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-send-command-to-the-robot">Use Python script to send command to the robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-spawn-the-model">Use Python script to spawn the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-project-by-hand">Configure the project by hand</a></li>
 </ul>
 </li>
 </ul>
@@ -150,29 +150,6 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Preconfigured project has been created in the Foward dynamics mode.</p>
 </div>
-</div>
-<div class="section" id="configure-the-project-by-hand">
-<h2>Configure the project by hand<a class="headerlink" href="#configure-the-project-by-hand" title="Permalink to this headline">¶</a></h2>
-<p>Or you can prepare project of your own.</p>
-<p>To prepare your own project:</p>
-<ol class="arabic simple">
-<li>Create World item and create Body item by opening the robot model data.</li>
-<li>Configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.</li>
-</ol>
-<img alt="_images/forward-dynamics-mode.png" src="_images/forward-dynamics-mode.png" />
-<p>Or</p>
-<img alt="_images/highgain-dynamics-mode.png" src="_images/highgain-dynamics-mode.png" />
-<ol class="arabic simple" start="3">
-<li>(Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.</li>
-<li>Create and place BodyRos item under the robot you want to control.</li>
-<li>Create and place BodyRosTorqueController item (in the case of Foward dynamics mode) or BodyRosHighgainController item (in the case of High-gain dynamics mode) under the robot you want to control.</li>
-<li>Create and place WorldRos item under the world you want to control.</li>
-</ol>
-<p>Item view should be structured as follows after the above configuration.</p>
-<img alt="_images/itemview-forward.png" src="_images/itemview-forward.png" />
-<p>Or</p>
-<img alt="_images/itemview-highgain.png" src="_images/itemview-highgain.png" />
-<p>Finally, click &#8220;start simulation&#8221; button to enable the ROS functions.</p>
 </div>
 <div class="section" id="use-ros-utility-commands-to-monitor-the-message">
 <h2>Use ROS utility commands to monitor the message<a class="headerlink" href="#use-ros-utility-commands-to-monitor-the-message" title="Permalink to this headline">¶</a></h2>
@@ -376,6 +353,67 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </pre></div>
 </div>
 </div>
+<div class="section" id="configure-the-project-by-hand">
+<h2>Configure the project by hand<a class="headerlink" href="#configure-the-project-by-hand" title="Permalink to this headline">¶</a></h2>
+<p>Or you can prepare project of your own.</p>
+<p>To prepare your own project:</p>
+<ol class="arabic simple">
+<li>Create World item and create Body item by opening the robot model data.</li>
+<li>Configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.</li>
+</ol>
+<img alt="_images/forward-dynamics-mode.png" src="_images/forward-dynamics-mode.png" />
+<p>Or</p>
+<img alt="_images/highgain-dynamics-mode.png" src="_images/highgain-dynamics-mode.png" />
+<ol class="arabic simple" start="3">
+<li>(Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.</li>
+<li>Create and place BodyRos item under the robot you want to control.</li>
+<li>Create and place BodyRosTorqueController item (in the case of Foward dynamics mode) or BodyRosHighgainController item (in the case of High-gain dynamics mode) under the robot you want to control.</li>
+<li>Create and place WorldRos item under the world you want to control.</li>
+</ol>
+<p>Item view should be structured as follows after the above configuration.</p>
+<img alt="_images/itemview-forward.png" src="_images/itemview-forward.png" />
+<p>Or</p>
+<img alt="_images/itemview-highgain.png" src="_images/itemview-highgain.png" />
+<p>If you choose BodyRosTorqueController is need setting of the control parameters:</p>
+<ol class="arabic">
+<li><p class="first">Prepare the control parameters file by any your file. The file require YAML format.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit ~/my-robot-pdc-parameters.yaml
+</pre></div>
+</div>
+<p>YAML format details, please see <a class="reference external" href="http://yaml.org/">http://yaml.org/</a>.</p>
+</li>
+<li><p class="first">Edit your control parameters file. Are required parameter is pgain and dgain and u_lower and u_upper.
+Also, each parameter must match the number of joints of your robot.</p>
+<p>example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pgain:   <span class="o">[</span> 3000.0, 3000.0, 3000.0, ... <span class="o">]</span>
+dgain:   <span class="o">[</span>  100.0,  100.0,  100.0, ... <span class="o">]</span>
+u_lower: <span class="o">[</span>  -20.0,  -20.0,  -20.0, ... <span class="o">]</span>
+u_upper: <span class="o">[</span>   20.0,   20.0,   20.0, ... <span class="o">]</span>
+</pre></div>
+</div>
+<p>The JVRC-1&#8217;s control parameter file (jvrc1-pdc-parameters.yml) contains under the directory of ~/catkin_ws/install/share/choreonoid_plugins/test. Please see as a sample.</p>
+</li>
+<li><p class="first">Set the parameter file for the BodyRosTorqueController.</p>
+<img alt="_images/setting-pdc-before.png" src="_images/setting-pdc-before.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<img alt="_images/setting-pdc-after.png" src="_images/setting-pdc-after.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">&#8216;~&#8217; can not be used. Please use absolute path.</p>
+</div>
+</li>
+</ol>
+<p>If the reocore has not been started, start the roscore in a different terminnal.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ roscore
+</pre></div>
+</div>
+<p>Finally, click &#8220;start simulation&#8221; button to enable the ROS functions.</p>
+</div>
 </div>
 
 
@@ -417,7 +455,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'0.0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

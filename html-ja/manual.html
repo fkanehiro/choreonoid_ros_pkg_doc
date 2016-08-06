@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.2 ドキュメント</title>
+  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.3 ドキュメント</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 ドキュメント" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 ドキュメント" href="index.html"/>
         <link rel="next" title="Choreonoid ROSプラグインチュートリアル" href="tutorial.html"/>
         <link rel="prev" title="インストール" href="install.html"/> 
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
             
           
@@ -165,6 +165,13 @@ $ choreonoid
 <p>順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。</p>
 <p>また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモードの場合 BodyRosHighgainController アイテムを配置する必要があります。</p>
 <p>詳しくは <a class="reference internal" href="tutorial.html"><span class="doc">Choreonoid ROSプラグインチュートリアル</span></a> を参照してください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>現在、simulation time モードはサポートしています。</p>
+<p>しかしながら、wall-clock time (実時間) モードについては未サポートとなっています。</p>
+<p>申し訳ありませんが、simulation time モードを使用してください。</p>
+<p class="last">simulation time モードの詳細については <a class="reference external" href="http://wiki.ros.org/Clock">http://wiki.ros.org/Clock</a> を参照してください。</p>
+</div>
 </div>
 <div class="section" id="ros-topics">
 <h2>ROSトピックス<a class="headerlink" href="#ros-topics" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -176,35 +183,35 @@ $ choreonoid
 </div>
 <div class="section" id="robotname-joint-states">
 <h3>/[robotname]/joint_states<a class="headerlink" href="#robotname-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ロボットの各関節の情報は/[robotname]/joint_statesトピックにpublishされます。</p>
-<p>joint_statesトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html">sensor_msgs::JointState</a></p>
+<p>ロボットの各関節の情報は/[robotname]/joint_statesトピックにpublishします。</p>
+<p>joint_statesトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html">sensor_msgs::JointState</a> です。</p>
 </div>
 <div class="section" id="robotname-controlmode-set-joint-trajectory">
 <h3>/[robotname]/[controlmode]/set_joint_trajectory<a class="headerlink" href="#robotname-controlmode-set-joint-trajectory" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ロボットへの制御信号は/[robotname]/[controlmode]/set_joint_trajectoryトピックへ送ります。[controlmode]は、RosBodyTorqueController アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control となります。</p>
-<p>set_joint_trajectoryトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html">trajectory_msgs::JointTrajectory</a></p>
+<p>set_joint_trajectoryトピックのデータ型は <a class="reference external" href="http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html">trajectory_msgs::JointTrajectory</a> です。</p>
 </div>
 <div class="section" id="robotname-sensorname">
 <h3>/[robotname]/[sensorname]<a class="headerlink" href="#robotname-sensorname" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応したトピックを生成します。</p>
-<p>各力センサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs::Wrench</a></p>
-<p>各ジャイロセンサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a></p>
-<p>各加速度センサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html">geometry_msgs::Accel</a></p>
-<p>レンジセンサの入力に用いられるデータ型は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs::LaserScan</a></p>
-<p>画像センサの入力についてはImage Transportを使ってpublishされます。</p>
-<p>RGBDセンサについては、デプス画像が <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs::PointCloud2</a>  型でpublishされます。</p>
+<p>ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサに対応したトピックを生成します。</p>
+<p>力センサからの出力は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs::Wrench</a> のデータ型を使ってpublishします。</p>
+<p>ジャイロセンサからの出力は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a> のデータ型を使ってpublishします。</p>
+<p>加速度センサからの出力は <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html">geometry_msgs::Accel</a> のデータ型を使ってpublishします。</p>
+<p>レンジセンサからの出力は <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs::LaserScan</a> のデータ型を使ってpublishします。</p>
+<p>画像センサからの出力はImage Transportを使ってpublishします。</p>
+<p>RGBDセンサについては、デプス画像を <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs::PointCloud2</a> のデータ 型でpublishします。</p>
 </div>
 <div class="section" id="clock">
 <h3>/clock<a class="headerlink" href="#clock" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>現在のシミュレーション時刻が/clockトピックにpublishされます。</p>
+<p>現在のシミュレーション時刻を/clockトピックにpublishします。</p>
 </div>
 <div class="section" id="worldname-model-states">
 <h3>/[worldname]/model_states<a class="headerlink" href="#worldname-model-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>このトピックには各モデルの現在の位置姿勢がpublishされます。</p>
+<p>このトピックには各モデルの現在の位置姿勢をpublishします。</p>
 </div>
 <div class="section" id="worldname-links-states">
 <h3>/[worldname]/links_states<a class="headerlink" href="#worldname-links-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。</p>
+<p>このトピックには各モデルの各リンクの現在の位置姿勢をpublishします。</p>
 </div>
 </div>
 <div class="section" id="ros-services">
@@ -270,7 +277,7 @@ $ choreonoid
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'0.0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>インストール &mdash; Choreonoid ROS Plugin 0.0.2 ドキュメント</title>
+  <title>インストール &mdash; Choreonoid ROS Plugin 0.0.3 ドキュメント</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 ドキュメント" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 ドキュメント" href="index.html"/>
         <link rel="next" title="Choreonoid ROSプラグインマニュアル" href="manual.html"/>
         <link rel="prev" title="Welcome to Choreonoid ROS plugin documentation!" href="index.html"/> 
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
             
           
@@ -168,6 +168,11 @@
 </ul>
 <p>OS のインストールは事前に完了しておいてください。</p>
 <p>OS のインストール方法については <a class="reference external" href="http://www.ubuntu.com/download/desktop/install-ubuntu-desktop">http://www.ubuntu.com/download/desktop/install-ubuntu-desktop</a> を参照してください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>NVIDIA の GPU を使用している場合、ドライバはオープンソース版ではなくプロプライエタリ版を使用してください。</p>
+<p class="last">オープンソース版のドライバを使用した場合、GLVisionSimulator　を使用するシミュレーションを実行すると Choreonoid が異常終了します。</p>
+</div>
 <p>ROS および、ビルド時に必須となるパッケージのインストール方法は、次節で説明します。</p>
 </div>
 <div class="section" id="preliminary-preparation-for-install">
@@ -301,7 +306,7 @@ $ catkin build choreonoid_sdfloader_plugin
 $ wstool update choreonoid_ros_pkg
 $ wstool update choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">cd</span> ~/catkin_ws
-$ catkin clean -b
+$ catkin clean -b -y
 $ catkin build choreonoid_ros_pkg
 $ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">source</span> install/setup.bash
@@ -329,7 +334,7 @@ $ <span class="nb">source</span> install/setup.bash
 </li>
 <li><p class="first">以下のコマンドを実行します。</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
-$ catkin clean -a
+$ catkin clean -y
 $ catkin build choreonoid_ros_pkg
 $ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">source</span> install/setup.bash
@@ -375,7 +380,7 @@ $ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </li>
 <li><p class="first">値が&#8217;[cached] /opt/ros/indigo&#8217;もしくは、これまでのケースに合致しない場合:</p>
 <p>以下のコマンドを実行します:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin clean -a
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin clean -y
 $ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
 $ catkin build choreonoid_ros_pkg
 $ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
@@ -432,7 +437,7 @@ $ roslaunch choreonoid_ros jvrc-1-rviz.launch
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'0.0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

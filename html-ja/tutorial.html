@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROSプラグインチュートリアル &mdash; Choreonoid ROS Plugin 0.0.2 ドキュメント</title>
+  <title>Choreonoid ROSプラグインチュートリアル &mdash; Choreonoid ROS Plugin 0.0.3 ドキュメント</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 ドキュメント" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 ドキュメント" href="index.html"/>
         <link rel="prev" title="Choreonoid ROSプラグインマニュアル" href="manual.html"/> 
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
             
           
@@ -85,11 +85,11 @@
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Choreonoid ROSプラグインマニュアル</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Choreonoid ROSプラグインチュートリアル</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#run-preconfigured-project">設定済みのプロジェクトを開く</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-the-project-by-hand">カスタムプロジェクトの作成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-monitor-the-message">ROSユーティリティコマンドを使ってメッセージをモニタする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-ros-utility-commands-to-control-the-simulation">ROSユーティリティコマンドを使ってシミュレーションを制御する</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-send-command-to-the-robot">Pythonスクリプトを利用してロボットを動かす</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-python-script-to-spawn-the-model">Pythonスクリプトを利用してモデルファイルをロードする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-project-by-hand">カスタムプロジェクトの作成</a></li>
 </ul>
 </li>
 </ul>
@@ -150,35 +150,6 @@
 <p class="first admonition-title">注釈</p>
 <p class="last">設定済みのプロジェクトは、順動力学モードを使用する設定で作成しています。</p>
 </div>
-</div>
-<div class="section" id="configure-the-project-by-hand">
-<h2>カスタムプロジェクトの作成<a class="headerlink" href="#configure-the-project-by-hand" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>プロジェクトファイルは自身で作成する事も可能です。</p>
-<p>プロジェクトファイルは以下の手順で作成します:</p>
-<ol class="arabic simple">
-<li><p class="first">Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。</p>
-</li>
-<li><p class="first">AISTSimulatorアイテムを作成し、順動力学モードもしくは、ハイゲインモードに設定します。</p>
-</li>
-</ol>
-<img alt="_images/forward-dynamics-mode.png" src="_images/forward-dynamics-mode.png" />
-<p>もしくは</p>
-<img alt="_images/highgain-dynamics-mode.png" src="_images/highgain-dynamics-mode.png" />
-<ol class="arabic simple" start="3">
-<li><p class="first">（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの下に作成します。</p>
-</li>
-<li><p class="first">操作するBody アイテムの下に、BodyRosアイテムを作成します。</p>
-</li>
-<li><p class="first">操作するBodyアイテムの下に、BodyRosTorqueController アイテム (順動力学モードの場合) もしくは、BodyRosHighgainController アイテム (ハイゲインモードの場合) を作成します。</p>
-</li>
-<li><p class="first">Worldアイテムの下にWorldRosアイテムを作成します。</p>
-</li>
-</ol>
-<p>上記の設定を行うと、アイテムビューは以下のような構造になります。</p>
-<img alt="_images/itemview-forward.png" src="_images/itemview-forward.png" />
-<p>もしくは</p>
-<img alt="_images/itemview-highgain.png" src="_images/itemview-highgain.png" />
-<p>最後に「シミュレーション開始」ボタンを押すとROS接続機能が有効になります。</p>
 </div>
 <div class="section" id="use-ros-utility-commands-to-monitor-the-message">
 <h2>ROSユーティリティコマンドを使ってメッセージをモニタする<a class="headerlink" href="#use-ros-utility-commands-to-monitor-the-message" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -388,6 +359,72 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </pre></div>
 </div>
 </div>
+<div class="section" id="configure-the-project-by-hand">
+<h2>カスタムプロジェクトの作成<a class="headerlink" href="#configure-the-project-by-hand" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトファイルは自身で作成する事も可能です。</p>
+<p>プロジェクトファイルは以下の手順で作成します:</p>
+<ol class="arabic simple">
+<li><p class="first">Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。</p>
+</li>
+<li><p class="first">AISTSimulatorアイテムを作成し、順動力学モードもしくは、ハイゲインモードに設定します。</p>
+</li>
+</ol>
+<img alt="_images/forward-dynamics-mode.png" src="_images/forward-dynamics-mode.png" />
+<p>もしくは</p>
+<img alt="_images/highgain-dynamics-mode.png" src="_images/highgain-dynamics-mode.png" />
+<ol class="arabic simple" start="3">
+<li><p class="first">（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの下に作成します。</p>
+</li>
+<li><p class="first">操作するBody アイテムの下に、BodyRosアイテムを作成します。</p>
+</li>
+<li><p class="first">操作するBodyアイテムの下に、BodyRosTorqueController アイテム (順動力学モードの場合) もしくは、BodyRosHighgainController アイテム (ハイゲインモードの場合) を作成します。</p>
+</li>
+<li><p class="first">Worldアイテムの下にWorldRosアイテムを作成します。</p>
+</li>
+</ol>
+<p>上記の設定を行うと、アイテムビューは以下のような構造になります。</p>
+<img alt="_images/itemview-forward.png" src="_images/itemview-forward.png" />
+<p>もしくは</p>
+<img alt="_images/itemview-highgain.png" src="_images/itemview-highgain.png" />
+<p>BodyRosTorqueController アイテムを選択した場合、制御パラメータの設定を実施する必要があります：</p>
+<ol class="arabic">
+<li><p class="first">任意のファイル名で制御パラメータファイルを用意します。ファイルは YAML フォーマットで記述する必要があります。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gedit ~/my-robot-pdc-parameters.yaml
+</pre></div>
+</div>
+<p>YAML フォーマットの詳細については <a class="reference external" href="http://yaml.org/">http://yaml.org/</a> を参照してください。</p>
+</li>
+<li><p class="first">制御パラメータファイルを編集します。必要なパラメータは pgain と dgain と u_lower と u_upper です。また、各パラメータはロボットの関節数と一致するように記述する必要があります。</p>
+<p>記述例：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pgain:   <span class="o">[</span> 3000.0, 3000.0, 3000.0, ... <span class="o">]</span>
+dgain:   <span class="o">[</span>  100.0,  100.0,  100.0, ... <span class="o">]</span>
+u_lower: <span class="o">[</span>  -20.0,  -20.0,  -20.0, ... <span class="o">]</span>
+u_upper: <span class="o">[</span>   20.0,   20.0,   20.0, ... <span class="o">]</span>
+</pre></div>
+</div>
+<p>JVRC-1 向けの制御パラメータファイル (jvrc1-pdc-parameters.yml) を ~/catkin_ws/install/share/choreonoid_plugins/test ディレクトリ以下に収めています。記述サンプルとして参照してください。</p>
+</li>
+<li><p class="first">用意した制御パラメータファイルを BodyRosTorqueController アイテムへセットします。</p>
+<img alt="_images/setting-pdc-before.png" src="_images/setting-pdc-before.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<img alt="_images/setting-pdc-after.png" src="_images/setting-pdc-after.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">~ を使用した表記は使用できません。絶対パス表記を使用してください。</p>
+</div>
+</li>
+</ol>
+<p>roscore を起動していない場合、別の端末で roscore を起動します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ roscore
+</pre></div>
+</div>
+<p>最後に「シミュレーション開始」ボタンを押すとROS接続機能が有効になります。</p>
+</div>
 </div>
 
 
@@ -429,7 +466,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'0.0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install &mdash; Choreonoid ROS Plugin 0.0.2 documentation</title>
+  <title>Install &mdash; Choreonoid ROS Plugin 0.0.3 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 documentation" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 documentation" href="index.html"/>
         <link rel="next" title="Choreonoid ROS Plugin Manual" href="manual.html"/>
         <link rel="prev" title="Welcome to Choreonoid ROS plugin documentation!" href="index.html"/> 
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
             
           
@@ -164,6 +164,11 @@
 </ul>
 <p>OS installation, please finish in advance.</p>
 <p>How to install OS, please see <a class="reference external" href="http://www.ubuntu.com/download/desktop/install-ubuntu-desktop">http://www.ubuntu.com/download/desktop/install-ubuntu-desktop</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you use NVIDIA graphics card, must use of proprietary (not open source version) driver.</p>
+<p class="last">If you use the open source version driver the Choreonoid with GLVisionSimulator is abnormally terminate.</p>
+</div>
 <p>ROS and required package installation is described in the next section.</p>
 </div>
 <div class="section" id="preliminary-preparation-for-install">
@@ -297,7 +302,7 @@ $ catkin build choreonoid_sdfloader_plugin
 $ wstool update choreonoid_ros_pkg
 $ wstool update choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">cd</span> ~/catkin_ws
-$ catkin clean -b
+$ catkin clean -b -y
 $ catkin build choreonoid_ros_pkg
 $ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">source</span> install/setup.bash
@@ -326,7 +331,7 @@ In the following steps, you can make it.</p>
 </li>
 <li><p class="first">Run the following command.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
-$ catkin clean -a
+$ catkin clean -y
 $ catkin build choreonoid_ros_pkg
 $ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
 $ <span class="nb">source</span> install/setup.bash
@@ -372,7 +377,7 @@ $ roslaunch choreonoid_ros jvrc-1-rviz.launch
 </li>
 <li><p class="first">if case &#8216;[cached] /opt/ros/indigo&#8217; or other case:</p>
 <p>Run the following command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin clean -a
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ catkin clean -y
 $ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
 $ catkin build choreonoid_ros_pkg
 $ catkin build choreonoid_sdfloader_plugin <span class="o">(</span>*<span class="o">)</span>
@@ -429,7 +434,7 @@ $ roslaunch choreonoid_ros jvrc-1-rviz.launch
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'0.0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.2 documentation</title>
+  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.3 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.2 documentation" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 documentation" href="index.html"/>
         <link rel="next" title="Choreonoid ROS Plugin Tutorial" href="tutorial.html"/>
         <link rel="prev" title="Install" href="install.html"/> 
 
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.0.2
+                0.0.3
               </div>
             
           
@@ -166,6 +166,13 @@ $ choreonoid
 Create and place BodyRos item under the robot you want to control.</p>
 <p>Also, in the case of Foward dynamics mode a create BodyRosTorqueController item and in the case of High-gain dynamics mode a create BodyRosHighgainController item.</p>
 <p>Please refer to <a class="reference internal" href="tutorial.html"><span class="doc">Choreonoid ROS Plugin Tutorial</span></a> on details.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The simulation time mode are currently supported.</p>
+<p>Howerver, the wall-clock time mode are currently not supported.</p>
+<p>Sorry, please use simulation time mode.</p>
+<p class="last">The simulation time mode details, please see <a class="reference external" href="http://wiki.ros.org/Clock">http://wiki.ros.org/Clock</a></p>
+</div>
 </div>
 <div class="section" id="ros-topics">
 <h2>ROS Topics<a class="headerlink" href="#ros-topics" title="Permalink to this headline">¶</a></h2>
@@ -187,12 +194,12 @@ Create and place BodyRos item under the robot you want to control.</p>
 </div>
 <div class="section" id="robotname-sensorname">
 <h3>/[robotname]/[sensorname]<a class="headerlink" href="#robotname-sensorname" title="Permalink to this headline">¶</a></h3>
-<p>If there are sensors defined on the robot model, ROS plugin will generate topics correspond to each sensor inputs.</p>
-<p>Data type used for force sensors are <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs::Wrench</a>.</p>
-<p>Data type used for rate gyro sensors are <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a>.</p>
-<p>Data type used for accel sensors are <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html">geometry_msgs::Accel</a>.</p>
-<p>Data type used for range sensors are <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs::LaserScan</a>.</p>
-<p>Input for vision sensors are published using image transport.</p>
+<p>If there are sensors defined on the robot model, ROS plugin will generate topics correspond to each sensor.</p>
+<p>Output from force sensors are published using data type <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs::Wrench</a>.</p>
+<p>Output from gyro sensors are published using data type <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html">sensor_msgs::Imu</a>.</p>
+<p>Output from accel sensors are published using data type <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html">geometry_msgs::Accel</a>.</p>
+<p>Output from range sensors are published using data type <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs::LaserScan</a>.</p>
+<p>Output from vision sensors are published using image transport.</p>
 <p>For RGBD vision sensors, depth image is published in <a class="reference external" href="http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html">sensor_msgs::PointCloud2</a> data type as well.</p>
 </div>
 <div class="section" id="clock">
@@ -271,7 +278,7 @@ Create and place BodyRos item under the robot you want to control.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'0.0.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
