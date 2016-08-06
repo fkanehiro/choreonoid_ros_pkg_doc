@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-08-06 14:31+0900\n"
+"PO-Revision-Date: 2016-08-06 18:43+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -50,18 +50,6 @@ msgstr ""
 msgid "/[robotname]/[sensorname]"
 msgstr "/[robotname]/[sensorname]"
 
-#: ../../manual.rst:70
-msgid ""
-"If there are sensors defined on the robot model, ROS plugin will generate "
-"topics correspond to each sensor inputs."
-msgstr ""
-"ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応"
-"したトピックを生成します。"
-
-#: ../../manual.rst:80
-msgid "Input for vision sensors are published using image transport."
-msgstr "画像センサの入力についてはImage Transportを使ってpublishされます。"
-
 #: ../../manual.rst:100
 msgid "ROS Services"
 msgstr "ROSサービス"
@@ -105,23 +93,7 @@ msgid ""
 msgstr ""
 "set\\_joint\\_trajectoryトピックのデータ型は `trajectory_msgs::"
 "JointTrajectory <http://docs.ros.org/api/trajectory_msgs/html/msg/"
-"JointTrajectory.html>`_"
-
-#: ../../manual.rst:72
-msgid ""
-"Data type used for force sensors are `geometry_msgs::Wrench <http://docs.ros."
-"org/api/geometry_msgs/html/msg/Wrench.html>`_."
-msgstr ""
-"各力センサの入力に用いられるデータ型は `geometry_msgs::Wrench <http://docs."
-"ros.org/api/geometry_msgs/html/msg/Wrench.html>`_"
-
-#: ../../manual.rst:74
-msgid ""
-"Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros."
-"org/api/sensor_msgs/html/msg/Imu.html>`_."
-msgstr ""
-"各ジャイロセンサの入力に用いられるデータ型は `sensor_msgs::Imu <http://docs."
-"ros.org/api/sensor_msgs/html/msg/Imu.html>`_"
+"JointTrajectory.html>`_ です。"
 
 #: ../../manual.rst:56
 msgid ""
@@ -129,7 +101,7 @@ msgid ""
 "ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
 msgstr ""
 "joint\\_statesトピックのデータ型は `sensor_msgs::JointState <http://docs.ros."
-"org/api/sensor_msgs/html/msg/JointState.html>`_"
+"org/api/sensor_msgs/html/msg/JointState.html>`_ です。"
 
 #: ../../manual.rst:85
 msgid "\\/clock"
@@ -137,24 +109,16 @@ msgstr "\\/clock"
 
 #: ../../manual.rst:87
 msgid "Current simulation time is published to /clock topic."
-msgstr "現在のシミュレーション時刻が/clockトピックにpublishされます。"
+msgstr "現在のシミュレーション時刻を/clockトピックにpublishします。"
 
 #: ../../manual.rst:92
 msgid "Current position and attitude of models are published to this topic."
-msgstr "このトピックには各モデルの現在の位置姿勢がpublishされます。"
+msgstr "このトピックには各モデルの現在の位置姿勢をpublishします。"
 
 #: ../../manual.rst:97
 msgid ""
 "Current position and attitude of links in models are published to this topic."
-msgstr "このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。"
-
-#: ../../manual.rst:78
-msgid ""
-"Data type used for range sensors are `sensor_msgs::LaserScan <http://docs."
-"ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_."
-msgstr ""
-"レンジセンサの入力に用いられるデータ型は `sensor_msgs::LaserScan <http://"
-"docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_"
+msgstr "このトピックには各モデルの各リンクの現在の位置姿勢をpublishします。"
 
 #: ../../manual.rst:82
 msgid ""
@@ -162,8 +126,9 @@ msgid ""
 "PointCloud2 <http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2."
 "html>`_ data type as well."
 msgstr ""
-"RGBDセンサについては、デプス画像が `sensor_msgs::PointCloud2 <http://docs."
-"ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_  型でpublishされます。"
+"RGBDセンサについては、デプス画像を `sensor_msgs::PointCloud2 <http://docs."
+"ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_ のデータ 型でpublishしま"
+"す。"
 
 #: ../../manual.rst:90
 msgid "/[worldname]/model\\_states"
@@ -221,19 +186,10 @@ msgstr ""
 "torque_control、BodyRosHighgainController アイテムの場合 highgain_control と"
 "なります。"
 
-#: ../../manual.rst:76
-msgid ""
-"Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros."
-"org/api/geometry_msgs/html/msg/Accel.html>`_."
-msgstr ""
-"各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel <http://"
-"docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
-
 #: ../../manual.rst:54
 msgid "Each joint states are published to /[robotname]/joint\\_states topic."
 msgstr ""
-"ロボットの各関節の情報は/[robotname]/joint\\_statesトピックにpublishされま"
-"す。"
+"ロボットの各関節の情報は/[robotname]/joint\\_statesトピックにpublishします。"
 
 #: ../../manual.rst:52
 msgid "/[robotname]/joint\\_states"
@@ -273,6 +229,88 @@ msgid "The simulation time mode details, please see http://wiki.ros.org/Clock"
 msgstr ""
 "simulation time モードの詳細については http://wiki.ros.org/Clock を参照してく"
 "ださい。"
+
+#: ../../manual.rst:70
+msgid ""
+"If there are sensors defined on the robot model, ROS plugin will generate "
+"topics correspond to each sensor."
+msgstr ""
+"ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサに対応した"
+"トピックを生成します。"
+
+#: ../../manual.rst:72
+msgid ""
+"Output from force sensors are published using data type `geometry_msgs::"
+"Wrench <http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_."
+msgstr ""
+"力センサからの出力は `geometry_msgs::Wrench <http://docs.ros.org/api/"
+"geometry_msgs/html/msg/Wrench.html>`_ のデータ型を使ってpublishします。"
+
+#: ../../manual.rst:74
+msgid ""
+"Output from gyro sensors are published using data type `sensor_msgs::Imu "
+"<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_."
+msgstr ""
+"ジャイロセンサからの出力は `sensor_msgs::Imu <http://docs.ros.org/api/"
+"sensor_msgs/html/msg/Imu.html>`_ のデータ型を使ってpublishします。"
+
+#: ../../manual.rst:76
+msgid ""
+"Output from accel sensors are published using data type `geometry_msgs::"
+"Accel <http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_."
+msgstr ""
+"加速度センサからの出力は `geometry_msgs::Accel <http://docs.ros.org/api/"
+"geometry_msgs/html/msg/Accel.html>`_ のデータ型を使ってpublishします。"
+
+#: ../../manual.rst:78
+msgid ""
+"Output from range sensors are published using data type `sensor_msgs::"
+"LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_."
+msgstr ""
+"レンジセンサからの出力は `sensor_msgs::LaserScan <http://docs.ros.org/api/"
+"sensor_msgs/html/msg/LaserScan.html>`_ のデータ型を使ってpublishします。"
+
+#: ../../manual.rst:80
+msgid "Output from vision sensors are published using image transport."
+msgstr "画像センサからの出力はImage Transportを使ってpublishします。"
+
+#~ msgid ""
+#~ "If there are sensors defined on the robot model, ROS plugin will generate "
+#~ "topics correspond to each sensor inputs."
+#~ msgstr ""
+#~ "ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に"
+#~ "対応したトピックを生成します。"
+
+#~ msgid "Input for vision sensors are published using image transport."
+#~ msgstr "画像センサの入力についてはImage Transportを使ってpublishされます。"
+
+#~ msgid ""
+#~ "Data type used for force sensors are `geometry_msgs::Wrench <http://docs."
+#~ "ros.org/api/geometry_msgs/html/msg/Wrench.html>`_."
+#~ msgstr ""
+#~ "各力センサの入力に用いられるデータ型は `geometry_msgs::Wrench <http://"
+#~ "docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_"
+
+#~ msgid ""
+#~ "Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs."
+#~ "ros.org/api/sensor_msgs/html/msg/Imu.html>`_."
+#~ msgstr ""
+#~ "各ジャイロセンサの入力に用いられるデータ型は `sensor_msgs::Imu <http://"
+#~ "docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_"
+
+#~ msgid ""
+#~ "Data type used for range sensors are `sensor_msgs::LaserScan <http://docs."
+#~ "ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_."
+#~ msgstr ""
+#~ "レンジセンサの入力に用いられるデータ型は `sensor_msgs::LaserScan <http://"
+#~ "docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_"
+
+#~ msgid ""
+#~ "Data type used for accel sensors are `geometry_msgs::Accel <http://docs."
+#~ "ros.org/api/geometry_msgs/html/msg/Accel.html>`_."
+#~ msgstr ""
+#~ "各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel <http://"
+#~ "docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
 
 #~ msgid ""
 #~ "Each joint states are published to /[robotname]/[controlmode]/joint"

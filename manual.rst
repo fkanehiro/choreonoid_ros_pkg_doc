@@ -67,17 +67,17 @@ Data type of set\_joint\_trajectory topic is `trajectory_msgs::JointTrajectory <
 /[robotname]/[sensorname]
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If there are sensors defined on the robot model, ROS plugin will generate topics correspond to each sensor inputs.
+If there are sensors defined on the robot model, ROS plugin will generate topics correspond to each sensor.
 
-Data type used for force sensors are `geometry_msgs::Wrench <http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_.
+Output from force sensors are published using data type `geometry_msgs::Wrench <http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_.
 
-Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_.
+Output from gyro sensors are published using data type `sensor_msgs::Imu <http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_.
 
-Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_.
+Output from accel sensors are published using data type `geometry_msgs::Accel <http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_.
 
-Data type used for range sensors are `sensor_msgs::LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_.
+Output from range sensors are published using data type `sensor_msgs::LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_.
 
-Input for vision sensors are published using image transport.
+Output from vision sensors are published using image transport.
 
 For RGBD vision sensors, depth image is published in `sensor_msgs::PointCloud2 <http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_ data type as well.
 
