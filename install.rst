@@ -29,6 +29,12 @@ OS installation, please finish in advance.
 
 How to install OS, please see http://www.ubuntu.com/download/desktop/install-ubuntu-desktop
 
+.. note::
+
+   If you use NVIDIA graphics card, must use of proprietary (not open source version) driver.
+
+   If you use the open source version driver the Choreonoid with GLVisionSimulator is abnormally terminate.
+
 ROS and required package installation is described in the next section.
 
 
@@ -202,7 +208,7 @@ Run the following command:
    $ wstool update choreonoid_ros_pkg
    $ wstool update choreonoid_sdfloader_plugin (*)
    $ cd ~/catkin_ws
-   $ catkin clean -b
+   $ catkin clean -b -y
    $ catkin build choreonoid_ros_pkg
    $ catkin build choreonoid_sdfloader_plugin (*)
    $ source install/setup.bash
@@ -239,7 +245,7 @@ In the following steps, you can make it.
    .. code-block:: bash
 
       $ cd ~/catkin_ws
-      $ catkin clean -a
+      $ catkin clean -y
       $ catkin build choreonoid_ros_pkg
       $ catkin build choreonoid_sdfloader_plugin (*)
       $ source install/setup.bash
@@ -295,7 +301,7 @@ Solve of a problem of after installation.
 
     .. code-block:: bash
 
-       $ catkin clean -a
+       $ catkin clean -y
        $ export CMAKE_PREFIX_PATH=~/catkin_ws/devel:/opt/ros/indigo
        $ catkin build choreonoid_ros_pkg
        $ catkin build choreonoid_sdfloader_plugin (*)

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-03-22 11:51+0900\n"
+"PO-Revision-Date: 2016-08-06 14:26+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,24 +12,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../../install.rst:125
+#: ../../install.rst:131
 msgid "To use the package, you first have to create catkin workspace:"
 msgstr "パッケージの利用に際し、catkin ワークスペースを作る必要があります:"
 
-#: ../../install.rst:133
+#: ../../install.rst:139
 msgid "Then, checkout choreonoid\\_ros\\_pkg under catkin\\_ws/src folder:"
 msgstr ""
 "catkin\\_ws/srcフォルダ以下にchoreonoid\\_ros\\_pkgをチェックアウトします:"
 
-#: ../../install.rst:142
+#: ../../install.rst:148
 msgid "Install dependent packages:"
 msgstr "依存パッケージをインストールします:"
 
-#: ../../install.rst:149
+#: ../../install.rst:155
 msgid "Build and install catkin packages:"
 msgstr "catkinパッケージをビルドしインストールします:"
 
-#: ../../install.rst:159
+#: ../../install.rst:165
 msgid ""
 "To use the URDF/SDF based models in Choreonoid, please install sdfloader as "
 "well:"
@@ -45,27 +45,27 @@ msgstr "概要"
 msgid "Ubuntu 14.04 64-bit PC (AMD) desktop + ROS Indigo"
 msgstr "Ubuntu 14.04 64-bit PC (AMD) desktop + ROS Indigo"
 
-#: ../../install.rst:36
+#: ../../install.rst:42
 msgid "Preliminary preparation for install"
 msgstr "インストール前準備"
 
-#: ../../install.rst:121
+#: ../../install.rst:127
 msgid "Install Choreonoid ROS Plugin"
 msgstr "Choreonoid ROS プラグインのインストール"
 
-#: ../../install.rst:193
+#: ../../install.rst:199
 msgid "Update Choreonoid ROS Plugin"
 msgstr "Choreonoid ROS プラグインのアップデート"
 
-#: ../../install.rst:41
+#: ../../install.rst:47
 msgid "Install ROS Indigo"
 msgstr "ROS Indigo のインストール"
 
-#: ../../install.rst:57
+#: ../../install.rst:63
 msgid "Install required package (without simtrans)"
 msgstr "必須パッケージのインストール (simtrans 以外)"
 
-#: ../../install.rst:86
+#: ../../install.rst:92
 msgid "Install required package (simtrans)"
 msgstr "必須パッケージのインストール (simtrans)"
 
@@ -96,11 +96,11 @@ msgstr "choreonoid\\_ros: Choreonoid本体のcatkinパッケージ"
 msgid "jvrc\\_models: Simulation models and tasks for JVRC"
 msgstr "jvrc\\_models: JVRC競技会用シミュレーションモデルとタスクファイル"
 
-#: ../../install.rst:253
+#: ../../install.rst:259
 msgid "Troubleshoot"
 msgstr "トラブルシュート"
 
-#: ../../install.rst:257
+#: ../../install.rst:263
 msgid "If startup problem of 'roslaunch choreonoid_ros jvrc-1-rviz.launch'."
 msgstr ""
 "'roslaunch choreonoid_ros jvrc-1-rviz.launch'の起動において問題が発生した場合"
@@ -129,62 +129,62 @@ msgstr ""
 "OS のインストール方法については http://www.ubuntu.com/download/desktop/"
 "install-ubuntu-desktop を参照してください。"
 
-#: ../../install.rst:32
+#: ../../install.rst:38
 msgid "ROS and required package installation is described in the next section."
 msgstr ""
 "ROS および、ビルド時に必須となるパッケージのインストール方法は、次節で説明し"
 "ます。"
 
-#: ../../install.rst:43 ../../install.rst:59 ../../install.rst:88
-#: ../../install.rst:197 ../../install.rst:275 ../../install.rst:284
-#: ../../install.rst:294
+#: ../../install.rst:49 ../../install.rst:65 ../../install.rst:94
+#: ../../install.rst:203 ../../install.rst:281 ../../install.rst:290
+#: ../../install.rst:300
 msgid "Run the following command:"
 msgstr "以下のコマンドを実行します:"
 
-#: ../../install.rst:65
+#: ../../install.rst:71
 msgid ""
 "After the intstallation, run the initialization and update of ROS package "
 "database:"
 msgstr ""
 "インストール後、ROS のパッケージデータベースの初期化および更新を実行します:"
 
-#: ../../install.rst:72
+#: ../../install.rst:78
 msgid "Run the following command, make sure without error:"
 msgstr "以下のコマンドを実行し、エラーが発生しない事を確認します:"
 
-#: ../../install.rst:100
+#: ../../install.rst:106
 msgid "Confirm installation:"
 msgstr "インストールの確認をします:"
 
-#: ../../install.rst:210
+#: ../../install.rst:216
 msgid "(*) If you have installed."
 msgstr "(*) sdfloader をインストールした場合のみ実行します。"
 
-#: ../../install.rst:255
+#: ../../install.rst:261
 msgid "Solve of a problem of after installation."
 msgstr "インストール後に問題が発生した場合の解決方法を以下に記します。"
 
-#: ../../install.rst:259
+#: ../../install.rst:265
 msgid "Checking the catkin config value of 'Extending':"
 msgstr "catkin の設定'Extending'の値を確認します:"
 
-#: ../../install.rst:247 ../../install.rst:305
+#: ../../install.rst:253 ../../install.rst:311
 msgid "(*) If you want to install."
 msgstr "(*) sdfloader を使用する場合のみ実行します。"
 
-#: ../../install.rst:282
+#: ../../install.rst:288
 msgid "if case '[env] /opt/ros/indigo':"
 msgstr "値が'[env] /opt/ros/indigo'の場合:"
 
-#: ../../install.rst:123
+#: ../../install.rst:129
 msgid "How to install Choreonoid ROS plugin."
 msgstr "Choreonoid ROS plugin のインストール方法を以下に記します。"
 
-#: ../../install.rst:195
+#: ../../install.rst:201
 msgid "How to update Choreonoid ROS plugin."
 msgstr "Choreonoid ROS plugin の更新方法を以下に記します。"
 
-#: ../../install.rst:273
+#: ../../install.rst:279
 msgid ""
 "if case '[env | cached] <path to your home directory>/catkin_ws/devel:/opt/"
 "ros/indigo':"
@@ -192,42 +192,42 @@ msgstr ""
 "値が'[env | cached] <path to your home directory>/catkin_ws/devel:/opt/ros/"
 "indigo'の場合:"
 
-#: ../../install.rst:292
+#: ../../install.rst:298
 msgid "if case '[cached] /opt/ros/indigo' or other case:"
 msgstr ""
 "値が'[cached] /opt/ros/indigo'もしくは、これまでのケースに合致しない場合:"
 
-#: ../../install.rst:38
+#: ../../install.rst:44
 msgid "How to install ROS and required package."
 msgstr ""
 "ROS および、ビルド時に必須となるパッケージのインストール方法を以下に記しま"
 "す。"
 
-#: ../../install.rst:54
+#: ../../install.rst:60
 msgid ""
 "Procedure details, please see http://wiki.ros.org/indigo/Installation/Ubuntu"
 msgstr ""
 "手順の詳細については http://wiki.ros.org/indigo/Installation/Ubuntu を参照し"
 "てください。"
 
-#: ../../install.rst:83
+#: ../../install.rst:89
 msgid "Command rosdep details, please see http://wiki.ros.org/rosdep"
 msgstr ""
 "rosdep コマンドの詳細については http://wiki.ros.org/rosdep を参照してくださ"
 "い。"
 
-#: ../../install.rst:117
+#: ../../install.rst:123
 msgid ""
 "Command simtrans details, please see https://github.com/fkanehiro/simtrans"
 msgstr ""
 "simtrans コマンドの詳細については https://github.com/fkanehiro/simtrans を参"
 "照してください。"
 
-#: ../../install.rst:169
+#: ../../install.rst:175
 msgid "Changing ROS default setup."
 msgstr "ROS のデフォルトセットアップを変更します。"
 
-#: ../../install.rst:171
+#: ../../install.rst:177
 msgid ""
 "Modify line of 'source /opt/ros/indigo/setup.bash' in the ~/.bashrc by any "
 "text editor:"
@@ -235,11 +235,11 @@ msgstr ""
 "任意のテキストエディタで ~/.bashrc の'source /opt/ros/indigo/setup.bash'の行"
 "を以下のように変更します:"
 
-#: ../../install.rst:177
+#: ../../install.rst:183
 msgid "If reverting ROS default setup."
 msgstr "ROS のデフォルトセットアップに戻す場合。"
 
-#: ../../install.rst:179
+#: ../../install.rst:185
 msgid ""
 "Modify line of 'source ~/catkin_ws/install/setup.bash' in the ~/.bashrc by "
 "any text editor:"
@@ -247,19 +247,19 @@ msgstr ""
 "任意のテキストエディタで ~/.bashrc の'source ~/catkin_ws/install/setup."
 "bash'の行を以下のように変更します:"
 
-#: ../../install.rst:185
+#: ../../install.rst:191
 msgid "After reverting, run the following command:"
 msgstr "変更後、以下のコマンドを実行します。"
 
-#: ../../install.rst:237
+#: ../../install.rst:243
 msgid "Run the following command."
 msgstr "以下のコマンドを実行します。"
 
-#: ../../install.rst:214
+#: ../../install.rst:220
 msgid "Setting of the CMake at the build of the Choreonoid"
 msgstr "Choreonoid ビルド時の CMake 設定"
 
-#: ../../install.rst:216
+#: ../../install.rst:222
 msgid ""
 "If you want to including the other plugins at the time of build of the "
 "Choreonoid. In the following steps, you can make it."
@@ -267,7 +267,7 @@ msgstr ""
 "Choreonoid のビルド時に他のプラグインを含むビルドを実施する場合、以下の手順に"
 "て実施できます。"
 
-#: ../../install.rst:219
+#: ../../install.rst:225
 msgid ""
 "Create 'additional_cmake_args' file under the '~/catkin_ws/src/"
 "choreonoid_ros_pkg/choreonoid_ros' directory."
@@ -275,21 +275,37 @@ msgstr ""
 "~/catkin_ws/src/choreonoid_ros_pkg/choreonoid_ros ディレクトリ下に、"
 "additional_cmake_args ファイルを作成します。"
 
-#: ../../install.rst:225
+#: ../../install.rst:231
 msgid "Edit 'additional_cmake_args' file."
 msgstr "additional_cmake_args ファイルを編集します。"
 
-#: ../../install.rst:231
+#: ../../install.rst:237
 msgid "e.g. If you want to append the OpenRTM plugin."
 msgstr "例えば、OpenRTM プラグインを追加する場合、以下の内容となります。"
 
-#: ../../install.rst:249
+#: ../../install.rst:255
 msgid ""
 "For setting information, please refer to the http://choreonoid.org/en/"
 "manuals/1.5/install/options.html and the like."
 msgstr ""
 "指定可能な CMake 設定については、http://choreonoid.org/ja/manuals/1.5/"
 "install/options.html 等を参照してください。 "
+
+#: ../../install.rst:34
+msgid ""
+"If you use NVIDIA graphics card, must use of proprietary (not open source "
+"version) driver."
+msgstr ""
+"NVIDIA の GPU を使用している場合、ドライバはオープンソース版ではなくプロプラ"
+"イエタリ版を使用してください。"
+
+#: ../../install.rst:36
+msgid ""
+"If you use the open source version driver the Choreonoid with "
+"GLVisionSimulator is abnormally terminate."
+msgstr ""
+"オープンソース版のドライバを使用した場合、GLVisionSimulator　を使用するシミュ"
+"レーションを実行すると Choreonoid が異常終了します。"
 
 #~ msgid "Details see http://wiki.ros.org/indigo/Installation/Ubuntu"
 #~ msgstr ""

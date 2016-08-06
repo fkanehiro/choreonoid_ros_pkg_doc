@@ -25,6 +25,16 @@ Also, in the case of Foward dynamics mode a create BodyRosTorqueController item 
 
 Please refer to :doc:`tutorial` on details.
 
+.. note::
+
+   The simulation time mode are currently supported.
+
+   Howerver, the wall-clock time mode are currently not supported.
+
+   Sorry, please use simulation time mode.
+
+   The simulation time mode details, please see http://wiki.ros.org/Clock
+
 
 ROS Topics
 ==========

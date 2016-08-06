@@ -20,38 +20,6 @@ You should see the JVRC O1 task loaded on Choreonoid with rviz visualization.
    Preconfigured project has been created in the Foward dynamics mode.
 
 
-Configure the project by hand
-=============================
-
-Or you can prepare project of your own.
-
-To prepare your own project:
-
-1. Create World item and create Body item by opening the robot model data.
-2. Configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.
-
-.. image:: forward-dynamics-mode.png
-
-Or
-
-.. image:: highgain-dynamics-mode.png
-
-3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
-4. Create and place BodyRos item under the robot you want to control.
-5. Create and place BodyRosTorqueController item (in the case of Foward dynamics mode) or BodyRosHighgainController item (in the case of High-gain dynamics mode) under the robot you want to control.
-6. Create and place WorldRos item under the world you want to control.
-
-Item view should be structured as follows after the above configuration.
-
-.. image:: itemview-forward.png
-
-Or
-
-.. image:: itemview-highgain.png
-
-Finally, click "start simulation" button to enable the ROS functions.
-
-
 Use ROS utility commands to monitor the message
 ===============================================
 
@@ -145,3 +113,77 @@ The script you can run in the following procedure.
    $ rosrun choreonoid_plugins test-model-spawn.py
 
 
+Configure the project by hand
+=============================
+
+Or you can prepare project of your own.
+
+To prepare your own project:
+
+1. Create World item and create Body item by opening the robot model data.
+2. Configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.
+
+.. image:: forward-dynamics-mode.png
+
+Or
+
+.. image:: highgain-dynamics-mode.png
+
+3. (Optional) Create and place ViewSimulator item under the AISTSimulator you want to get image input.
+4. Create and place BodyRos item under the robot you want to control.
+5. Create and place BodyRosTorqueController item (in the case of Foward dynamics mode) or BodyRosHighgainController item (in the case of High-gain dynamics mode) under the robot you want to control.
+6. Create and place WorldRos item under the world you want to control.
+
+Item view should be structured as follows after the above configuration.
+
+.. image:: itemview-forward.png
+
+Or
+
+.. image:: itemview-highgain.png
+
+If you choose BodyRosTorqueController is need setting of the control parameters:
+
+1. Prepare the control parameters file by any your file. The file require YAML format.
+
+   .. code-block:: bash
+
+      $ gedit ~/my-robot-pdc-parameters.yaml 
+
+   YAML format details, please see http://yaml.org/.
+
+2. Edit your control parameters file. Are required parameter is pgain and dgain and u_lower and u_upper.
+   Also, each parameter must match the number of joints of your robot.
+
+   example:
+
+   .. code-block:: bash
+
+      pgain:   [ 3000.0, 3000.0, 3000.0, ... ]
+      dgain:   [  100.0,  100.0,  100.0, ... ]
+      u_lower: [  -20.0,  -20.0,  -20.0, ... ]
+      u_upper: [   20.0,   20.0,   20.0, ... ]
+
+   The JVRC-1's control parameter file (jvrc1-pdc-parameters.yml) contains under the directory of ~/catkin_ws/install/share/choreonoid_plugins/test. Please see as a sample.
+
+3. Set the parameter file for the BodyRosTorqueController.
+
+   .. image:: setting-pdc-before.png
+
+   |
+
+   .. image:: setting-pdc-after.png
+
+   |
+
+   .. note::
+
+      '~' can not be used. Please use absolute path.
+
+If the reocore has not been started, start the roscore in a different terminnal.
+
+.. code-block:: bash
+
+   $ roscore
+
+Finally, click "start simulation" button to enable the ROS functions.

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-07-04 11:20+0900\n"
+"PO-Revision-Date: 2016-08-06 14:31+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,171 +26,177 @@ msgstr "実行"
 
 #: ../../manual.rst:14
 msgid "Enter following commands to run ROS plugin enabled Choreonoid."
-msgstr "ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力します。"
+msgstr ""
+"ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力"
+"します。"
 
 #: ../../manual.rst:26
 msgid "Please refer to :doc:`tutorial` on details."
 msgstr "詳しくは :doc:`tutorial` を参照してください。"
 
-#: ../../manual.rst:30
+#: ../../manual.rst:40
 msgid "ROS Topics"
 msgstr "ROSトピックス"
 
-#: ../../manual.rst:32
+#: ../../manual.rst:42
 msgid ""
-"Choreonoid ROS plugin provides following ROS topics, please refer to "
-":doc:`tutorial` for actual use."
+"Choreonoid ROS plugin provides following ROS topics, please refer to :doc:"
+"`tutorial` for actual use."
 msgstr ""
-"Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は :doc:`tutorial` を参照してください。"
+"Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は :"
+"doc:`tutorial` を参照してください。"
 
-#: ../../manual.rst:58
+#: ../../manual.rst:68
 msgid "/[robotname]/[sensorname]"
 msgstr "/[robotname]/[sensorname]"
 
-#: ../../manual.rst:60
+#: ../../manual.rst:70
 msgid ""
 "If there are sensors defined on the robot model, ROS plugin will generate "
 "topics correspond to each sensor inputs."
-msgstr "ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応したトピックを生成します。"
+msgstr ""
+"ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサ入力に対応"
+"したトピックを生成します。"
 
-#: ../../manual.rst:70
+#: ../../manual.rst:80
 msgid "Input for vision sensors are published using image transport."
 msgstr "画像センサの入力についてはImage Transportを使ってpublishされます。"
 
-#: ../../manual.rst:90
+#: ../../manual.rst:100
 msgid "ROS Services"
 msgstr "ROSサービス"
 
-#: ../../manual.rst:92
+#: ../../manual.rst:102
 msgid "Following ROS services are provided to control the simulation."
 msgstr "シミュレーションを制御するために以下のROSサービスが利用できます。"
 
-#: ../../manual.rst:97
+#: ../../manual.rst:107
 msgid "Takes no argument. Pause the simulation."
 msgstr "引数なし。シミュレーションを一時停止します。"
 
-#: ../../manual.rst:102
+#: ../../manual.rst:112
 msgid "Takes no argument. Continue the paused simulation."
 msgstr "引数なし。一時停止したシミュレーションを再開します。"
 
-#: ../../manual.rst:107
+#: ../../manual.rst:117
 msgid ""
 "Takes [model_name, model_data, namespace, pose, reference_frame] as "
 "arguments. Load the specified model to the simulation."
 msgstr ""
-"[model_name, model_data, namespace, pose, "
-"reference_frame]を引数にとります。指定されたモデルをシミュレータにロードします。"
+"[model_name, model_data, namespace, pose, reference_frame]を引数にとります。"
+"指定されたモデルをシミュレータにロードします。"
 
-#: ../../manual.rst:112
+#: ../../manual.rst:122
 msgid ""
 "Takes [model_name] as an argument. Delete the specified model from the "
 "simulation."
-msgstr "[model_name]を引数にとります。指定されたモデルをシミュレータから消去します。"
+msgstr ""
+"[model_name]を引数にとります。指定されたモデルをシミュレータから消去します。"
 
 #: ../../manual.rst:3
 msgid "Choreonoid ROS Plugin Manual"
 msgstr "Choreonoid ROSプラグインマニュアル"
 
-#: ../../manual.rst:54
-msgid ""
-"Data type of set\\_joint\\_trajectory topic is "
-"`trajectory_msgs::JointTrajectory "
-"<http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html>`_."
-msgstr ""
-"set\\_joint\\_trajectoryトピックのデータ型は `trajectory_msgs::JointTrajectory "
-"<http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html>`_"
-
-#: ../../manual.rst:62
-msgid ""
-"Data type used for force sensors are `geometry_msgs::Wrench "
-"<http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_."
-msgstr ""
-"各力センサの入力に用いられるデータ型は `geometry_msgs::Wrench "
-"<http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_"
-
 #: ../../manual.rst:64
 msgid ""
-"Data type used for rate gyro sensors are `sensor_msgs::Imu "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_."
+"Data type of set\\_joint\\_trajectory topic is `trajectory_msgs::"
+"JointTrajectory <http://docs.ros.org/api/trajectory_msgs/html/msg/"
+"JointTrajectory.html>`_."
 msgstr ""
-"各ジャイロセンサの入力に用いられるデータ型は `sensor_msgs::Imu "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_"
-
-#: ../../manual.rst:46
-msgid ""
-"Data type of joint\\_states topic is `sensor_msgs::JointState "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
-msgstr ""
-"joint\\_statesトピックのデータ型は `sensor_msgs::JointState "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_"
-
-#: ../../manual.rst:75
-msgid "\\/clock"
-msgstr "\\/clock"
-
-#: ../../manual.rst:77
-msgid "Current simulation time is published to /clock topic."
-msgstr "現在のシミュレーション時刻が/clockトピックにpublishされます。"
-
-#: ../../manual.rst:82
-msgid "Current position and attitude of models are published to this topic."
-msgstr "このトピックには各モデルの現在の位置姿勢がpublishされます。"
-
-#: ../../manual.rst:87
-msgid ""
-"Current position and attitude of links in models are published to this "
-"topic."
-msgstr "このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。"
-
-#: ../../manual.rst:68
-msgid ""
-"Data type used for range sensors are `sensor_msgs::LaserScan "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_."
-msgstr ""
-"レンジセンサの入力に用いられるデータ型は `sensor_msgs::LaserScan "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_"
+"set\\_joint\\_trajectoryトピックのデータ型は `trajectory_msgs::"
+"JointTrajectory <http://docs.ros.org/api/trajectory_msgs/html/msg/"
+"JointTrajectory.html>`_"
 
 #: ../../manual.rst:72
 msgid ""
-"For RGBD vision sensors, depth image is published in "
-"`sensor_msgs::PointCloud2 "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_ data type "
-"as well."
+"Data type used for force sensors are `geometry_msgs::Wrench <http://docs.ros."
+"org/api/geometry_msgs/html/msg/Wrench.html>`_."
 msgstr ""
-"RGBDセンサについては、デプス画像が `sensor_msgs::PointCloud2 "
-"<http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_  "
-"型でpublishされます。"
+"各力センサの入力に用いられるデータ型は `geometry_msgs::Wrench <http://docs."
+"ros.org/api/geometry_msgs/html/msg/Wrench.html>`_"
 
-#: ../../manual.rst:80
+#: ../../manual.rst:74
+msgid ""
+"Data type used for rate gyro sensors are `sensor_msgs::Imu <http://docs.ros."
+"org/api/sensor_msgs/html/msg/Imu.html>`_."
+msgstr ""
+"各ジャイロセンサの入力に用いられるデータ型は `sensor_msgs::Imu <http://docs."
+"ros.org/api/sensor_msgs/html/msg/Imu.html>`_"
+
+#: ../../manual.rst:56
+msgid ""
+"Data type of joint\\_states topic is `sensor_msgs::JointState <http://docs."
+"ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
+msgstr ""
+"joint\\_statesトピックのデータ型は `sensor_msgs::JointState <http://docs.ros."
+"org/api/sensor_msgs/html/msg/JointState.html>`_"
+
+#: ../../manual.rst:85
+msgid "\\/clock"
+msgstr "\\/clock"
+
+#: ../../manual.rst:87
+msgid "Current simulation time is published to /clock topic."
+msgstr "現在のシミュレーション時刻が/clockトピックにpublishされます。"
+
+#: ../../manual.rst:92
+msgid "Current position and attitude of models are published to this topic."
+msgstr "このトピックには各モデルの現在の位置姿勢がpublishされます。"
+
+#: ../../manual.rst:97
+msgid ""
+"Current position and attitude of links in models are published to this topic."
+msgstr "このトピックには各モデルの各リンクの現在の位置姿勢がpublishされます。"
+
+#: ../../manual.rst:78
+msgid ""
+"Data type used for range sensors are `sensor_msgs::LaserScan <http://docs."
+"ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_."
+msgstr ""
+"レンジセンサの入力に用いられるデータ型は `sensor_msgs::LaserScan <http://"
+"docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_"
+
+#: ../../manual.rst:82
+msgid ""
+"For RGBD vision sensors, depth image is published in `sensor_msgs::"
+"PointCloud2 <http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2."
+"html>`_ data type as well."
+msgstr ""
+"RGBDセンサについては、デプス画像が `sensor_msgs::PointCloud2 <http://docs."
+"ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_  型でpublishされます。"
+
+#: ../../manual.rst:90
 msgid "/[worldname]/model\\_states"
 msgstr "/[worldname]/model\\_states"
 
-#: ../../manual.rst:85
+#: ../../manual.rst:95
 msgid "/[worldname]/links\\_states"
 msgstr "/[worldname]/links\\_states"
 
-#: ../../manual.rst:95
+#: ../../manual.rst:105
 msgid "/[worldname]/pause\\_physics"
 msgstr "/[worldname]/pause\\_physics"
 
-#: ../../manual.rst:100
+#: ../../manual.rst:110
 msgid "/[worldname]/unpause\\_physics"
 msgstr "/[worldname]/unpause\\_physics"
 
-#: ../../manual.rst:105
+#: ../../manual.rst:115
 msgid "/[worldname]/spawn\\_vrml\\_model"
 msgstr "/[worldname]/spawn\\_vrml\\_model"
 
-#: ../../manual.rst:110
+#: ../../manual.rst:120
 msgid "/[worldname]/delete\\_model"
 msgstr "/[worldname]/delete\\_model"
 
 #: ../../manual.rst:21
 msgid ""
-"You have to configure AISTSimulator item to use Foward dynamics mode or "
-"High-gain dynamics mode. Create and place BodyRos item under the robot you "
-"want to control."
-msgstr "順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。"
+"You have to configure AISTSimulator item to use Foward dynamics mode or High-"
+"gain dynamics mode. Create and place BodyRos item under the robot you want "
+"to control."
+msgstr ""
+"順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムと"
+"BodyRosアイテムを配置する必要があります。"
 
 #: ../../manual.rst:24
 msgid ""
@@ -198,44 +204,49 @@ msgid ""
 "item and in the case of High-gain dynamics mode a create "
 "BodyRosHighgainController item."
 msgstr ""
-"また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモードの場合 "
-"BodyRosHighgainController アイテムを配置する必要があります。"
+"また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモー"
+"ドの場合 BodyRosHighgainController アイテムを配置する必要があります。"
 
-#: ../../manual.rst:50
+#: ../../manual.rst:60
 msgid "/[robotname]/[controlmode]/set\\_joint\\_trajectory"
 msgstr "/[robotname]/[controlmode]/set\\_joint\\_trajectory"
 
-#: ../../manual.rst:52
+#: ../../manual.rst:62
 msgid ""
-"Your control signal can be sent using "
-"/[robotname]/[controlmode]/set\\_joint\\_trajectory topic."
+"Your control signal can be sent using /[robotname]/[controlmode]/set\\_joint"
+"\\_trajectory topic."
 msgstr ""
-"ロボットへの制御信号は/[robotname]/[controlmode]/set\\_joint\\_trajectoryトピックへ送ります。[controlmode]は、RosBodyTorqueController"
-" アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control "
-"となります。"
+"ロボットへの制御信号は/[robotname]/[controlmode]/set\\_joint\\_trajectoryト"
+"ピックへ送ります。[controlmode]は、RosBodyTorqueController アイテムの場合 "
+"torque_control、BodyRosHighgainController アイテムの場合 highgain_control と"
+"なります。"
 
-#: ../../manual.rst:66
+#: ../../manual.rst:76
 msgid ""
-"Data type used for accel sensors are `geometry_msgs::Accel "
-"<http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_."
+"Data type used for accel sensors are `geometry_msgs::Accel <http://docs.ros."
+"org/api/geometry_msgs/html/msg/Accel.html>`_."
 msgstr ""
-"各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel "
-"<http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
+"各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel <http://"
+"docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
 
-#: ../../manual.rst:44
+#: ../../manual.rst:54
 msgid "Each joint states are published to /[robotname]/joint\\_states topic."
-msgstr "ロボットの各関節の情報は/[robotname]/joint\\_statesトピックにpublishされます。"
+msgstr ""
+"ロボットの各関節の情報は/[robotname]/joint\\_statesトピックにpublishされま"
+"す。"
 
-#: ../../manual.rst:42
+#: ../../manual.rst:52
 msgid "/[robotname]/joint\\_states"
 msgstr "/[robotname]/joint\\_states"
 
-#: ../../manual.rst:36
+#: ../../manual.rst:46
 msgid ""
 "Data type of sensor\\_msgs and geometry\\_msgs provides by the BodyRos item."
-msgstr "データ型が sensor\\_msgs および geometry\\_msgs のトピックは、BodyRos アイテムが提供します。 "
+msgstr ""
+"データ型が sensor\\_msgs および geometry\\_msgs のトピックは、BodyRos アイテ"
+"ムが提供します。 "
 
-#: ../../manual.rst:38
+#: ../../manual.rst:48
 msgid ""
 "Data type of trajectory\\_msgs provides by the BodyRosTorqueContorller or "
 "BodyRosHighgainController item."
@@ -243,44 +254,69 @@ msgstr ""
 "データ型が trajectory\\_msgs のトピックは、BodyRosTorqueContorller もしくは "
 "BodyRosHighgainController アイテムが提供します。"
 
-#~ msgid ""
-#~ "Each joint states are published to /[robotname]/[controlmode]/joint\\_states"
-#~ " topic."
-#~ msgstr ""
-#~ "ロボットの各関節の情報は/[robotname]/[controlmode]/joint\\_statesトピックにパブリッシュします。[controlmode]は、RosBodyTorqueController"
-#~ " アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control "
-#~ "となります。"
+#: ../../manual.rst:30
+msgid "The simulation time mode are currently supported."
+msgstr "現在、simulation time モードはサポートしています。"
+
+#: ../../manual.rst:32
+msgid "Howerver, the wall-clock time mode are currently not supported."
+msgstr ""
+"しかしながら、wall-clock time (実時間) モードについては未サポートとなっていま"
+"す。"
+
+#: ../../manual.rst:34
+msgid "Sorry, please use simulation time mode."
+msgstr "申し訳ありませんが、simulation time モードを使用してください。"
+
+#: ../../manual.rst:36
+msgid "The simulation time mode details, please see http://wiki.ros.org/Clock"
+msgstr ""
+"simulation time モードの詳細については http://wiki.ros.org/Clock を参照してく"
+"ださい。"
 
 #~ msgid ""
-#~ "Data type used for accel sensors are `sensor_msgs::Accel "
-#~ "<http://docs.ros.org/api/sensor_msgs/html/msg/Accel.html>`_."
+#~ "Each joint states are published to /[robotname]/[controlmode]/joint"
+#~ "\\_states topic."
 #~ msgstr ""
-#~ "各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel "
-#~ "<http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
+#~ "ロボットの各関節の情報は/[robotname]/[controlmode]/joint\\_statesトピック"
+#~ "にパブリッシュします。[controlmode]は、RosBodyTorqueController アイテムの"
+#~ "場合 torque_control、BodyRosHighgainController アイテムの場合 "
+#~ "highgain_control となります。"
 
 #~ msgid ""
-#~ "Data type used for accel sensors are `sensor_msgs::Imu "
-#~ "<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_."
+#~ "Data type used for accel sensors are `sensor_msgs::Accel <http://docs.ros."
+#~ "org/api/sensor_msgs/html/msg/Accel.html>`_."
 #~ msgstr ""
-#~ "各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel "
-#~ "<http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
+#~ "各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel <http://"
+#~ "docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
 
 #~ msgid ""
-#~ "Your control signal can be sent using /[robotname]/set\\_joint\\_trajectory "
-#~ "topic."
-#~ msgstr "ロボットへの制御信号は/[robotname]/set\\_joint\\_trajectoryトピックに送ることができます。"
+#~ "Data type used for accel sensors are `sensor_msgs::Imu <http://docs.ros."
+#~ "org/api/sensor_msgs/html/msg/Imu.html>`_."
+#~ msgstr ""
+#~ "各加速度センサの入力に用いられるデータ型は `geometry_msgs::Accel <http://"
+#~ "docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_"
+
+#~ msgid ""
+#~ "Your control signal can be sent using /[robotname]/set\\_joint"
+#~ "\\_trajectory topic."
+#~ msgstr ""
+#~ "ロボットへの制御信号は/[robotname]/set\\_joint\\_trajectoryトピックに送る"
+#~ "ことができます。"
 
 #~ msgid ""
 #~ "You have to configure AISTSimulator item to use High-gain dynamics mode. "
 #~ "Create and place BodyRos item under the robot you want to control."
-#~ msgstr "ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。"
+#~ msgstr ""
+#~ "ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する"
+#~ "必要があります。"
 
 #~ msgid ""
-#~ "Data type of joint\\_states topic is `sensor_msgs/JointState "
-#~ "<http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
+#~ "Data type of joint\\_states topic is `sensor_msgs/JointState <http://docs."
+#~ "ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
 #~ msgstr ""
-#~ "joint\\_statesトピックのデータ型は `sensor_msgs/JointState "
-#~ "<http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_"
+#~ "joint\\_statesトピックのデータ型は `sensor_msgs/JointState <http://docs."
+#~ "ros.org/api/sensor_msgs/html/msg/JointState.html>`_"
 
 #~ msgid "Choreonoid Model Editor"
 #~ msgstr "Choreonoidモデル編集機能"
@@ -289,21 +325,28 @@ msgstr ""
 #~ msgstr "アーキテクチャ"
 
 #~ msgid ""
-#~ "Choreonoid model editor is realized as a plugin to extend the basic function"
-#~ " of Choreonoid."
-#~ msgstr "Choreonoidモデル編集機能はChoreonoidの基本機能を拡張するプラグインとして実装されています。"
+#~ "Choreonoid model editor is realized as a plugin to extend the basic "
+#~ "function of Choreonoid."
+#~ msgstr ""
+#~ "Choreonoidモデル編集機能はChoreonoidの基本機能を拡張するプラグインとして実"
+#~ "装されています。"
 
 #~ msgid ""
 #~ "In Choreonoid, plugin developer can extend its function by defining new "
 #~ "Items which appears in tree view of left panel."
-#~ msgstr "Choreonoidでは、開発者が左のパネルのツリービュー上に出てくるアイテムを新規に作成し、機能を拡張することができます。"
+#~ msgstr ""
+#~ "Choreonoidでは、開発者が左のパネルのツリービュー上に出てくるアイテムを新規"
+#~ "に作成し、機能を拡張することができます。"
 
 #~ msgid ""
 #~ "Original Choreonoid only have \"BodyItem\" to load the simulation model. "
 #~ "Choreonoid model editor adds \"EditableBodyItem\" which you can split the "
 #~ "simulation model into joints and links, and change its properties."
 #~ msgstr ""
-#~ "元のChoreonoidはシミュレーションモデルをロードする「BodyItem」しかありません。Choreonoidモデル編集機能では、シミュレーションモデルを関節とリンクの各パーツに分割し、各々のプロパティを変更することができる「EditableBodyItem」を追加します。"
+#~ "元のChoreonoidはシミュレーションモデルをロードする「BodyItem」しかありませ"
+#~ "ん。Choreonoidモデル編集機能では、シミュレーションモデルを関節とリンクの各"
+#~ "パーツに分割し、各々のプロパティを変更することができる「EditableBodyItem」"
+#~ "を追加します。"
 
 #~ msgid "From here, we explain each of those new Items."
 #~ msgstr "以下、それら新しい各アイテムについて説明します。"
@@ -314,13 +357,16 @@ msgstr ""
 #~ msgid "This item is created on top of all the items."
 #~ msgstr "このアイテムは、他のアイテムの上位に作成されます。"
 
-#~ msgid "When you load your existing model, this item is created automatically."
+#~ msgid ""
+#~ "When you load your existing model, this item is created automatically."
 #~ msgstr "既存のモデルをロードした場合、このアイテムは自動で作成されます。"
 
 #~ msgid ""
-#~ "Even when you create simulation model from scratch, you have to create this "
-#~ "item and connect the other items as a child."
-#~ msgstr "モデルを新規に一から作成する場合にも、まずこのアイテムを作成し、他の全てのアイテムを子アイテムとして接続する必要があります。"
+#~ "Even when you create simulation model from scratch, you have to create "
+#~ "this item and connect the other items as a child."
+#~ msgstr ""
+#~ "モデルを新規に一から作成する場合にも、まずこのアイテムを作成し、他の全ての"
+#~ "アイテムを子アイテムとして接続する必要があります。"
 
 #~ msgid "JointItem"
 #~ msgstr "JointItem"
@@ -328,17 +374,22 @@ msgstr ""
 #~ msgid ""
 #~ "When you want to add a joint to your simulation model, you have to create "
 #~ "this item."
-#~ msgstr "シミュレーションモデルに関節を付与したい場合、このアイテムを作成する必要があります。"
+#~ msgstr ""
+#~ "シミュレーションモデルに関節を付与したい場合、このアイテムを作成する必要が"
+#~ "あります。"
 
 #~ msgid ""
-#~ "After created, you can edit the property of the joint by double clicking the"
-#~ " property panel."
-#~ msgstr "プロパティパネルの各項目をダブルクリックすることで、関節の各プロパティを編集することができます。"
+#~ "After created, you can edit the property of the joint by double clicking "
+#~ "the property panel."
+#~ msgstr ""
+#~ "プロパティパネルの各項目をダブルクリックすることで、関節の各プロパティを編"
+#~ "集することができます。"
 
 #~ msgid "Joint type"
 #~ msgstr "Joint type"
 
-#~ msgid "Specifies type of joint from \"free\", \"rotate\", \"slide\", \"fixed\"."
+#~ msgid ""
+#~ "Specifies type of joint from \"free\", \"rotate\", \"slide\", \"fixed\"."
 #~ msgstr "関節の種類を「free」「rotate」「slide」「fixed」から選択します。"
 
 #~ msgid "Joint axis"
@@ -365,13 +416,17 @@ msgstr ""
 #~ msgid "Primitive type"
 #~ msgstr "Primitive type"
 
-#~ msgid "Specifies type of link from \"Mesh\", \"Cylinder\", \"Cone\", \"Sphere\"."
-#~ msgstr "リンクの種類を「Mesh」「Cylinder」「Cone」「Sphere」から選択します。"
+#~ msgid ""
+#~ "Specifies type of link from \"Mesh\", \"Cylinder\", \"Cone\", \"Sphere\"."
+#~ msgstr ""
+#~ "リンクの種類を「Mesh」「Cylinder」「Cone」「Sphere」から選択します。"
 
 #~ msgid ""
 #~ "Once primitive type is selected, property for each primitive types (e.g. "
 #~ "color and radius for sphere) will be appeared."
-#~ msgstr "プリミティブ型が選択されると、色や直径などの各プリミティブ型用のプロパティが表示されます。"
+#~ msgstr ""
+#~ "プリミティブ型が選択されると、色や直径などの各プリミティブ型用のプロパティ"
+#~ "が表示されます。"
 
 #~ msgid "Mass"
 #~ msgstr "Mass"
