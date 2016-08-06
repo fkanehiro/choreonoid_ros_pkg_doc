@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-03-11 10:59+0900\n"
+"PO-Revision-Date: 2016-08-06 14:33+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,155 +20,142 @@ msgstr "Choreonoid ROSプラグインチュートリアル"
 msgid "Run preconfigured project"
 msgstr "設定済みのプロジェクトを開く"
 
-#: ../../tutorial.rst:8 ../../tutorial.rst:106 ../../tutorial.rst:133
+#: ../../tutorial.rst:8 ../../tutorial.rst:74 ../../tutorial.rst:101
 msgid "You can use preconfigured project prepared for this tutorial."
 msgstr "このチュートリアル用に準備されたプロジェクトファイルを開きます。"
 
-#: ../../tutorial.rst:24
+#: ../../tutorial.rst:117
 msgid "Configure the project by hand"
 msgstr "カスタムプロジェクトの作成"
 
-#: ../../tutorial.rst:26
+#: ../../tutorial.rst:119
 msgid "Or you can prepare project of your own."
 msgstr "プロジェクトファイルは自身で作成する事も可能です。"
 
-#: ../../tutorial.rst:28
+#: ../../tutorial.rst:121
 msgid "To prepare your own project:"
 msgstr "プロジェクトファイルは以下の手順で作成します:"
 
-#: ../../tutorial.rst:30
-msgid "Create World item and create Body item by opening the robot model data."
-msgstr ""
-"Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。"
+#: ../../tutorial.rst:123
+msgid ""
+"Create World item and create Body item by opening the robot model data."
+msgstr "Worldアイテムを作成し、モデルデータを開くことでBodyアイテムも作成します。"
 
-#: ../../tutorial.rst:40
+#: ../../tutorial.rst:133
 msgid "Create and place BodyRos item under the robot you want to control."
 msgstr "操作するBody アイテムの下に、BodyRosアイテムを作成します。"
 
-#: ../../tutorial.rst:42
+#: ../../tutorial.rst:135
 msgid "Create and place WorldRos item under the world you want to control."
 msgstr "Worldアイテムの下にWorldRosアイテムを作成します。"
 
-#: ../../tutorial.rst:44
+#: ../../tutorial.rst:137
 msgid ""
 "Item view should be structured as follows after the above configuration."
 msgstr "上記の設定を行うと、アイテムビューは以下のような構造になります。"
 
-#: ../../tutorial.rst:52
+#: ../../tutorial.rst:189
 msgid "Finally, click \"start simulation\" button to enable the ROS functions."
-msgstr ""
-"最後に「シミュレーション開始」ボタンを押すとROS接続機能が有効になります。"
+msgstr "最後に「シミュレーション開始」ボタンを押すとROS接続機能が有効になります。"
 
-#: ../../tutorial.rst:56
+#: ../../tutorial.rst:24
 msgid "Use ROS utility commands to monitor the message"
 msgstr "ROSユーティリティコマンドを使ってメッセージをモニタする"
 
-#: ../../tutorial.rst:58
+#: ../../tutorial.rst:26
 msgid "List available topics:"
 msgstr "トピックの一覧を表示する:"
 
-#: ../../tutorial.rst:64
+#: ../../tutorial.rst:32
 msgid "Print input of force sensor:"
 msgstr "力センサの入力を表示する:"
 
-#: ../../tutorial.rst:95
+#: ../../tutorial.rst:63
 msgid "Use Python script to send command to the robot"
 msgstr "Pythonスクリプトを利用してロボットを動かす"
 
-#: ../../tutorial.rst:79
+#: ../../tutorial.rst:47
 msgid "Use ROS utility commands to control the simulation"
 msgstr "ROSユーティリティコマンドを使ってシミュレーションを制御する"
 
-#: ../../tutorial.rst:81
+#: ../../tutorial.rst:49
 msgid "Pause the simulation:"
 msgstr "シミュレーションを一時停止する:"
 
-#: ../../tutorial.rst:87
+#: ../../tutorial.rst:55
 msgid "Continue the paused simulation:"
 msgstr "一時停止したシミュレーションを再開する:"
 
-#: ../../tutorial.rst:122
+#: ../../tutorial.rst:90
 msgid "Use Python script to spawn the model"
 msgstr "Pythonスクリプトを利用してモデルファイルをロードする"
 
 #: ../../tutorial.rst:14
 msgid ""
-"You should see the JVRC O1 task loaded on Choreonoid with rviz visualization."
-msgstr ""
-"実行に成功するとJVRC O1タスクが rvizによるビジュアライゼーションつきで立ち上"
-"がります。"
+"You should see the JVRC O1 task loaded on Choreonoid with rviz "
+"visualization."
+msgstr "実行に成功するとJVRC O1タスクが rvizによるビジュアライゼーションつきで立ち上がります。"
 
-#: ../../tutorial.rst:39
+#: ../../tutorial.rst:132
 msgid ""
 "(Optional) Create and place ViewSimulator item under the AISTSimulator you "
 "want to get image input."
-msgstr ""
-"（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの"
-"下に作成します。"
+msgstr "（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの下に作成します。"
 
-#: ../../tutorial.rst:104 ../../tutorial.rst:131
+#: ../../tutorial.rst:72 ../../tutorial.rst:99
 msgid "The script you can run in the following procedure."
 msgstr "スクリプトは以下の手順で実行します。"
 
-#: ../../tutorial.rst:70
+#: ../../tutorial.rst:38
 msgid "Display camera input (using image-view package):"
 msgstr "カメラ画像を表示する（image-viewパッケージを利用）"
 
-#: ../../tutorial.rst:112 ../../tutorial.rst:139
+#: ../../tutorial.rst:80 ../../tutorial.rst:107
 msgid "Open a new terminal."
 msgstr "新しい端末を起動します。"
 
-#: ../../tutorial.rst:141
+#: ../../tutorial.rst:109
 msgid "Run the following command."
 msgstr "以下のコマンドを実行します。"
 
-#: ../../tutorial.rst:102 ../../tutorial.rst:129
+#: ../../tutorial.rst:70 ../../tutorial.rst:97
 msgid ""
-"The script contains under directory of ~/catkin_ws/install/share/"
-"choreonoid_plugins/test."
-msgstr ""
-"このスクリプトは ~/catkin_ws/install/share/choreonoid_plugins/test 以下に収め"
-"ています。"
+"The script contains under directory of "
+"~/catkin_ws/install/share/choreonoid_plugins/test."
+msgstr "このスクリプトは ~/catkin_ws/install/share/choreonoid_plugins/test 以下に収めています。"
 
-#: ../../tutorial.rst:124
+#: ../../tutorial.rst:92
 msgid ""
 "Following example (test-model-spawn.py) loads box model dynamically to "
 "current simulation."
-msgstr ""
-"以下の例 (test-model-spawn.py) は、現在のシミュレーション上にboxモデルを動的"
-"にロードします。"
+msgstr "以下の例 (test-model-spawn.py) は、現在のシミュレーション上にboxモデルを動的にロードします。"
 
-#: ../../tutorial.rst:31
+#: ../../tutorial.rst:124
 msgid ""
 "Configure AISTSimulator item to use Foward dynamics mode or High-gain "
 "dynamics mode."
-msgstr ""
-"AISTSimulatorアイテムを作成し、順動力学モードもしくは、ハイゲインモードに設定"
-"します。"
+msgstr "AISTSimulatorアイテムを作成し、順動力学モードもしくは、ハイゲインモードに設定します。"
 
-#: ../../tutorial.rst:41
+#: ../../tutorial.rst:134
 msgid ""
 "Create and place BodyRosTorqueController item (in the case of Foward "
 "dynamics mode) or BodyRosHighgainController item (in the case of High-gain "
 "dynamics mode) under the robot you want to control."
 msgstr ""
-"操作するBodyアイテムの下に、BodyRosTorqueController アイテム (順動力学モード"
-"の場合) もしくは、BodyRosHighgainController アイテム (ハイゲインモードの場"
-"合) を作成します。"
+"操作するBodyアイテムの下に、BodyRosTorqueController アイテム (順動力学モードの場合) "
+"もしくは、BodyRosHighgainController アイテム (ハイゲインモードの場合) を作成します。"
 
-#: ../../tutorial.rst:35 ../../tutorial.rst:48
+#: ../../tutorial.rst:128 ../../tutorial.rst:141
 msgid "Or"
 msgstr "もしくは"
 
-#: ../../tutorial.rst:97
+#: ../../tutorial.rst:65
 msgid ""
 "Following example (test-torque-control-jvrc1.py) sends each trajectory "
 "commands to any joint of JVRC-1 robot."
-msgstr ""
-"以下の例 (test-torque-control-jvrc1.py) は、JVRC-1ロボットの任意の関節に角度"
-"設定コマンドを送ります。"
+msgstr "以下の例 (test-torque-control-jvrc1.py) は、JVRC-1ロボットの任意の関節に角度設定コマンドを送ります。"
 
-#: ../../tutorial.rst:114
+#: ../../tutorial.rst:82
 msgid ""
 "For example, if you want to rotate 45 degrees for the neck. Run the "
 "following command."
@@ -176,39 +163,85 @@ msgstr "例えば、ロボットの首を45°回す場合。以下のコマン�
 
 #: ../../tutorial.rst:20
 msgid "Preconfigured project has been created in the Foward dynamics mode."
+msgstr "設定済みのプロジェクトは、順動力学モードを使用する設定で作成しています。"
+
+#: ../../tutorial.rst:145
+msgid ""
+"If you choose BodyRosTorqueController is need setting of the control "
+"parameters:"
+msgstr "BodyRosTorqueController アイテムを選択した場合、制御パラメータの設定を実施する必要があります："
+
+#: ../../tutorial.rst:147
+msgid ""
+"Prepare the control parameters file by any your file. The file require YAML "
+"format."
+msgstr "任意のファイル名で制御パラメータファイルを用意します。ファイルは YAML フォーマットで記述する必要があります。"
+
+#: ../../tutorial.rst:155
+msgid ""
+"Edit your control parameters file. Are required parameter is pgain and dgain"
+" and u_lower and u_upper. Also, each parameter must match the number of "
+"joints of your robot."
 msgstr ""
-"設定済みのプロジェクトは、順動力学モードを使用する設定で作成しています。"
+"制御パラメータファイルを編集します。必要なパラメータは pgain と dgain と u_lower と u_upper "
+"です。また、各パラメータはロボットの関節数と一致するように記述する必要があります。"
+
+#: ../../tutorial.rst:158
+msgid "example:"
+msgstr "記述例："
+
+#: ../../tutorial.rst:167
+msgid ""
+"The JVRC-1's control parameter file (jvrc1-pdc-parameters.yml) contains "
+"under the directory of ~/catkin_ws/install/share/choreonoid_plugins/test. "
+"Please see as a sample."
+msgstr ""
+"JVRC-1 向けの制御パラメータファイル (jvrc1-pdc-parameters.yml) を "
+"~/catkin_ws/install/share/choreonoid_plugins/test "
+"ディレクトリ以下に収めています。記述サンプルとして参照してください。"
+
+#: ../../tutorial.rst:169
+msgid "Set the parameter file for the BodyRosTorqueController."
+msgstr "用意した制御パラメータファイルを BodyRosTorqueController アイテムへセットします。"
+
+#: ../../tutorial.rst:181
+msgid "'~' can not be used. Please use absolute path."
+msgstr "~ を使用した表記は使用できません。絶対パス表記を使用してください。"
+
+#: ../../tutorial.rst:183
+msgid ""
+"If the reocore has not been started, start the roscore in a different "
+"terminnal."
+msgstr "roscore を起動していない場合、別の端末で roscore を起動します。"
+
+#: ../../tutorial.rst:153
+msgid "YAML format details, please see http://yaml.org/."
+msgstr "YAML フォーマットの詳細については http://yaml.org/ を参照してください。"
 
 #~ msgid ""
 #~ "Run the following command. (If you want to stop the script, please press "
 #~ "ctrl + c)"
-#~ msgstr ""
-#~ "以下のコマンドを実行します。 (実行を停止する場合は Ctrl + c を押してくださ"
-#~ "い)"
+#~ msgstr "以下のコマンドを実行します。 (実行を停止する場合は Ctrl + c を押してください)"
 
 #~ msgid ""
 #~ "Following example (test-jointtrajectory-jvrc-1.py) sends each trajectory "
 #~ "commands to NECK_Y joint of JVRC-1 robot."
 #~ msgstr ""
-#~ "以下の例 (test-jointtrajectory-jvrc-1.py) は、JVRC-1ロボットのNECK_Y関節に"
-#~ "角度設定コマンドを送ります。"
+#~ "以下の例 (test-jointtrajectory-jvrc-1.py) は、JVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。"
 
 #~ msgid "Configure AISTSimulator item to use High-gain dynamics mode."
 #~ msgstr "AISTSimulatorアイテムを作成し、ハイゲインモードに設定します。"
 
 #~ msgid "Following example loads box model dynamically to current simulation."
-#~ msgstr ""
-#~ "以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。"
+#~ msgstr "以下の例は、現在のシミュレーション上にboxモデルを動的にロードします。"
 
 #~ msgid ""
-#~ "Following example sends each trajectory commands to NECK_Y joint of "
-#~ "JVRC-1 robot."
-#~ msgstr ""
-#~ "以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。"
+#~ "Following example sends each trajectory commands to NECK_Y joint of JVRC-1 "
+#~ "robot."
+#~ msgstr "以下の例ではJVRC-1ロボットのNECK_Y関節に角度設定コマンドを送ります。"
 
 #~ msgid "Start any text editor, and then copy-paste the example script."
-#~ msgstr ""
-#~ "任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。"
+#~ msgstr "任意のテキストエディタを起動し、サンプルスクリプトをコピーペーストします。"
 
 #~ msgid "Saving the edits, and exit the text editor."
 #~ msgstr "編集内容を保存し、テキストエディタを終了します。"
@@ -217,27 +250,22 @@ msgstr ""
 #~ msgstr "ファイルのパーミッションを変更し、スクリプトを実行します。"
 
 #~ msgid ""
-#~ "Change of the file permission, and execute script. (If you want to stop "
-#~ "the script, please press ctrl + c)"
-#~ msgstr ""
-#~ "パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は "
-#~ "Ctrl + c を押してください)"
+#~ "Change of the file permission, and execute script. (If you want to stop the "
+#~ "script, please press ctrl + c)"
+#~ msgstr "パーミッションを変更し、スクリプトを実行します。(実行を停止する場合は Ctrl + c を押してください)"
 
 #~ msgid "Display camera input (using image-view2 package):"
 #~ msgstr "カメラ画像を表示する（image-view2パッケージを利用）"
 
 #~ msgid ""
-#~ "(Optional) Create and place ViewSimulator item under the robot you want "
-#~ "to get image input."
-#~ msgstr ""
-#~ "（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテム"
-#~ "の下に作成します。"
+#~ "(Optional) Create and place ViewSimulator item under the robot you want to "
+#~ "get image input."
+#~ msgstr "（任意）画像入力が必要な場合はViewSimulatorアイテムをAISTSimulatorアイテムの下に作成します。"
 
 #~ msgid ""
-#~ "Following example sends each trajectory commands to joint J1 and J2 of "
-#~ "PA10 robot."
-#~ msgstr ""
-#~ "以下の例ではPA10ロボットのJ1関節とJ2関節に角度設定コマンドを送ります。"
+#~ "Following example sends each trajectory commands to joint J1 and J2 of PA10 "
+#~ "robot."
+#~ msgstr "以下の例ではPA10ロボットのJ1関節とJ2関節に角度設定コマンドを送ります。"
 
 #~ msgid "Display camera input:"
 #~ msgstr "カメラからの入力を表示する:"
@@ -251,67 +279,50 @@ msgstr ""
 #~ msgid ""
 #~ "In this example, we combine arm (PA10) robot and wheel robot to create "
 #~ "mobile arm robot."
-#~ msgstr ""
-#~ "この例では、アーム型のロボット(PA10)と車輪型のロボットを接続して、移動型の"
-#~ "アームロボットを作成します。"
+#~ msgstr "この例では、アーム型のロボット(PA10)と車輪型のロボットを接続して、移動型のアームロボットを作成します。"
 
 #~ msgid "First, we load the arm robot."
 #~ msgstr "まず、アーム型のロボットを読み込みます。"
 
-#~ msgid ""
-#~ "Select \"File\" -> \"Open ...\" -> \"OpenHRP Model File for Editing\" "
-#~ "menu item."
-#~ msgstr ""
-#~ "メニューから「File > Open ... > OpenHRP Model File for Editing」を選択して"
-#~ "ください。"
+#~ msgid "Select \"File\" -> \"Open ...\" -> \"OpenHRP Model File for Editing\" menu item."
+#~ msgstr "メニューから「File > Open ... > OpenHRP Model File for Editing」を選択してください。"
 
 #~ msgid ""
 #~ "Dialog box will be appeared and choose \"pa10.main.wrl\" file from the "
 #~ "OpenHRP sample models folder."
-#~ msgstr ""
-#~ "ダイアログが開くのでOpenHRPのサンプルフォルダから「pa10.main.wrl」ファイル"
-#~ "を選択してください。"
+#~ msgstr "ダイアログが開くのでOpenHRPのサンプルフォルダから「pa10.main.wrl」ファイルを選択してください。"
 
 #~ msgid ""
 #~ "Arm robot model is now loaded. Please turn on all the checkbox at side of "
 #~ "the items to let the robot appear in the scene panel."
-#~ msgstr ""
-#~ "アームロボットがロードできました。各アイテムの横のチェックボックスをオンに"
-#~ "することで、ロボットの外観がシーンパネル上で確認できます。"
+#~ msgstr "アームロボットがロードできました。各アイテムの横のチェックボックスをオンにすることで、ロボットの外観がシーンパネル上で確認できます。"
 
 #~ msgid "We also load the wheel robot."
 #~ msgstr "車輪型のロボットも読み込みます。"
 
 #~ msgid ""
-#~ "Dialog box will be appeared and choose \"simple_vehicle.wrl\" file from "
-#~ "the OpenHRP sample models folder."
-#~ msgstr ""
-#~ "ダイアログが開くのでOpenHRPのサンプルフォルダから「simple_vehicle.wrl」"
-#~ "ファイルを選択してください。"
+#~ "Dialog box will be appeared and choose \"simple_vehicle.wrl\" file from the "
+#~ "OpenHRP sample models folder."
+#~ msgstr "ダイアログが開くのでOpenHRPのサンプルフォルダから「simple_vehicle.wrl」ファイルを選択してください。"
 
 #~ msgid ""
-#~ "To connect the arm robot to wheel base, click the \"J1\" item of PA10 "
-#~ "robot model and drag the item over the \"BODY\" item of simple_vehicle "
-#~ "model."
+#~ "To connect the arm robot to wheel base, click the \"J1\" item of PA10 robot "
+#~ "model and drag the item over the \"BODY\" item of simple_vehicle model."
 #~ msgstr ""
-#~ "アーム型ロボットを台車に接続するために、PA１０モデルの「J1」アイテムをク"
-#~ "リックしてドラッグし、simple_vehicleモデルの「BODY」アイテムの上でドロップ"
-#~ "してください。"
+#~ "アーム型ロボットを台車に接続するために、PA１０モデルの「J1」アイテムをクリックしてドラッグし、simple_vehicleモデルの「BODY」アイテムの上でドロップしてください。"
 
-#~ msgid ""
-#~ "Now, we delete the body of arm robot model by right clicking the item."
+#~ msgid "Now, we delete the body of arm robot model by right clicking the item."
 #~ msgstr "アーム型ロボットに関するアイテムを右クリックすることで消去します。"
 
 #~ msgid ""
-#~ "Select the root model item and select \"File\" -> \"Save Selected Items As"
-#~ "\" menu item to save the model in VRML format."
+#~ "Select the root model item and select \"File\" -> \"Save Selected Items As\""
+#~ " menu item to save the model in VRML format."
 #~ msgstr ""
-#~ "モデルアイテムをクリックしてメニューから「File > Save Selected Item As」を"
-#~ "選択してVRML形式でモデルをセーブしましょう。"
+#~ "モデルアイテムをクリックしてメニューから「File > Save Selected Item As」を選択してVRML形式でモデルをセーブしましょう。"
 
 #~ msgid ""
-#~ "Here, please **do not** select \"OpenHRP Model File\" menu item, but "
-#~ "select \"OpenHRP Model File **for Editing**\"."
+#~ "Here, please **do not** select \"OpenHRP Model File\" menu item, but select "
+#~ "\"OpenHRP Model File **for Editing**\"."
 #~ msgstr ""
-#~ "ここではメニューから「OpenHRPモデルファイル」ではなく「OpenHRP Model File "
-#~ "**for Editing**」を選択するように注意してください。"
+#~ "ここではメニューから「OpenHRPモデルファイル」ではなく「OpenHRP Model File **for "
+#~ "Editing**」を選択するように注意してください。"
