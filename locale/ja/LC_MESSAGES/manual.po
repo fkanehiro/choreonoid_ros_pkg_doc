@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2016-08-06 18:43+0900\n"
+"PO-Revision-Date: 2017-02-14 16:32+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,15 +30,15 @@ msgstr ""
 "ROSプラグインが有効になったChoreonoidを実行するためには、以下のコマンドを入力"
 "します。"
 
-#: ../../manual.rst:26
+#: ../../manual.rst:25
 msgid "Please refer to :doc:`tutorial` on details."
 msgstr "詳しくは :doc:`tutorial` を参照してください。"
 
-#: ../../manual.rst:40
+#: ../../manual.rst:39
 msgid "ROS Topics"
 msgstr "ROSトピックス"
 
-#: ../../manual.rst:42
+#: ../../manual.rst:41
 msgid ""
 "Choreonoid ROS plugin provides following ROS topics, please refer to :doc:"
 "`tutorial` for actual use."
@@ -50,23 +50,23 @@ msgstr ""
 msgid "/[robotname]/[sensorname]"
 msgstr "/[robotname]/[sensorname]"
 
-#: ../../manual.rst:100
+#: ../../manual.rst:153
 msgid "ROS Services"
 msgstr "ROSサービス"
 
-#: ../../manual.rst:102
+#: ../../manual.rst:155
 msgid "Following ROS services are provided to control the simulation."
 msgstr "シミュレーションを制御するために以下のROSサービスが利用できます。"
 
-#: ../../manual.rst:107
+#: ../../manual.rst:164
 msgid "Takes no argument. Pause the simulation."
 msgstr "引数なし。シミュレーションを一時停止します。"
 
-#: ../../manual.rst:112
+#: ../../manual.rst:169
 msgid "Takes no argument. Continue the paused simulation."
 msgstr "引数なし。一時停止したシミュレーションを再開します。"
 
-#: ../../manual.rst:117
+#: ../../manual.rst:174
 msgid ""
 "Takes [model_name, model_data, namespace, pose, reference_frame] as "
 "arguments. Load the specified model to the simulation."
@@ -74,7 +74,7 @@ msgstr ""
 "[model_name, model_data, namespace, pose, reference_frame]を引数にとります。"
 "指定されたモデルをシミュレータにロードします。"
 
-#: ../../manual.rst:122
+#: ../../manual.rst:179
 msgid ""
 "Takes [model_name] as an argument. Delete the specified model from the "
 "simulation."
@@ -138,32 +138,23 @@ msgstr "/[worldname]/model\\_states"
 msgid "/[worldname]/links\\_states"
 msgstr "/[worldname]/links\\_states"
 
-#: ../../manual.rst:105
+#: ../../manual.rst:162
 msgid "/[worldname]/pause\\_physics"
 msgstr "/[worldname]/pause\\_physics"
 
-#: ../../manual.rst:110
+#: ../../manual.rst:167
 msgid "/[worldname]/unpause\\_physics"
 msgstr "/[worldname]/unpause\\_physics"
 
-#: ../../manual.rst:115
+#: ../../manual.rst:172
 msgid "/[worldname]/spawn\\_vrml\\_model"
 msgstr "/[worldname]/spawn\\_vrml\\_model"
 
-#: ../../manual.rst:120
+#: ../../manual.rst:177
 msgid "/[worldname]/delete\\_model"
 msgstr "/[worldname]/delete\\_model"
 
-#: ../../manual.rst:21
-msgid ""
-"You have to configure AISTSimulator item to use Foward dynamics mode or High-"
-"gain dynamics mode. Create and place BodyRos item under the robot you want "
-"to control."
-msgstr ""
-"順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムと"
-"BodyRosアイテムを配置する必要があります。"
-
-#: ../../manual.rst:24
+#: ../../manual.rst:23
 msgid ""
 "Also, in the case of Foward dynamics mode a create BodyRosTorqueController "
 "item and in the case of High-gain dynamics mode a create "
@@ -195,14 +186,14 @@ msgstr ""
 msgid "/[robotname]/joint\\_states"
 msgstr "/[robotname]/joint\\_states"
 
-#: ../../manual.rst:46
+#: ../../manual.rst:45
 msgid ""
 "Data type of sensor\\_msgs and geometry\\_msgs provides by the BodyRos item."
 msgstr ""
 "データ型が sensor\\_msgs および geometry\\_msgs のトピックは、BodyRos アイテ"
 "ムが提供します。 "
 
-#: ../../manual.rst:48
+#: ../../manual.rst:47
 msgid ""
 "Data type of trajectory\\_msgs provides by the BodyRosTorqueContorller or "
 "BodyRosHighgainController item."
@@ -210,21 +201,21 @@ msgstr ""
 "データ型が trajectory\\_msgs のトピックは、BodyRosTorqueContorller もしくは "
 "BodyRosHighgainController アイテムが提供します。"
 
-#: ../../manual.rst:30
+#: ../../manual.rst:29
 msgid "The simulation time mode are currently supported."
 msgstr "現在、simulation time モードはサポートしています。"
 
-#: ../../manual.rst:32
+#: ../../manual.rst:31
 msgid "Howerver, the wall-clock time mode are currently not supported."
 msgstr ""
 "しかしながら、wall-clock time (実時間) モードについては未サポートとなっていま"
 "す。"
 
-#: ../../manual.rst:34
+#: ../../manual.rst:33
 msgid "Sorry, please use simulation time mode."
 msgstr "申し訳ありませんが、simulation time モードを使用してください。"
 
-#: ../../manual.rst:36
+#: ../../manual.rst:35
 msgid "The simulation time mode details, please see http://wiki.ros.org/Clock"
 msgstr ""
 "simulation time モードの詳細については http://wiki.ros.org/Clock を参照してく"
@@ -273,6 +264,155 @@ msgstr ""
 #: ../../manual.rst:80
 msgid "Output from vision sensors are published using image transport."
 msgstr "画像センサからの出力はImage Transportを使ってpublishします。"
+
+#: ../../manual.rst:49
+msgid "Other types are provides by the WorldRos item."
+msgstr "上記以外については WorldRos アイテムが提供します。"
+
+#: ../../manual.rst:100
+msgid "/choreonoid/[worldname]/physics/contacts"
+msgstr "/choreonoid/[worldname]/physics/contacts"
+
+#: ../../manual.rst:102
+msgid "Current contact state of links in models are published to this topic."
+msgstr "このトピックには接触が発生しているリンクの状態を publish します。"
+
+#: ../../manual.rst:104
+msgid ""
+"The output are published using data type `gazebo_msgs::ContactState <http://"
+"docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html>`_."
+msgstr ""
+"出力は `gazebo_msgs::ContactState <http://docs.ros.org/api/gazebo_msgs/html/"
+"msg/ContactState.html>`_ のデータ型で publish します。"
+
+#: ../../manual.rst:159
+msgid "All services are provides by the WorldRos item."
+msgstr "サービスは全て WorldRos アイテムが提供します。"
+
+#: ../../manual.rst:106
+msgid "It is decribed below summary each parameter of the topic."
+msgstr "トピックの各パラメータについて以下に記載します。"
+
+#: ../../manual.rst:112
+msgid "collision1\\_name:"
+msgstr "collision1\\_name:"
+
+#: ../../manual.rst:118
+msgid "wrenches:"
+msgstr "wrenches:"
+
+#: ../../manual.rst:124
+msgid "total\\_wrench:"
+msgstr "total\\_wrench:"
+
+#: ../../manual.rst:128
+msgid "contact\\_positions:"
+msgstr "contact\\_positions:"
+
+#: ../../manual.rst:132
+msgid "contact\\_normals:"
+msgstr "contact\\_normals:"
+
+#: ../../manual.rst:140
+msgid "depths:"
+msgstr "depths:"
+
+#: ../../manual.rst:145
+msgid "This topic publish are made at a cycle (Hz) specified by the user."
+msgstr "トピックの publish 間隔 (Hz) はユーザにより指定する事ができます。"
+
+#: ../../manual.rst:149
+msgid "The cycle default setting are 100.0 Hz."
+msgstr "publish 間隔のデフォルト値は 100.0 Hz です。"
+
+#: ../../manual.rst:108
+msgid "info:"
+msgstr "info:"
+
+#: ../../manual.rst:113
+msgid "collision2\\_name:"
+msgstr "collision2\\_name:"
+
+#: ../../manual.rst:110
+msgid ""
+"Simulation world name and time of contact (simulation time) will be output "
+"to this."
+msgstr ""
+"シミュレーションのワールド名と接触が発生した時間 (シミュレーション内時間) を"
+"出力します。"
+
+#: ../../manual.rst:115
+msgid ""
+"The link name where contact occurred is output to this. This output format "
+"is '<body name>::<link name>::collision'."
+msgstr ""
+"接触があったリンク名を出力します。出力フォーマットは  '<body name>::<link "
+"name>::collision' です。"
+
+#: ../../manual.rst:120
+msgid ""
+"It outputs force and torque generated at each contact position. This output "
+"is the value around center of mass in collision1\\_name links. The "
+"relationship between wrench and contact position is linked with position of "
+"array."
+msgstr ""
+"接触位置に発生した力とトルクを出力します。出力は collision1_name の重心軸回り"
+"の値となります。力とトルクと接触位置との関係は配列の位置で関連付けられていま"
+"す。"
+
+#: ../../manual.rst:138
+msgid ""
+"The relationship between contact normal and contact position is linked with "
+"position of array."
+msgstr ""
+"接触位置の法線ベクトルと接触位置との関係は、配列の位置で関連付けられていま"
+"す。"
+
+#: ../../manual.rst:126
+msgid "It outputs sum of forces and torques"
+msgstr "力とトルクの合計を出力します。"
+
+#: ../../manual.rst:130
+msgid "It outputs the contact position in world coordinates."
+msgstr "接触位置をワールド座標系で出力します。"
+
+#: ../../manual.rst:134
+msgid "It outputs the contact noraml."
+msgstr "接触位置の法線ベクトルを出力します。"
+
+#: ../../manual.rst:142
+msgid ""
+"It outputs penetration depth. The relationship between depth and contact "
+"position is linked with position of array."
+msgstr ""
+"接触深度を出力します。接触深度と接触位置の関係は、配列の位置で関連付けられて"
+"います。"
+
+#: ../../manual.rst:21
+msgid ""
+"You have to configure AISTSimulator item to use Foward dynamics mode or High-"
+"gain dynamics mode, create and place WorldRos item under the World item, "
+"create and place BodyRos item under the robot you want to control."
+msgstr ""
+"順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムを配置"
+"し、World アイテム下に WorldRos アイテムを、制御対象とするロボットの Body ア"
+"イテム下に BoryRos アイテムを配置する必要があります。 "
+
+#~ msgid ""
+#~ "You have to configure AISTSimulator item to use Foward dynamics mode or "
+#~ "High-gain dynamics mode. Create and place WorldRos item under the World "
+#~ "item, create and place BodyRos item under the robot you want to control."
+#~ msgstr ""
+#~ "順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムと"
+#~ "BodyRosアイテムを配置する必要があります。"
+
+#~ msgid ""
+#~ "You have to configure AISTSimulator item to use Foward dynamics mode or "
+#~ "High-gain dynamics mode. Create and place BodyRos item under the robot "
+#~ "you want to control."
+#~ msgstr ""
+#~ "順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムと"
+#~ "BodyRosアイテムを配置する必要があります。"
 
 #~ msgid ""
 #~ "If there are sensors defined on the robot model, ROS plugin will generate "
