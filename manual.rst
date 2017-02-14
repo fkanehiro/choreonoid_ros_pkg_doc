@@ -18,8 +18,7 @@ Enter following commands to run ROS plugin enabled Choreonoid.
    $ roscore (on the different terminal)
    $ choreonoid
 
-You have to configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.
-Create and place BodyRos item under the robot you want to control.
+You have to configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode, create and place WorldRos item under the World item, create and place BodyRos item under the robot you want to control.
 
 Also, in the case of Foward dynamics mode a create BodyRosTorqueController item and in the case of High-gain dynamics mode a create BodyRosHighgainController item.
 
@@ -47,6 +46,7 @@ Choreonoid ROS plugin provides following ROS topics, please refer to :doc:`tutor
 
    Data type of trajectory\_msgs provides by the BodyRosTorqueContorller or BodyRosHighgainController item.
 
+   Other types are provides by the WorldRos item.
 
 /[robotname]/joint\_states
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,19 +87,76 @@ For RGBD vision sensors, depth image is published in `sensor_msgs::PointCloud2 <
 Current simulation time is published to /clock topic.
 
 /[worldname]/model\_states
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Current position and attitude of models are published to this topic.
 
 /[worldname]/links\_states
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Current position and attitude of links in models are published to this topic.
+
+/choreonoid/[worldname]/physics/contacts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Current contact state of links in models are published to this topic.
+
+The output are published using data type `gazebo_msgs::ContactState <http://docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html>`_.
+
+It is decribed below summary each parameter of the topic.
+
+* info:
+
+  Simulation world name and time of contact (simulation time) will be output to this.
+
+* collision1\_name:
+* collision2\_name:
+
+  The link name where contact occurred is output to this.
+  This output format is '<body name>::<link name>::collision'.
+
+* wrenches:
+
+  It outputs force and torque generated at each contact position.
+  This output is the value around center of mass in collision1\_name links.
+  The relationship between wrench and contact position is linked with position of array.
+
+* total\_wrench:
+
+  It outputs sum of forces and torques
+
+* contact\_positions:
+
+  It outputs the contact position in world coordinates.
+
+* contact\_normals:
+
+  It outputs the contact noraml.
+
+  .. image:: contacts-state-normal.png
+
+  The relationship between contact normal and contact position is linked with position of array.
+
+* depths:
+
+  It outputs penetration depth.
+  The relationship between depth and contact position is linked with position of array.
+
+This topic publish are made at a cycle (Hz) specified by the user.
+
+.. image:: contacts-state-property.png
+
+The cycle default setting are 100.0 Hz.
+
 
 ROS Services
 ============
 
 Following ROS services are provided to control the simulation.
+
+.. note::
+
+   All services are provides by the WorldRos item.
 
 /[worldname]/pause\_physics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
