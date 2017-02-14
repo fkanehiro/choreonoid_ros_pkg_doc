@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.3 documentation</title>
+  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.4 documentation</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 documentation" href="index.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.4 documentation" href="index.html"/>
         <link rel="next" title="Choreonoid ROS Plugin Tutorial" href="tutorial.html"/>
         <link rel="prev" title="Install" href="install.html"/> 
 
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.0.3
+                0.0.4
               </div>
             
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#worldname-model-states">/[worldname]/model_states</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#worldname-links-states">/[worldname]/links_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-worldname-physics-contacts">/choreonoid/[worldname]/physics/contacts</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-services">ROS Services</a><ul>
@@ -139,7 +143,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/manual.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/manual.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,8 +166,7 @@
 $ choreonoid
 </pre></div>
 </div>
-<p>You have to configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode.
-Create and place BodyRos item under the robot you want to control.</p>
+<p>You have to configure AISTSimulator item to use Foward dynamics mode or High-gain dynamics mode, create and place WorldRos item under the World item, create and place BodyRos item under the robot you want to control.</p>
 <p>Also, in the case of Foward dynamics mode a create BodyRosTorqueController item and in the case of High-gain dynamics mode a create BodyRosHighgainController item.</p>
 <p>Please refer to <a class="reference internal" href="tutorial.html"><span class="doc">Choreonoid ROS Plugin Tutorial</span></a> on details.</p>
 <div class="admonition note">
@@ -180,7 +183,8 @@ Create and place BodyRos item under the robot you want to control.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Data type of sensor_msgs and geometry_msgs provides by the BodyRos item.</p>
-<p class="last">Data type of trajectory_msgs provides by the BodyRosTorqueContorller or BodyRosHighgainController item.</p>
+<p>Data type of trajectory_msgs provides by the BodyRosTorqueContorller or BodyRosHighgainController item.</p>
+<p class="last">Other types are provides by the WorldRos item.</p>
 </div>
 <div class="section" id="robotname-joint-states">
 <h3>/[robotname]/joint_states<a class="headerlink" href="#robotname-joint-states" title="Permalink to this headline">¶</a></h3>
@@ -214,10 +218,54 @@ Create and place BodyRos item under the robot you want to control.</p>
 <h3>/[worldname]/links_states<a class="headerlink" href="#worldname-links-states" title="Permalink to this headline">¶</a></h3>
 <p>Current position and attitude of links in models are published to this topic.</p>
 </div>
+<div class="section" id="choreonoid-worldname-physics-contacts">
+<h3>/choreonoid/[worldname]/physics/contacts<a class="headerlink" href="#choreonoid-worldname-physics-contacts" title="Permalink to this headline">¶</a></h3>
+<p>Current contact state of links in models are published to this topic.</p>
+<p>The output are published using data type <a class="reference external" href="http://docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html">gazebo_msgs::ContactState</a>.</p>
+<p>It is decribed below summary each parameter of the topic.</p>
+<ul>
+<li><p class="first">info:</p>
+<p>Simulation world name and time of contact (simulation time) will be output to this.</p>
+</li>
+<li><p class="first">collision1_name:</p>
+</li>
+<li><p class="first">collision2_name:</p>
+<p>The link name where contact occurred is output to this.
+This output format is &#8216;&lt;body name&gt;::&lt;link name&gt;::collision&#8217;.</p>
+</li>
+<li><p class="first">wrenches:</p>
+<p>It outputs force and torque generated at each contact position.
+This output is the value around center of mass in collision1_name links.
+The relationship between wrench and contact position is linked with position of array.</p>
+</li>
+<li><p class="first">total_wrench:</p>
+<p>It outputs sum of forces and torques</p>
+</li>
+<li><p class="first">contact_positions:</p>
+<p>It outputs the contact position in world coordinates.</p>
+</li>
+<li><p class="first">contact_normals:</p>
+<p>It outputs the contact noraml.</p>
+<img alt="_images/contacts-state-normal.png" src="_images/contacts-state-normal.png" />
+<p>The relationship between contact normal and contact position is linked with position of array.</p>
+</li>
+<li><p class="first">depths:</p>
+<p>It outputs penetration depth.
+The relationship between depth and contact position is linked with position of array.</p>
+</li>
+</ul>
+<p>This topic publish are made at a cycle (Hz) specified by the user.</p>
+<img alt="_images/contacts-state-property.png" src="_images/contacts-state-property.png" />
+<p>The cycle default setting are 100.0 Hz.</p>
+</div>
 </div>
 <div class="section" id="ros-services">
 <h2>ROS Services<a class="headerlink" href="#ros-services" title="Permalink to this headline">¶</a></h2>
 <p>Following ROS services are provided to control the simulation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All services are provides by the WorldRos item.</p>
+</div>
 <div class="section" id="worldname-pause-physics">
 <h3>/[worldname]/pause_physics<a class="headerlink" href="#worldname-pause-physics" title="Permalink to this headline">¶</a></h3>
 <p>Takes no argument. Pause the simulation.</p>
@@ -278,7 +326,7 @@ Create and place BodyRos item under the robot you want to control.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.3',
+            VERSION:'0.0.4',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

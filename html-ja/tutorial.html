@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROSプラグインチュートリアル &mdash; Choreonoid ROS Plugin 0.0.3 ドキュメント</title>
+  <title>Choreonoid ROSプラグインチュートリアル &mdash; Choreonoid ROS Plugin 0.0.4 ドキュメント</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 ドキュメント" href="index.html"/>
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.4 ドキュメント" href="index.html"/>
         <link rel="prev" title="Choreonoid ROSプラグインマニュアル" href="manual.html"/> 
 
   
@@ -59,7 +62,7 @@
             
             
               <div class="version">
-                0.0.3
+                0.0.4
               </div>
             
           
@@ -126,7 +129,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/tutorial.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -259,7 +262,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <span class="c1"># Main.  </span>
 <span class="c1">#</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">is_error</span> <span class="o">=</span> <span class="bp">True</span>
 
     <span class="k">try</span><span class="p">:</span>
@@ -297,7 +300,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <li><p class="first">例えば、ロボットの首を45°回す場合。以下のコマンドを実行します。</p>
 </li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosrun choreonoid_plugins test-torque-control-jvrc1.py NECK_Y 45.0
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosrun choreonoid_plugins test-torque-control-jvrc1.py NECK_Y <span class="m">45</span>.0
 </pre></div>
 </div>
 </div>
@@ -332,7 +335,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span> <span class="s2">&quot;Service call failed </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">print</span> <span class="s2">&quot;spawn model&quot;</span>
     <span class="n">modelspawn</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;/usr/share/OpenHRP-3.1/sample/model/box.wrl&quot;</span><span class="p">,</span> <span class="n">Pose</span><span class="p">())</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -396,10 +399,10 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 </li>
 <li><p class="first">制御パラメータファイルを編集します。必要なパラメータは pgain と dgain と u_lower と u_upper です。また、各パラメータはロボットの関節数と一致するように記述する必要があります。</p>
 <p>記述例：</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>pgain:   <span class="o">[</span> 3000.0, 3000.0, 3000.0, ... <span class="o">]</span>
-dgain:   <span class="o">[</span>  100.0,  100.0,  100.0, ... <span class="o">]</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pgain:   <span class="o">[</span> <span class="m">3000</span>.0, <span class="m">3000</span>.0, <span class="m">3000</span>.0, ... <span class="o">]</span>
+dgain:   <span class="o">[</span>  <span class="m">100</span>.0,  <span class="m">100</span>.0,  <span class="m">100</span>.0, ... <span class="o">]</span>
 u_lower: <span class="o">[</span>  -20.0,  -20.0,  -20.0, ... <span class="o">]</span>
-u_upper: <span class="o">[</span>   20.0,   20.0,   20.0, ... <span class="o">]</span>
+u_upper: <span class="o">[</span>   <span class="m">20</span>.0,   <span class="m">20</span>.0,   <span class="m">20</span>.0, ... <span class="o">]</span>
 </pre></div>
 </div>
 <p>JVRC-1 向けの制御パラメータファイル (jvrc1-pdc-parameters.yml) を ~/catkin_ws/install/share/choreonoid_plugins/test ディレクトリ以下に収めています。記述サンプルとして参照してください。</p>
@@ -466,7 +469,7 @@ u_upper: <span class="o">[</span>   20.0,   20.0,   20.0, ... <span class="o">]<
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.3',
+            VERSION:'0.0.4',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

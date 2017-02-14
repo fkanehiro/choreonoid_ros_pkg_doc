@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.3 ドキュメント</title>
+  <title>Choreonoid ROSプラグインマニュアル &mdash; Choreonoid ROS Plugin 0.0.4 ドキュメント</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.3 ドキュメント" href="index.html"/>
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.4 ドキュメント" href="index.html"/>
         <link rel="next" title="Choreonoid ROSプラグインチュートリアル" href="tutorial.html"/>
         <link rel="prev" title="インストール" href="install.html"/> 
 
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.0.3
+                0.0.4
               </div>
             
           
@@ -93,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#worldname-model-states">/[worldname]/model_states</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#worldname-links-states">/[worldname]/links_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-worldname-physics-contacts">/choreonoid/[worldname]/physics/contacts</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-services">ROSサービス</a><ul>
@@ -139,7 +143,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/manual.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/manual.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,7 +166,7 @@
 $ choreonoid
 </pre></div>
 </div>
-<p>順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムとBodyRosアイテムを配置する必要があります。</p>
+<p>順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムを配置し、World アイテム下に WorldRos アイテムを、制御対象とするロボットの Body アイテム下に BoryRos アイテムを配置する必要があります。</p>
 <p>また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモードの場合 BodyRosHighgainController アイテムを配置する必要があります。</p>
 <p>詳しくは <a class="reference internal" href="tutorial.html"><span class="doc">Choreonoid ROSプラグインチュートリアル</span></a> を参照してください。</p>
 <div class="admonition note">
@@ -179,7 +183,8 @@ $ choreonoid
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p>データ型が sensor_msgs および geometry_msgs のトピックは、BodyRos アイテムが提供します。</p>
-<p class="last">データ型が trajectory_msgs のトピックは、BodyRosTorqueContorller もしくは BodyRosHighgainController アイテムが提供します。</p>
+<p>データ型が trajectory_msgs のトピックは、BodyRosTorqueContorller もしくは BodyRosHighgainController アイテムが提供します。</p>
+<p class="last">上記以外については WorldRos アイテムが提供します。</p>
 </div>
 <div class="section" id="robotname-joint-states">
 <h3>/[robotname]/joint_states<a class="headerlink" href="#robotname-joint-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -213,10 +218,50 @@ $ choreonoid
 <h3>/[worldname]/links_states<a class="headerlink" href="#worldname-links-states" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このトピックには各モデルの各リンクの現在の位置姿勢をpublishします。</p>
 </div>
+<div class="section" id="choreonoid-worldname-physics-contacts">
+<h3>/choreonoid/[worldname]/physics/contacts<a class="headerlink" href="#choreonoid-worldname-physics-contacts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このトピックには接触が発生しているリンクの状態を publish します。</p>
+<p>出力は <a class="reference external" href="http://docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html">gazebo_msgs::ContactState</a> のデータ型で publish します。</p>
+<p>トピックの各パラメータについて以下に記載します。</p>
+<ul>
+<li><p class="first">info:</p>
+<p>シミュレーションのワールド名と接触が発生した時間 (シミュレーション内時間) を出力します。</p>
+</li>
+<li><p class="first">collision1_name:</p>
+</li>
+<li><p class="first">collision2_name:</p>
+<p>接触があったリンク名を出力します。出力フォーマットは  &#8216;&lt;body name&gt;::&lt;link name&gt;::collision&#8217; です。</p>
+</li>
+<li><p class="first">wrenches:</p>
+<p>接触位置に発生した力とトルクを出力します。出力は collision1_name の重心軸回りの値となります。力とトルクと接触位置との関係は配列の位置で関連付けられています。</p>
+</li>
+<li><p class="first">total_wrench:</p>
+<p>力とトルクの合計を出力します。</p>
+</li>
+<li><p class="first">contact_positions:</p>
+<p>接触位置をワールド座標系で出力します。</p>
+</li>
+<li><p class="first">contact_normals:</p>
+<p>接触位置の法線ベクトルを出力します。</p>
+<img alt="_images/contacts-state-normal.png" src="_images/contacts-state-normal.png" />
+<p>接触位置の法線ベクトルと接触位置との関係は、配列の位置で関連付けられています。</p>
+</li>
+<li><p class="first">depths:</p>
+<p>接触深度を出力します。接触深度と接触位置の関係は、配列の位置で関連付けられています。</p>
+</li>
+</ul>
+<p>トピックの publish 間隔 (Hz) はユーザにより指定する事ができます。</p>
+<img alt="_images/contacts-state-property.png" src="_images/contacts-state-property.png" />
+<p>publish 間隔のデフォルト値は 100.0 Hz です。</p>
+</div>
 </div>
 <div class="section" id="ros-services">
 <h2>ROSサービス<a class="headerlink" href="#ros-services" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>シミュレーションを制御するために以下のROSサービスが利用できます。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">サービスは全て WorldRos アイテムが提供します。</p>
+</div>
 <div class="section" id="worldname-pause-physics">
 <h3>/[worldname]/pause_physics<a class="headerlink" href="#worldname-pause-physics" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>引数なし。シミュレーションを一時停止します。</p>
@@ -277,7 +322,7 @@ $ choreonoid
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.3',
+            VERSION:'0.0.4',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
