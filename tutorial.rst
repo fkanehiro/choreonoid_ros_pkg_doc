@@ -50,13 +50,13 @@ Pause the simulation:
 
 .. code-block:: bash
 
-   $ rosservice call /World/pause_physics
+   $ rosservice call /choreonoid/pause_physics
 
 Continue the paused simulation:
    
 .. code-block:: bash
 
-   $ rosservice call /World/unpause_physics
+   $ rosservice call /choreonoid/unpause_physics
 
 
 Use Python script to send command to the robot
