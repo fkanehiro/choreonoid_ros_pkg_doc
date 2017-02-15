@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROSプラグインチュートリアル &mdash; Choreonoid ROS Plugin 0.0.4 ドキュメント</title>
+  <title>Choreonoid ROSプラグインチュートリアル &mdash; Choreonoid ROS Plugin 0.0.5 ドキュメント</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="索引"
               href="genindex.html"/>
         <link rel="search" title="検索" href="search.html"/>
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.4 ドキュメント" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.5 ドキュメント" href="index.html"/>
         <link rel="prev" title="Choreonoid ROSプラグインマニュアル" href="manual.html"/> 
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.0.4
+                0.0.5
               </div>
             
           
@@ -173,11 +173,11 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <div class="section" id="use-ros-utility-commands-to-control-the-simulation">
 <h2>ROSユーティリティコマンドを使ってシミュレーションを制御する<a class="headerlink" href="#use-ros-utility-commands-to-control-the-simulation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>シミュレーションを一時停止する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /World/pause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /choreonoid/pause_physics
 </pre></div>
 </div>
 <p>一時停止したシミュレーションを再開する:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /World/unpause_physics
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ rosservice call /choreonoid/unpause_physics
 </pre></div>
 </div>
 </div>
@@ -315,7 +315,7 @@ $ rosrun image_view image_view image:<span class="o">=</span>/JVRC_1/rcamera/ima
 <span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="kn">import</span> <span class="n">DeleteModel</span>
 <span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Pose</span>
 
-<span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;/World/&#39;</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;/choreonoid/&#39;</span>
 
 <span class="k">def</span> <span class="nf">modelspawn</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">pose</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -469,7 +469,7 @@ u_upper: <span class="o">[</span>   <span class="m">20</span>.0,   <span class="
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.4',
+            VERSION:'0.0.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

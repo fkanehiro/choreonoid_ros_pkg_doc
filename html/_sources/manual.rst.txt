@@ -86,15 +86,33 @@ For RGBD vision sensors, depth image is published in `sensor_msgs::PointCloud2 <
 
 Current simulation time is published to /clock topic.
 
-/[worldname]/model\_states
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+This topic publish are made at a cycle (Hz) specified by the user.
+
+.. image:: clock-property.png
+
+The cycle default setting are 100.0 Hz.
+
+/choreonoid/model\_states
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Current position and attitude of models are published to this topic.
 
-/[worldname]/links\_states
+This topic publish are made at a cycle (Hz) specified by the user.
+
+.. image:: model-states-property.png
+
+The cycle default setting are 100.0 Hz.
+
+/choreonoid/links\_states
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Current position and attitude of links in models are published to this topic.
+
+This topic publish are made at a cycle (Hz) specified by the user.
+
+.. image:: link-states-property.png
+
+The cycle default setting are 100.0 Hz.
 
 /choreonoid/[worldname]/physics/contacts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,23 +176,23 @@ Following ROS services are provided to control the simulation.
 
    All services are provides by the WorldRos item.
 
-/[worldname]/pause\_physics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/choreonoid/pause\_physics
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes no argument. Pause the simulation.
 
-/[worldname]/unpause\_physics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/choreonoid/unpause\_physics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes no argument. Continue the paused simulation.
 
-/[worldname]/spawn\_vrml\_model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/choreonoid/spawn\_vrml\_model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes [model_name, model_data, namespace, pose, reference_frame] as arguments. Load the specified model to the simulation.
 
-/[worldname]/delete\_model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/choreonoid/delete\_model
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Takes [model_name] as an argument. Delete the specified model from the simulation.
 

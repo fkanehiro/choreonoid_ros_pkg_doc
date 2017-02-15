@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.4 documentation</title>
+  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.5 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.4 documentation" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.5 documentation" href="index.html"/>
         <link rel="next" title="Choreonoid ROS Plugin Tutorial" href="tutorial.html"/>
         <link rel="prev" title="Install" href="install.html"/> 
 
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.0.4
+                0.0.5
               </div>
             
           
@@ -94,16 +94,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#robotname-controlmode-set-joint-trajectory">/[robotname]/[controlmode]/set_joint_trajectory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-sensorname">/[robotname]/[sensorname]</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#clock">/clock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#worldname-model-states">/[worldname]/model_states</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#worldname-links-states">/[worldname]/links_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-model-states">/choreonoid/model_states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-links-states">/choreonoid/links_states</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#choreonoid-worldname-physics-contacts">/choreonoid/[worldname]/physics/contacts</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-services">ROS Services</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#worldname-pause-physics">/[worldname]/pause_physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#worldname-unpause-physics">/[worldname]/unpause_physics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#worldname-spawn-vrml-model">/[worldname]/spawn_vrml_model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#worldname-delete-model">/[worldname]/delete_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-pause-physics">/choreonoid/pause_physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-unpause-physics">/choreonoid/unpause_physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-spawn-vrml-model">/choreonoid/spawn_vrml_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choreonoid-delete-model">/choreonoid/delete_model</a></li>
 </ul>
 </li>
 </ul>
@@ -209,14 +209,23 @@ $ choreonoid
 <div class="section" id="clock">
 <h3>/clock<a class="headerlink" href="#clock" title="Permalink to this headline">¶</a></h3>
 <p>Current simulation time is published to /clock topic.</p>
+<p>This topic publish are made at a cycle (Hz) specified by the user.</p>
+<img alt="_images/clock-property.png" src="_images/clock-property.png" />
+<p>The cycle default setting are 100.0 Hz.</p>
 </div>
-<div class="section" id="worldname-model-states">
-<h3>/[worldname]/model_states<a class="headerlink" href="#worldname-model-states" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choreonoid-model-states">
+<h3>/choreonoid/model_states<a class="headerlink" href="#choreonoid-model-states" title="Permalink to this headline">¶</a></h3>
 <p>Current position and attitude of models are published to this topic.</p>
+<p>This topic publish are made at a cycle (Hz) specified by the user.</p>
+<img alt="_images/model-states-property.png" src="_images/model-states-property.png" />
+<p>The cycle default setting are 100.0 Hz.</p>
 </div>
-<div class="section" id="worldname-links-states">
-<h3>/[worldname]/links_states<a class="headerlink" href="#worldname-links-states" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choreonoid-links-states">
+<h3>/choreonoid/links_states<a class="headerlink" href="#choreonoid-links-states" title="Permalink to this headline">¶</a></h3>
 <p>Current position and attitude of links in models are published to this topic.</p>
+<p>This topic publish are made at a cycle (Hz) specified by the user.</p>
+<img alt="_images/link-states-property.png" src="_images/link-states-property.png" />
+<p>The cycle default setting are 100.0 Hz.</p>
 </div>
 <div class="section" id="choreonoid-worldname-physics-contacts">
 <h3>/choreonoid/[worldname]/physics/contacts<a class="headerlink" href="#choreonoid-worldname-physics-contacts" title="Permalink to this headline">¶</a></h3>
@@ -266,20 +275,20 @@ The relationship between depth and contact position is linked with position of a
 <p class="first admonition-title">Note</p>
 <p class="last">All services are provides by the WorldRos item.</p>
 </div>
-<div class="section" id="worldname-pause-physics">
-<h3>/[worldname]/pause_physics<a class="headerlink" href="#worldname-pause-physics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choreonoid-pause-physics">
+<h3>/choreonoid/pause_physics<a class="headerlink" href="#choreonoid-pause-physics" title="Permalink to this headline">¶</a></h3>
 <p>Takes no argument. Pause the simulation.</p>
 </div>
-<div class="section" id="worldname-unpause-physics">
-<h3>/[worldname]/unpause_physics<a class="headerlink" href="#worldname-unpause-physics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choreonoid-unpause-physics">
+<h3>/choreonoid/unpause_physics<a class="headerlink" href="#choreonoid-unpause-physics" title="Permalink to this headline">¶</a></h3>
 <p>Takes no argument. Continue the paused simulation.</p>
 </div>
-<div class="section" id="worldname-spawn-vrml-model">
-<h3>/[worldname]/spawn_vrml_model<a class="headerlink" href="#worldname-spawn-vrml-model" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choreonoid-spawn-vrml-model">
+<h3>/choreonoid/spawn_vrml_model<a class="headerlink" href="#choreonoid-spawn-vrml-model" title="Permalink to this headline">¶</a></h3>
 <p>Takes [model_name, model_data, namespace, pose, reference_frame] as arguments. Load the specified model to the simulation.</p>
 </div>
-<div class="section" id="worldname-delete-model">
-<h3>/[worldname]/delete_model<a class="headerlink" href="#worldname-delete-model" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choreonoid-delete-model">
+<h3>/choreonoid/delete_model<a class="headerlink" href="#choreonoid-delete-model" title="Permalink to this headline">¶</a></h3>
 <p>Takes [model_name] as an argument. Delete the specified model from the simulation.</p>
 </div>
 </div>
@@ -326,7 +335,7 @@ The relationship between depth and contact position is linked with position of a
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.4',
+            VERSION:'0.0.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

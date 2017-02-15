@@ -101,6 +101,7 @@ Run the following command:
    $ git clone https://github.com/fkanehiro/simtrans.git
    $ cd simtrans
    $ sudo pip install -r requirements.txt
+   $ sudo pip install enum34
    $ sudo python setup.py install
 
 Confirm installation:
