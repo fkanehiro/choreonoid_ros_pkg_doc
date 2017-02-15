@@ -6,7 +6,7 @@ from gazebo_msgs.srv import SpawnModel
 from gazebo_msgs.srv import DeleteModel
 from geometry_msgs.msg import Pose
 
-ns = '/World/'
+ns = '/choreonoid/'
 
 def modelspawn(name, fname, pose):
     f = open(fname,'r')

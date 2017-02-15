@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-20 15:47+0900\n"
-"PO-Revision-Date: 2017-02-14 16:32+0900\n"
+"PO-Revision-Date: 2017-02-15 18:57+0900\n"
 "Last-Translator: Yosuke Matsusaka <yosuke.matsusaka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -50,23 +50,23 @@ msgstr ""
 msgid "/[robotname]/[sensorname]"
 msgstr "/[robotname]/[sensorname]"
 
-#: ../../manual.rst:153
+#: ../../manual.rst:171
 msgid "ROS Services"
 msgstr "ROSサービス"
 
-#: ../../manual.rst:155
+#: ../../manual.rst:173
 msgid "Following ROS services are provided to control the simulation."
 msgstr "シミュレーションを制御するために以下のROSサービスが利用できます。"
 
-#: ../../manual.rst:164
+#: ../../manual.rst:182
 msgid "Takes no argument. Pause the simulation."
 msgstr "引数なし。シミュレーションを一時停止します。"
 
-#: ../../manual.rst:169
+#: ../../manual.rst:187
 msgid "Takes no argument. Continue the paused simulation."
 msgstr "引数なし。一時停止したシミュレーションを再開します。"
 
-#: ../../manual.rst:174
+#: ../../manual.rst:192
 msgid ""
 "Takes [model_name, model_data, namespace, pose, reference_frame] as "
 "arguments. Load the specified model to the simulation."
@@ -74,7 +74,7 @@ msgstr ""
 "[model_name, model_data, namespace, pose, reference_frame]を引数にとります。"
 "指定されたモデルをシミュレータにロードします。"
 
-#: ../../manual.rst:179
+#: ../../manual.rst:197
 msgid ""
 "Takes [model_name] as an argument. Delete the specified model from the "
 "simulation."
@@ -111,11 +111,11 @@ msgstr "\\/clock"
 msgid "Current simulation time is published to /clock topic."
 msgstr "現在のシミュレーション時刻を/clockトピックにpublishします。"
 
-#: ../../manual.rst:92
+#: ../../manual.rst:98
 msgid "Current position and attitude of models are published to this topic."
 msgstr "このトピックには各モデルの現在の位置姿勢をpublishします。"
 
-#: ../../manual.rst:97
+#: ../../manual.rst:109
 msgid ""
 "Current position and attitude of links in models are published to this topic."
 msgstr "このトピックには各モデルの各リンクの現在の位置姿勢をpublishします。"
@@ -129,30 +129,6 @@ msgstr ""
 "RGBDセンサについては、デプス画像を `sensor_msgs::PointCloud2 <http://docs."
 "ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_ のデータ 型でpublishしま"
 "す。"
-
-#: ../../manual.rst:90
-msgid "/[worldname]/model\\_states"
-msgstr "/[worldname]/model\\_states"
-
-#: ../../manual.rst:95
-msgid "/[worldname]/links\\_states"
-msgstr "/[worldname]/links\\_states"
-
-#: ../../manual.rst:162
-msgid "/[worldname]/pause\\_physics"
-msgstr "/[worldname]/pause\\_physics"
-
-#: ../../manual.rst:167
-msgid "/[worldname]/unpause\\_physics"
-msgstr "/[worldname]/unpause\\_physics"
-
-#: ../../manual.rst:172
-msgid "/[worldname]/spawn\\_vrml\\_model"
-msgstr "/[worldname]/spawn\\_vrml\\_model"
-
-#: ../../manual.rst:177
-msgid "/[worldname]/delete\\_model"
-msgstr "/[worldname]/delete\\_model"
 
 #: ../../manual.rst:23
 msgid ""
@@ -269,15 +245,15 @@ msgstr "画像センサからの出力はImage Transportを使ってpublishし�
 msgid "Other types are provides by the WorldRos item."
 msgstr "上記以外については WorldRos アイテムが提供します。"
 
-#: ../../manual.rst:100
+#: ../../manual.rst:118
 msgid "/choreonoid/[worldname]/physics/contacts"
 msgstr "/choreonoid/[worldname]/physics/contacts"
 
-#: ../../manual.rst:102
+#: ../../manual.rst:120
 msgid "Current contact state of links in models are published to this topic."
 msgstr "このトピックには接触が発生しているリンクの状態を publish します。"
 
-#: ../../manual.rst:104
+#: ../../manual.rst:122
 msgid ""
 "The output are published using data type `gazebo_msgs::ContactState <http://"
 "docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html>`_."
@@ -285,55 +261,57 @@ msgstr ""
 "出力は `gazebo_msgs::ContactState <http://docs.ros.org/api/gazebo_msgs/html/"
 "msg/ContactState.html>`_ のデータ型で publish します。"
 
-#: ../../manual.rst:159
+#: ../../manual.rst:177
 msgid "All services are provides by the WorldRos item."
 msgstr "サービスは全て WorldRos アイテムが提供します。"
 
-#: ../../manual.rst:106
+#: ../../manual.rst:124
 msgid "It is decribed below summary each parameter of the topic."
 msgstr "トピックの各パラメータについて以下に記載します。"
 
-#: ../../manual.rst:112
+#: ../../manual.rst:130
 msgid "collision1\\_name:"
 msgstr "collision1\\_name:"
 
-#: ../../manual.rst:118
+#: ../../manual.rst:136
 msgid "wrenches:"
 msgstr "wrenches:"
 
-#: ../../manual.rst:124
+#: ../../manual.rst:142
 msgid "total\\_wrench:"
 msgstr "total\\_wrench:"
 
-#: ../../manual.rst:128
+#: ../../manual.rst:146
 msgid "contact\\_positions:"
 msgstr "contact\\_positions:"
 
-#: ../../manual.rst:132
+#: ../../manual.rst:150
 msgid "contact\\_normals:"
 msgstr "contact\\_normals:"
 
-#: ../../manual.rst:140
+#: ../../manual.rst:158
 msgid "depths:"
 msgstr "depths:"
 
-#: ../../manual.rst:145
+#: ../../manual.rst:89 ../../manual.rst:100 ../../manual.rst:111
+#: ../../manual.rst:163
 msgid "This topic publish are made at a cycle (Hz) specified by the user."
 msgstr "トピックの publish 間隔 (Hz) はユーザにより指定する事ができます。"
 
-#: ../../manual.rst:149
+#: ../../manual.rst:93 ../../manual.rst:104 ../../manual.rst:115
+#: ../../manual.rst:167
 msgid "The cycle default setting are 100.0 Hz."
 msgstr "publish 間隔のデフォルト値は 100.0 Hz です。"
 
-#: ../../manual.rst:108
+#: ../../manual.rst:126
 msgid "info:"
 msgstr "info:"
 
-#: ../../manual.rst:113
+#: ../../manual.rst:131
 msgid "collision2\\_name:"
 msgstr "collision2\\_name:"
 
-#: ../../manual.rst:110
+#: ../../manual.rst:128
 msgid ""
 "Simulation world name and time of contact (simulation time) will be output "
 "to this."
@@ -341,7 +319,7 @@ msgstr ""
 "シミュレーションのワールド名と接触が発生した時間 (シミュレーション内時間) を"
 "出力します。"
 
-#: ../../manual.rst:115
+#: ../../manual.rst:133
 msgid ""
 "The link name where contact occurred is output to this. This output format "
 "is '<body name>::<link name>::collision'."
@@ -349,7 +327,7 @@ msgstr ""
 "接触があったリンク名を出力します。出力フォーマットは  '<body name>::<link "
 "name>::collision' です。"
 
-#: ../../manual.rst:120
+#: ../../manual.rst:138
 msgid ""
 "It outputs force and torque generated at each contact position. This output "
 "is the value around center of mass in collision1\\_name links. The "
@@ -360,7 +338,7 @@ msgstr ""
 "の値となります。力とトルクと接触位置との関係は配列の位置で関連付けられていま"
 "す。"
 
-#: ../../manual.rst:138
+#: ../../manual.rst:156
 msgid ""
 "The relationship between contact normal and contact position is linked with "
 "position of array."
@@ -368,19 +346,19 @@ msgstr ""
 "接触位置の法線ベクトルと接触位置との関係は、配列の位置で関連付けられていま"
 "す。"
 
-#: ../../manual.rst:126
+#: ../../manual.rst:144
 msgid "It outputs sum of forces and torques"
 msgstr "力とトルクの合計を出力します。"
 
-#: ../../manual.rst:130
+#: ../../manual.rst:148
 msgid "It outputs the contact position in world coordinates."
 msgstr "接触位置をワールド座標系で出力します。"
 
-#: ../../manual.rst:134
+#: ../../manual.rst:152
 msgid "It outputs the contact noraml."
 msgstr "接触位置の法線ベクトルを出力します。"
 
-#: ../../manual.rst:142
+#: ../../manual.rst:160
 msgid ""
 "It outputs penetration depth. The relationship between depth and contact "
 "position is linked with position of array."
@@ -396,7 +374,49 @@ msgid ""
 msgstr ""
 "順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムを配置"
 "し、World アイテム下に WorldRos アイテムを、制御対象とするロボットの Body ア"
-"イテム下に BoryRos アイテムを配置する必要があります。 "
+"イテム下に BodyRos アイテムを配置する必要があります。 "
+
+#: ../../manual.rst:96
+msgid "/choreonoid/model\\_states"
+msgstr "/choreonoid/model\\_states"
+
+#: ../../manual.rst:107
+msgid "/choreonoid/links\\_states"
+msgstr "/choreonoid/links\\_states"
+
+#: ../../manual.rst:180
+msgid "/choreonoid/pause\\_physics"
+msgstr "/choreonoid/pause\\_physics"
+
+#: ../../manual.rst:185
+msgid "/choreonoid/unpause\\_physics"
+msgstr "/choreonoid/unpause\\_physics"
+
+#: ../../manual.rst:190
+msgid "/choreonoid/spawn\\_vrml\\_model"
+msgstr "/choreonoid/spawn\\_vrml\\_model"
+
+#: ../../manual.rst:195
+msgid "/choreonoid/delete\\_model"
+msgstr "/choreonoid/delete\\_model"
+
+#~ msgid "/[worldname]/model\\_states"
+#~ msgstr "/[worldname]/model\\_states"
+
+#~ msgid "/[worldname]/links\\_states"
+#~ msgstr "/[worldname]/links\\_states"
+
+#~ msgid "/[worldname]/pause\\_physics"
+#~ msgstr "/[worldname]/pause\\_physics"
+
+#~ msgid "/[worldname]/unpause\\_physics"
+#~ msgstr "/[worldname]/unpause\\_physics"
+
+#~ msgid "/[worldname]/spawn\\_vrml\\_model"
+#~ msgstr "/[worldname]/spawn\\_vrml\\_model"
+
+#~ msgid "/[worldname]/delete\\_model"
+#~ msgstr "/[worldname]/delete\\_model"
 
 #~ msgid ""
 #~ "You have to configure AISTSimulator item to use Foward dynamics mode or "
