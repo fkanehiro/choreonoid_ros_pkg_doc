@@ -16,15 +16,15 @@ msgstr ""
 msgid "To use the package, you first have to create catkin workspace:"
 msgstr "パッケージの利用に際し、catkin ワークスペースを作る必要があります:"
 
-#: ../../install.rst:140
+#: ../../install.rst:141
 msgid "Then, checkout choreonoid\\_ros\\_pkg under catkin\\_ws/src folder:"
 msgstr "catkin\\_ws/srcフォルダ以下にchoreonoid\\_ros\\_pkgをチェックアウトします:"
 
-#: ../../install.rst:149
+#: ../../install.rst:150
 msgid "Install dependent packages:"
 msgstr "依存パッケージをインストールします:"
 
-#: ../../install.rst:156
+#: ../../install.rst:157
 msgid "Build and install catkin packages:"
 msgstr "catkinパッケージをビルドしインストールします:"
 
