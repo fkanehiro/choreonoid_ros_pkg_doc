@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>インストール &mdash; Choreonoid ROS Plugin 0.0.5 ドキュメント</title>
+  <title>インストール &mdash; Choreonoid ROS Plugin 0.0.6 ドキュメント</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="索引"
               href="genindex.html"/>
         <link rel="search" title="検索" href="search.html"/>
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.5 ドキュメント" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.6 ドキュメント" href="index.html"/>
         <link rel="next" title="Choreonoid ROSプラグインマニュアル" href="manual.html"/>
         <link rel="prev" title="Welcome to Choreonoid ROS plugin documentation!" href="index.html"/> 
 
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.0.5
+                0.0.6
               </div>
             
           
@@ -254,6 +254,7 @@ $ <span class="nb">echo</span> <span class="nv">$?</span>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ mkdir -p ~/catkin_ws/src
 $ <span class="nb">cd</span> ~/catkin_ws
 $ catkin init
+$ catkin config --merge-devel --install
 </pre></div>
 </div>
 <p>catkin_ws/srcフォルダ以下にchoreonoid_ros_pkgをチェックアウトします:</p>
@@ -271,7 +272,6 @@ $ rosdep install --from-paths src --ignore-src --rosdistro <span class="nv">$ROS
 <p>catkinパッケージをビルドしインストールします:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/catkin_ws
 $ <span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span>~/catkin_ws/devel:/opt/ros/indigo
-$ catkin config --install
 $ catkin build choreonoid_ros_pkg
 $ <span class="nb">source</span> install/setup.bash
 </pre></div>
@@ -441,7 +441,7 @@ $ roslaunch choreonoid_ros jvrc-1-rviz.launch
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.5',
+            VERSION:'0.0.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
