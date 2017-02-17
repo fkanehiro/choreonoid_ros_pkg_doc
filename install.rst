@@ -136,6 +136,7 @@ To use the package, you first have to create catkin workspace:
    $ mkdir -p ~/catkin_ws/src
    $ cd ~/catkin_ws
    $ catkin init
+   $ catkin config --merge-devel --install
 
 Then, checkout choreonoid\_ros\_pkg under catkin\_ws/src folder:
 
@@ -159,7 +160,6 @@ Build and install catkin packages:
 
    $ cd ~/catkin_ws
    $ export CMAKE_PREFIX_PATH=~/catkin_ws/devel:/opt/ros/indigo
-   $ catkin config --install
    $ catkin build choreonoid_ros_pkg
    $ source install/setup.bash
 
