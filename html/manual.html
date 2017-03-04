@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.6 documentation</title>
+  <title>Choreonoid ROS Plugin Manual &mdash; Choreonoid ROS Plugin 0.0.7 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Choreonoid ROS Plugin 0.0.6 documentation" href="index.html"/>
+    <link rel="top" title="Choreonoid ROS Plugin 0.0.7 documentation" href="index.html"/>
         <link rel="next" title="Choreonoid ROS Plugin Tutorial" href="tutorial.html"/>
         <link rel="prev" title="Install" href="install.html"/> 
 
@@ -44,6 +44,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -63,7 +64,7 @@
             
             
               <div class="version">
-                0.0.6
+                0.0.7
               </div>
             
           
@@ -89,6 +90,17 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Choreonoid ROS Plugin Manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features-comparison">Features comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gazebo-subscribed-topics">Gazebo Subscribed Topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gazebo-published-parameters">Gazebo Published Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gazebo-published-topics">Gazebo Published Topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gazebo-services">Gazebo Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-and-properties-getters">State and properties getters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-and-properties-setters">State and properties setters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-control">Simulation control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#force-control">Force control</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-topics">ROS Topics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-joint-states">/[robotname]/joint_states</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#robotname-controlmode-set-joint-trajectory">/[robotname]/[controlmode]/set_joint_trajectory</a></li>
@@ -121,8 +133,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">Choreonoid ROS Plugin</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Choreonoid ROS Plugin</a>
+        
       </nav>
 
 
@@ -131,23 +145,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Choreonoid ROS Plugin Manual</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Choreonoid ROS Plugin Manual</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/manual.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -175,6 +206,340 @@ $ choreonoid
 <p>Howerver, the wall-clock time mode are currently not supported.</p>
 <p>Sorry, please use simulation time mode.</p>
 <p class="last">The simulation time mode details, please see <a class="reference external" href="http://wiki.ros.org/Clock">http://wiki.ros.org/Clock</a></p>
+</div>
+</div>
+<div class="section" id="features-comparison">
+<h2>Features comparison<a class="headerlink" href="#features-comparison" title="Permalink to this headline">¶</a></h2>
+<p>This section is describe a comparison of the feautures of the choreonoid_ros_pkg and the <a class="reference external" href="https://github.com/ros-simulation/gazebo_ros_pkgs">gazebo_ros_pkgs</a>.</p>
+<p>The choreonoid_ros_pkg is implemented so as to be compatible with the gazebo_ros_pkgs, for that reason in principle it is to provide the same features.</p>
+<p>Howerver, these may be differences depending on the differences of the each simulator. Also, not yet implemented features.</p>
+<p>These are described below.</p>
+<div class="section" id="gazebo-subscribed-topics">
+<h3>Gazebo Subscribed Topics<a class="headerlink" href="#gazebo-subscribed-topics" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>topic</td>
+<td>/gazebo/set_link_state</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>topic</td>
+<td>/gazebo/set_model_state</td>
+<td><em>not implemented</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gazebo-published-parameters">
+<h3>Gazebo Published Parameters<a class="headerlink" href="#gazebo-published-parameters" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>parameter</td>
+<td>/use_sim_time</td>
+<td>/use_sim_time <a class="footnote-reference" href="#id11" id="id1">[1]</a></td>
+</tr>
+<tr class="row-odd"><td>topic</td>
+<td>/gazebo/parameter_descriptions</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>topic</td>
+<td>/gazebo/parameter_updates</td>
+<td><em>not implemented</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gazebo-published-topics">
+<h3>Gazebo Published Topics<a class="headerlink" href="#gazebo-published-topics" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>topic</td>
+<td>/clock</td>
+<td>/clock</td>
+</tr>
+<tr class="row-odd"><td>topic</td>
+<td>/gazebo/link_states</td>
+<td>/choreonoid/link_states</td>
+</tr>
+<tr class="row-even"><td>topic</td>
+<td>/gazebo/model_states</td>
+<td>/choreonoid/model_states</td>
+</tr>
+<tr class="row-odd"><td>topic</td>
+<td>&#160;</td>
+<td>/choreonoid/[world name]/physics/contacts <a class="footnote-reference" href="#id12" id="id2">[2]</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gazebo-services">
+<h3>Gazebo Services<a class="headerlink" href="#gazebo-services" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>service</td>
+<td>/gazebo/spawn_gazebo_model <a class="footnote-reference" href="#id13" id="id3">[3]</a></td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/spawn_sdf_model</td>
+<td>/choreonoid/spawn_sdf_model <a class="footnote-reference" href="#id14" id="id4">[4]</a></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/spawn_urdf_model</td>
+<td>/choreonoid/spawn_urdf_model <a class="footnote-reference" href="#id14" id="id5">[4]</a></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>&#160;</td>
+<td>/choreonoid/spawn_vrml_model <a class="footnote-reference" href="#id12" id="id6">[2]</a> <a class="footnote-reference" href="#id14" id="id7">[4]</a></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/delete_model</td>
+<td>/choreonoid/delete_model</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="state-and-properties-getters">
+<h3>State and properties getters<a class="headerlink" href="#state-and-properties-getters" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>service</td>
+<td>/gazebo/get_joint_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/get_link_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/get_link_state</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/get_loggers</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/get_model_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/get_model_state</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/get_physics_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/get_world_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="state-and-properties-setters">
+<h3>State and properties setters<a class="headerlink" href="#state-and-properties-setters" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>service</td>
+<td>/gazebo/set_joint_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/set_link_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/set_link_state</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/set_logger_level</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/set_model_configuration</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/set_model_state</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/set_parameters</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/set_physics_properties</td>
+<td><em>not implemented</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-control">
+<h3>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>service</td>
+<td>/gazebo/pause_physics</td>
+<td>/choreonoid/pause_physics <a class="footnote-reference" href="#id15" id="id8">[5]</a></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/unpause_physics</td>
+<td>/choreonoid/unpause_physics <a class="footnote-reference" href="#id15" id="id9">[5]</a></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/reset_simulation</td>
+<td>/choreonoid/reset_simulation <a class="footnote-reference" href="#id15" id="id10">[5]</a></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/reset_world</td>
+<td><em>not implemented</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="force-control">
+<h3>Force control<a class="headerlink" href="#force-control" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Category</th>
+<th class="head">gazebo_ros_pkgs</th>
+<th class="head">choreonoid_ros_pkg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>service</td>
+<td>/gazebo/apply_body_wrench</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/apply_joint_effort</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-even"><td>service</td>
+<td>/gazebo/clear_joint_forces</td>
+<td><em>not implemented</em></td>
+</tr>
+<tr class="row-odd"><td>service</td>
+<td>/gazebo/clear_body_wrenches</td>
+<td><em>not implemented</em></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>A wall-clock time mode (use_sim_time=false) are currently not supported on the choreonoid_ros_pkg.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> This feature is unique of the choreonoid_ros_pkg.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>This feature is deprecated, alternative using to &#8216;spawn_sdf_model&#8217;.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id5">2</a>, <a class="fn-backref" href="#id7">3</a>)</em> Physical interference does not occur in models loaded from the limitation of Choreonoid specifications.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id8">1</a>, <a class="fn-backref" href="#id9">2</a>, <a class="fn-backref" href="#id10">3</a>)</em> This feature is inconsistent with the Choreonoid&#8217;s GUI operation.</td></tr>
+</tbody>
+</table>
+<p>The each topics and services details described to from the next section.</p>
 </div>
 </div>
 <div class="section" id="ros-topics">
@@ -296,15 +661,18 @@ The relationship between depth and contact position is linked with position of a
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tutorial.html" class="btn btn-neutral float-right" title="Choreonoid ROS Plugin Tutorial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Choreonoid ROS Plugin Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="Install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral" title="Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -335,10 +703,11 @@ The relationship between depth and contact position is linked with position of a
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.6',
+            VERSION:'0.0.7',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

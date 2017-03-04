@@ -35,6 +35,160 @@ Please refer to :doc:`tutorial` on details.
    The simulation time mode details, please see http://wiki.ros.org/Clock
 
 
+Features comparison
+===================
+
+This section is describe a comparison of the feautures of the choreonoid_ros_pkg and the gazebo_ros_pkgs_.
+
+The choreonoid_ros_pkg is implemented so as to be compatible with the gazebo_ros_pkgs, for that reason in principle it is to provide the same features.
+
+Howerver, these may be differences depending on the differences of the each simulator. Also, not yet implemented features.
+
+These are described below.
+
+.. _gazebo_ros_pkgs: https://github.com/ros-simulation/gazebo_ros_pkgs
+
+Gazebo Subscribed Topics
+~~~~~~~~~~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| topic     | /gazebo/set_link_state          | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| topic     | /gazebo/set_model_state         | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+
+Gazebo Published Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| parameter | /use_sim_time                   | /use_sim_time [1]_                             |
++-----------+---------------------------------+------------------------------------------------+
+| topic     | /gazebo/parameter_descriptions  | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| topic     | /gazebo/parameter_updates       | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+
+Gazebo Published Topics
+~~~~~~~~~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| topic     | /clock                          | /clock                                         |
++-----------+---------------------------------+------------------------------------------------+
+| topic     | /gazebo/link_states             | /choreonoid/link_states                        |
++-----------+---------------------------------+------------------------------------------------+
+| topic     | /gazebo/model_states            | /choreonoid/model_states                       |
++-----------+---------------------------------+------------------------------------------------+
+| topic     |                                 | /choreonoid/[world name]/physics/contacts [2]_ |
++-----------+---------------------------------+------------------------------------------------+
+
+Gazebo Services
+~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| service   | /gazebo/spawn_gazebo_model [3]_ | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/spawn_sdf_model         | /choreonoid/spawn_sdf_model [4]_               |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/spawn_urdf_model        | /choreonoid/spawn_urdf_model [4]_              |
++-----------+---------------------------------+------------------------------------------------+
+| service   |                                 | /choreonoid/spawn_vrml_model [2]_ [4]_         |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/delete_model            | /choreonoid/delete_model                       |
++-----------+---------------------------------+------------------------------------------------+
+
+State and properties getters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| service   | /gazebo/get_joint_properties    | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_link_properties     | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_link_state          | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_loggers             | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_model_properties    | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_model_state         | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_physics_properties  | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/get_world_properties    | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+
+State and properties setters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| service   | /gazebo/set_joint_properties    | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_link_properties     | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_link_state          | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_logger_level        | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_model_configuration | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_model_state         | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_parameters          | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/set_physics_properties  | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+
+Simulation control
+~~~~~~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| service   | /gazebo/pause_physics           | /choreonoid/pause_physics [5]_                 |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/unpause_physics         | /choreonoid/unpause_physics [5]_               |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/reset_simulation        | /choreonoid/reset_simulation [5]_              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/reset_world             | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+
+Force control
+~~~~~~~~~~~~~
+
++-----------+---------------------------------+------------------------------------------------+
+| Category  | gazebo_ros_pkgs                 | choreonoid_ros_pkg                             |
++===========+=================================+================================================+
+| service   | /gazebo/apply_body_wrench       | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/apply_joint_effort      | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/clear_joint_forces      | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+| service   | /gazebo/clear_body_wrenches     | *not implemented*                              |
++-----------+---------------------------------+------------------------------------------------+
+
+.. [1] A wall-clock time mode (use_sim_time=false) are currently not supported on the choreonoid_ros_pkg.
+.. [2] This feature is unique of the choreonoid_ros_pkg.
+.. [3] This feature is deprecated, alternative using to 'spawn_sdf_model'.
+.. [4] Physical interference does not occur in models loaded from the limitation of Choreonoid specifications.
+.. [5] This feature is inconsistent with the Choreonoid's GUI operation.
+
+The each topics and services details described to from the next section.
+
+
 ROS Topics
 ==========
 
