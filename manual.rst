@@ -188,6 +188,7 @@ Force control
 
 The each topics and services details described to from the next section.
 
+.. _manual_ros_topics:
 
 ROS Topics
 ==========

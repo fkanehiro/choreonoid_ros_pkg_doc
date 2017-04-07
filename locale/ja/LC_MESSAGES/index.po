@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
@@ -15,19 +15,19 @@ msgstr ""
 msgid "Contents:"
 msgstr ""
 
-#: ../../index.rst:20
+#: ../../index.rst:21
 msgid "Indices and tables"
 msgstr ""
 
-#: ../../index.rst:22
+#: ../../index.rst:23
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../index.rst:23
+#: ../../index.rst:24
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../index.rst:24
+#: ../../index.rst:25
 msgid ":ref:`search`"
 msgstr ""
 

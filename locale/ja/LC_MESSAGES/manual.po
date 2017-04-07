@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: hrpsys tutorials 0.0.1\n"
@@ -32,38 +32,38 @@ msgstr "ROSプラグインが有効になったChoreonoidを実行するため�
 msgid "Please refer to :doc:`tutorial` on details."
 msgstr "詳しくは :doc:`tutorial` を参照してください。"
 
-#: ../../manual.rst:193
+#: ../../manual.rst:194
 msgid "ROS Topics"
 msgstr "ROSトピックス"
 
-#: ../../manual.rst:195
+#: ../../manual.rst:196
 msgid ""
 "Choreonoid ROS plugin provides following ROS topics, please refer to "
 ":doc:`tutorial` for actual use."
 msgstr ""
 "Choreonoid ROSプラグインは以下のROSトピックを出力します。実際の利用方法は :doc:`tutorial` を参照してください。"
 
-#: ../../manual.rst:222
+#: ../../manual.rst:223
 msgid "/[robotname]/[sensorname]"
 msgstr "/[robotname]/[sensorname]"
 
-#: ../../manual.rst:325
+#: ../../manual.rst:326
 msgid "ROS Services"
 msgstr "ROSサービス"
 
-#: ../../manual.rst:327
+#: ../../manual.rst:328
 msgid "Following ROS services are provided to control the simulation."
 msgstr "シミュレーションを制御するために以下のROSサービスが利用できます。"
 
-#: ../../manual.rst:336
+#: ../../manual.rst:337
 msgid "Takes no argument. Pause the simulation."
 msgstr "引数なし。シミュレーションを一時停止します。"
 
-#: ../../manual.rst:341
+#: ../../manual.rst:342
 msgid "Takes no argument. Continue the paused simulation."
 msgstr "引数なし。一時停止したシミュレーションを再開します。"
 
-#: ../../manual.rst:346
+#: ../../manual.rst:347
 msgid ""
 "Takes [model_name, model_data, namespace, pose, reference_frame] as "
 "arguments. Load the specified model to the simulation."
@@ -71,7 +71,7 @@ msgstr ""
 "[model_name, model_data, namespace, pose, "
 "reference_frame]を引数にとります。指定されたモデルをシミュレータにロードします。"
 
-#: ../../manual.rst:351
+#: ../../manual.rst:352
 msgid ""
 "Takes [model_name] as an argument. Delete the specified model from the "
 "simulation."
@@ -81,7 +81,7 @@ msgstr "[model_name]を引数にとります。指定されたモデルをシミ
 msgid "Choreonoid ROS Plugin Manual"
 msgstr "Choreonoid ROSプラグインマニュアル"
 
-#: ../../manual.rst:218
+#: ../../manual.rst:219
 msgid ""
 "Data type of set\\_joint\\_trajectory topic is "
 "`trajectory_msgs::JointTrajectory "
@@ -91,7 +91,7 @@ msgstr ""
 "<http://docs.ros.org/api/trajectory_msgs/html/msg/JointTrajectory.html>`_ "
 "です。"
 
-#: ../../manual.rst:210
+#: ../../manual.rst:211
 msgid ""
 "Data type of joint\\_states topic is `sensor_msgs::JointState "
 "<http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_."
@@ -99,25 +99,25 @@ msgstr ""
 "joint\\_statesトピックのデータ型は `sensor_msgs::JointState "
 "<http://docs.ros.org/api/sensor_msgs/html/msg/JointState.html>`_ です。"
 
-#: ../../manual.rst:239
+#: ../../manual.rst:240
 msgid "\\/clock"
 msgstr "\\/clock"
 
-#: ../../manual.rst:241
+#: ../../manual.rst:242
 msgid "Current simulation time is published to /clock topic."
 msgstr "現在のシミュレーション時刻を/clockトピックにpublishします。"
 
-#: ../../manual.rst:252
+#: ../../manual.rst:253
 msgid "Current position and attitude of models are published to this topic."
 msgstr "このトピックには各モデルの現在の位置姿勢をpublishします。"
 
-#: ../../manual.rst:263
+#: ../../manual.rst:264
 msgid ""
 "Current position and attitude of links in models are published to this "
 "topic."
 msgstr "このトピックには各モデルの各リンクの現在の位置姿勢をpublishします。"
 
-#: ../../manual.rst:236
+#: ../../manual.rst:237
 msgid ""
 "For RGBD vision sensors, depth image is published in "
 "`sensor_msgs::PointCloud2 "
@@ -137,11 +137,11 @@ msgstr ""
 "また、順動力学モードの場合 BodyRosTorqueController アイテムを、ハイゲインモードの場合 "
 "BodyRosHighgainController アイテムを配置する必要があります。"
 
-#: ../../manual.rst:214
+#: ../../manual.rst:215
 msgid "/[robotname]/[controlmode]/set\\_joint\\_trajectory"
 msgstr "/[robotname]/[controlmode]/set\\_joint\\_trajectory"
 
-#: ../../manual.rst:216
+#: ../../manual.rst:217
 msgid ""
 "Your control signal can be sent using "
 "/[robotname]/[controlmode]/set\\_joint\\_trajectory topic."
@@ -150,20 +150,20 @@ msgstr ""
 " アイテムの場合 torque_control、BodyRosHighgainController アイテムの場合 highgain_control "
 "となります。"
 
-#: ../../manual.rst:208
+#: ../../manual.rst:209
 msgid "Each joint states are published to /[robotname]/joint\\_states topic."
 msgstr "ロボットの各関節の情報は/[robotname]/joint\\_statesトピックにpublishします。"
 
-#: ../../manual.rst:206
+#: ../../manual.rst:207
 msgid "/[robotname]/joint\\_states"
 msgstr "/[robotname]/joint\\_states"
 
-#: ../../manual.rst:199
+#: ../../manual.rst:200
 msgid ""
 "Data type of sensor\\_msgs and geometry\\_msgs provides by the BodyRos item."
 msgstr "データ型が sensor\\_msgs および geometry\\_msgs のトピックは、BodyRos アイテムが提供します。 "
 
-#: ../../manual.rst:201
+#: ../../manual.rst:202
 msgid ""
 "Data type of trajectory\\_msgs provides by the BodyRosTorqueContorller or "
 "BodyRosHighgainController item."
@@ -187,13 +187,13 @@ msgstr "申し訳ありませんが、simulation time モードを使用して�
 msgid "The simulation time mode details, please see http://wiki.ros.org/Clock"
 msgstr "simulation time モードの詳細については http://wiki.ros.org/Clock を参照してください。"
 
-#: ../../manual.rst:224
+#: ../../manual.rst:225
 msgid ""
 "If there are sensors defined on the robot model, ROS plugin will generate "
 "topics correspond to each sensor."
 msgstr "ロボットモデルにセンサが定義されている場合、ROSプラグインは各センサに対応したトピックを生成します。"
 
-#: ../../manual.rst:226
+#: ../../manual.rst:227
 msgid ""
 "Output from force sensors are published using data type "
 "`geometry_msgs::Wrench "
@@ -203,7 +203,7 @@ msgstr ""
 "<http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html>`_ "
 "のデータ型を使ってpublishします。"
 
-#: ../../manual.rst:228
+#: ../../manual.rst:229
 msgid ""
 "Output from gyro sensors are published using data type `sensor_msgs::Imu "
 "<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_."
@@ -212,7 +212,7 @@ msgstr ""
 "<http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html>`_ "
 "のデータ型を使ってpublishします。"
 
-#: ../../manual.rst:230
+#: ../../manual.rst:231
 msgid ""
 "Output from accel sensors are published using data type "
 "`geometry_msgs::Accel "
@@ -222,7 +222,7 @@ msgstr ""
 "<http://docs.ros.org/api/geometry_msgs/html/msg/Accel.html>`_ "
 "のデータ型を使ってpublishします。"
 
-#: ../../manual.rst:232
+#: ../../manual.rst:233
 msgid ""
 "Output from range sensors are published using data type "
 "`sensor_msgs::LaserScan "
@@ -232,23 +232,23 @@ msgstr ""
 "<http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_ "
 "のデータ型を使ってpublishします。"
 
-#: ../../manual.rst:234
+#: ../../manual.rst:235
 msgid "Output from vision sensors are published using image transport."
 msgstr "画像センサからの出力はImage Transportを使ってpublishします。"
 
-#: ../../manual.rst:203
+#: ../../manual.rst:204
 msgid "Other types are provides by the WorldRos item."
 msgstr "上記以外については WorldRos アイテムが提供します。"
 
-#: ../../manual.rst:272
+#: ../../manual.rst:273
 msgid "/choreonoid/[worldname]/physics/contacts"
 msgstr "/choreonoid/[worldname]/physics/contacts"
 
-#: ../../manual.rst:274
+#: ../../manual.rst:275
 msgid "Current contact state of links in models are published to this topic."
 msgstr "このトピックには接触が発生しているリンクの状態を publish します。"
 
-#: ../../manual.rst:276
+#: ../../manual.rst:277
 msgid ""
 "The output are published using data type `gazebo_msgs::ContactState "
 "<http://docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html>`_."
@@ -257,69 +257,69 @@ msgstr ""
 "<http://docs.ros.org/api/gazebo_msgs/html/msg/ContactState.html>`_ のデータ型で "
 "publish します。"
 
-#: ../../manual.rst:331
+#: ../../manual.rst:332
 msgid "All services are provides by the WorldRos item."
 msgstr "サービスは全て WorldRos アイテムが提供します。"
 
-#: ../../manual.rst:278
+#: ../../manual.rst:279
 msgid "It is decribed below summary each parameter of the topic."
 msgstr "トピックの各パラメータについて以下に記載します。"
 
-#: ../../manual.rst:284
+#: ../../manual.rst:285
 msgid "collision1\\_name:"
 msgstr "collision1\\_name:"
 
-#: ../../manual.rst:290
+#: ../../manual.rst:291
 msgid "wrenches:"
 msgstr "wrenches:"
 
-#: ../../manual.rst:296
+#: ../../manual.rst:297
 msgid "total\\_wrench:"
 msgstr "total\\_wrench:"
 
-#: ../../manual.rst:300
+#: ../../manual.rst:301
 msgid "contact\\_positions:"
 msgstr "contact\\_positions:"
 
-#: ../../manual.rst:304
+#: ../../manual.rst:305
 msgid "contact\\_normals:"
 msgstr "contact\\_normals:"
 
-#: ../../manual.rst:312
+#: ../../manual.rst:313
 msgid "depths:"
 msgstr "depths:"
 
-#: ../../manual.rst:243 ../../manual.rst:254 ../../manual.rst:265
-#: ../../manual.rst:317
+#: ../../manual.rst:244 ../../manual.rst:255 ../../manual.rst:266
+#: ../../manual.rst:318
 msgid "This topic publish are made at a cycle (Hz) specified by the user."
 msgstr "トピックの publish 間隔 (Hz) はユーザにより指定する事ができます。"
 
-#: ../../manual.rst:247 ../../manual.rst:258 ../../manual.rst:269
-#: ../../manual.rst:321
+#: ../../manual.rst:248 ../../manual.rst:259 ../../manual.rst:270
+#: ../../manual.rst:322
 msgid "The cycle default setting are 100.0 Hz."
 msgstr "publish 間隔のデフォルト値は 100.0 Hz です。"
 
-#: ../../manual.rst:280
+#: ../../manual.rst:281
 msgid "info:"
 msgstr "info:"
 
-#: ../../manual.rst:285
+#: ../../manual.rst:286
 msgid "collision2\\_name:"
 msgstr "collision2\\_name:"
 
-#: ../../manual.rst:282
+#: ../../manual.rst:283
 msgid ""
 "Simulation world name and time of contact (simulation time) will be output "
 "to this."
 msgstr "シミュレーションのワールド名と接触が発生した時間 (シミュレーション内時間) を出力します。"
 
-#: ../../manual.rst:287
+#: ../../manual.rst:288
 msgid ""
 "The link name where contact occurred is output to this. This output format "
 "is '<body name>::<link name>::collision'."
 msgstr "接触があったリンク名を出力します。出力フォーマットは  '<body name>::<link name>::collision' です。"
 
-#: ../../manual.rst:292
+#: ../../manual.rst:293
 msgid ""
 "It outputs force and torque generated at each contact position. This output "
 "is the value around center of mass in collision1\\_name links. The "
@@ -329,25 +329,25 @@ msgstr ""
 "接触位置に発生した力とトルクを出力します。出力は collision1_name "
 "の重心軸回りの値となります。力とトルクと接触位置との関係は配列の位置で関連付けられています。"
 
-#: ../../manual.rst:310
+#: ../../manual.rst:311
 msgid ""
 "The relationship between contact normal and contact position is linked with "
 "position of array."
 msgstr "接触位置の法線ベクトルと接触位置との関係は、配列の位置で関連付けられています。"
 
-#: ../../manual.rst:298
+#: ../../manual.rst:299
 msgid "It outputs sum of forces and torques"
 msgstr "力とトルクの合計を出力します。"
 
-#: ../../manual.rst:302
+#: ../../manual.rst:303
 msgid "It outputs the contact position in world coordinates."
 msgstr "接触位置をワールド座標系で出力します。"
 
-#: ../../manual.rst:306
+#: ../../manual.rst:307
 msgid "It outputs the contact noraml."
 msgstr "接触位置の法線ベクトルを出力します。"
 
-#: ../../manual.rst:314
+#: ../../manual.rst:315
 msgid ""
 "It outputs penetration depth. The relationship between depth and contact "
 "position is linked with position of array."
@@ -362,27 +362,27 @@ msgstr ""
 "順動力学モードもしくは、ハイゲインモードに設定したAISTSimulatorアイテムを配置し、World アイテム下に WorldRos "
 "アイテムを、制御対象とするロボットの Body アイテム下に BodyRos アイテムを配置する必要があります。 "
 
-#: ../../manual.rst:250
+#: ../../manual.rst:251
 msgid "/choreonoid/model\\_states"
 msgstr "/choreonoid/model\\_states"
 
-#: ../../manual.rst:261
+#: ../../manual.rst:262
 msgid "/choreonoid/links\\_states"
 msgstr "/choreonoid/links\\_states"
 
-#: ../../manual.rst:334
+#: ../../manual.rst:335
 msgid "/choreonoid/pause\\_physics"
 msgstr "/choreonoid/pause\\_physics"
 
-#: ../../manual.rst:339
+#: ../../manual.rst:340
 msgid "/choreonoid/unpause\\_physics"
 msgstr "/choreonoid/unpause\\_physics"
 
-#: ../../manual.rst:344
+#: ../../manual.rst:345
 msgid "/choreonoid/spawn\\_vrml\\_model"
 msgstr "/choreonoid/spawn\\_vrml\\_model"
 
-#: ../../manual.rst:349
+#: ../../manual.rst:350
 msgid "/choreonoid/delete\\_model"
 msgstr "/choreonoid/delete\\_model"
 

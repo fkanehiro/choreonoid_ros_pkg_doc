@@ -1,0 +1,1140 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Choreonoid ROS Plugin 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-07 09:46+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+
+#: ../../developer.rst:3
+msgid "Information for developers"
+msgstr ""
+
+#: ../../developer.rst:5
+msgid "本章では、Choreonoid ROS プラグイン、Gazebo ROS プラグインからの移植に関する内容を記載します。"
+msgstr ""
+
+#: ../../developer.rst:7
+msgid ""
+"本章は、C++ および CMake での開発経験、Choreonoid プラグインの実装方法、ROS API、Gazebo ROS "
+"packages について概ね理解している事が前提条件となります。"
+msgstr ""
+
+#: ../../developer.rst:9
+msgid ""
+"Choreonoid プラグインの実装方法、ROS API、Gazebo ROS packages の詳細については、以下の URL "
+"を参照してください。"
+msgstr ""
+
+#: ../../developer.rst:11
+msgid "Choreonoid - Plugin development:"
+msgstr ""
+
+#: ../../developer.rst:13
+msgid "http://choreonoid.org/ja/manuals/latest/plugin-development/index.html"
+msgstr ""
+
+#: ../../developer.rst:15
+msgid "ROS API:"
+msgstr ""
+
+#: ../../developer.rst:17
+msgid "http://wiki.ros.org/APIs"
+msgstr ""
+
+#: ../../developer.rst:19
+msgid "http://docs.ros.org/api/roscpp/html"
+msgstr ""
+
+#: ../../developer.rst:21
+msgid "Gazebo ROS packages (source code):"
+msgstr ""
+
+#: ../../developer.rst:23
+msgid "https://github.com/ros-simulation/gazebo_ros_pkgs.git"
+msgstr ""
+
+#: ../../developer.rst:25
+msgid "Gazebo - Connect to ROS tutorial:"
+msgstr ""
+
+#: ../../developer.rst:27
+msgid "http://gazebosim.org/tutorials?cat=connect_ros"
+msgstr ""
+
+#: ../../developer.rst:29
+msgid ""
+"本章の説明は、特に断りが無い限り Choreonoid ROS プラグイン本体のソースコード "
+"(choreonoid_ros_pkg/choreonoid_plugins/src 以下) を元とした記載となります。"
+msgstr ""
+
+#: ../../developer.rst:31
+msgid "説明で使用するソースコードは、Appendix に全て省略の無い状態で載せています。 必要に応じて参照してください。"
+msgstr ""
+
+#: ../../developer.rst:34
+msgid "なお、説明はいずれも 2017/03/20 時点の内容に基づくものとなります。"
+msgstr ""
+
+#: ../../developer.rst:38
+msgid "Choreonoid ROS plguin"
+msgstr ""
+
+#: ../../developer.rst:40
+msgid "この節では、Choreonoid ROS プラグインについて説明します。"
+msgstr ""
+
+#: ../../developer.rst:42
+msgid "既存の実装について説明することで、機能拡張を実施する際に必要な情報を提供する事および、類似のプラグインを実装する際の参考情報を提供する事を主旨としています。"
+msgstr ""
+
+#: ../../developer.rst:44
+msgid "なお、コントローラとコントローラに属さないものを、それぞれの項として記載しています。"
+msgstr ""
+
+#: ../../developer.rst:46
+msgid ""
+"これは、Choreonoid ROS プラグインが、ロボットに属する処理 (センサ処理や関節制御など) "
+"をコントローラ、シミュレーション環境に属する処理 (シミュレーションの制御やワールド内の情報提供など) "
+"をコントローラでないものとして実装している事によります。"
+msgstr ""
+
+#: ../../developer.rst:49
+msgid "Implement a controller"
+msgstr ""
+
+#: ../../developer.rst:51
+msgid "コントローラの実装について、Choreonoid ROS プラグインの BodyRosItem の実装を元に説明します。"
+msgstr ""
+
+#: ../../developer.rst:53
+msgid "BodyRosItem が提供する機能については、:ref:`manual_ros_topics` の注釈を参照してください。"
+msgstr ""
+
+#: ../../developer.rst:56
+msgid "Derive the base class"
+msgstr ""
+
+#: ../../developer.rst:58
+msgid ""
+"Choreonoid フレームワーク上でコントローラを実装するためのクラスとして用意された ControllerItem "
+"クラスを基底クラスとします。"
+msgstr ""
+
+#: ../../developer.rst:60
+msgid "BodyRosItem.h - Class definition"
+msgstr ""
+
+#: ../../developer.rst:68
+msgid ""
+"同じ用途を持つクラスとして、ControllerItem クラスとは別に SimpleControllerItem "
+"クラスも用意されていますが、Choreonoid ROS プラグインでは使用していないため、説明は割愛します。"
+msgstr ""
+
+#: ../../developer.rst:71
+msgid "Implement initialize()"
+msgstr ""
+
+#: ../../developer.rst:74 ../../developer.rst:299
+msgid "初回実行時のみの処理"
+msgstr ""
+
+#: ../../developer.rst:76
+msgid "初回実行時のみ必要な処理は static 関数として実装し、後述するプラグイン本体の初期化処理において呼び出すようにします。"
+msgstr ""
+
+#: ../../developer.rst:78
+msgid "BodyRosItem.h - Prototype definition of initialize()"
+msgstr ""
+
+#: ../../developer.rst:84
+msgid "BodyRosItem::initialize()"
+msgstr ""
+
+#: ../../developer.rst:91
+msgid "15 行目および 16 行目は ROS の初期化処理です。"
+msgstr ""
+
+#: ../../developer.rst:93
+msgid "当該処理は、プロセス内で複数回実行すると問題が生じるため、ros::isInitialized で実行の確認を実施し、重複実行を防止します。"
+msgstr ""
+
+#: ../../developer.rst:95
+msgid "BodyRosItem.cpp - ROS initialization"
+msgstr ""
+
+#: ../../developer.rst:101
+msgid "18 行目および 19 行目は、BodyRosItem を Choreonoid へ登録する処理です。"
+msgstr ""
+
+#: ../../developer.rst:103
+msgid "こちらも複数回実行すると問題が生じるため、重複実行を防止します。"
+msgstr ""
+
+#: ../../developer.rst:105
+msgid "BodyRosItem.cpp - Register BodyRosItem class"
+msgstr ""
+
+#: ../../developer.rst:112
+msgid "シミュレーション開始時の処理"
+msgstr ""
+
+#: ../../developer.rst:114
+msgid "シミュレーション開始時に実行する必要がある処理は ControllerItem の start() 仮想関数を実装します。"
+msgstr ""
+
+#: ../../developer.rst:116
+msgid "start() はシミュレーションの開始と同期して実行されます。"
+msgstr ""
+
+#: ../../developer.rst:118
+msgid "BodyRosItem - Prototype definition of start()"
+msgstr ""
+
+#: ../../developer.rst:125
+msgid ""
+"start() には、各トピックでパブリッシュするメッセージの初期化処理、トピックをパブリッシュする為のインスタンス (パブリッシャー) "
+"の生成処理、ROS ノードの生成および起動処理を実装します。"
+msgstr ""
+
+#: ../../developer.rst:127
+msgid "BodyRosItem::start()"
+msgstr ""
+
+#: ../../developer.rst:134
+msgid "以下、ソースコードのハイライト箇所について順に説明します。"
+msgstr ""
+
+#: ../../developer.rst:136
+msgid "80 行目から 92 行目までは、ロボットの関節に関する情報をパブリッシュするメッセージの初期化処理です。"
+msgstr ""
+
+#: ../../developer.rst:138
+msgid ""
+"現行の Choreonoid "
+"ではシミュレーション実行中にモデルの構造が動的に変更される事は無いため、ここで対象モデルの関節数に合わせてデータのサイズを変更し、関節名、関節角度、関節角速度、トルク値を初期値として設定します。"
+msgstr ""
+
+#: ../../developer.rst:140
+msgid "取得した情報のパブリッシュ処理については「Implement control()」で説明します。"
+msgstr ""
+
+#: ../../developer.rst:142
+msgid "BodyRosItem::start() - initialize joint_state"
+msgstr ""
+
+#: ../../developer.rst:148
+msgid ""
+"100 行目から 102 行目は ROS ノードの生成、105 行目は ROS トピックの登録処理です。 103 行目の "
+"createSensors については説明が長くなるため後述します。"
+msgstr ""
+
+#: ../../developer.rst:151
+msgid ""
+"ros::NodeHnadler の引数に name (モデルの名前) を渡しています。 "
+"これにより生成したノードの名前は、モデルの名前となります。 また、ROS の仕様において、名前空間の文字列で - "
+"が使用できないため、std::replace で - を \\_ に置換します。"
+msgstr ""
+
+#: ../../developer.rst:155
+msgid ""
+"ノードの名前は、名前空間の親の名前となります。 このノードに対して生成したトピックやサービスは、親の名前空間に属するものとなります。 "
+"ただし、トピックやサービスの名前を / で開始した場合は、この限りではありません。"
+msgstr ""
+
+#: ../../developer.rst:159
+msgid "105 行目の場合、トピックは /[model name]/joint_states で提供されます。"
+msgstr ""
+
+#: ../../developer.rst:161
+msgid "BodyRosItem::start() - Create a ROS node and publishers"
+msgstr ""
+
+#: ../../developer.rst:168
+msgid "110 行目および 111 行目は、ROS のイベントループ開始処理です。"
+msgstr ""
+
+#: ../../developer.rst:170
+msgid "使用するスレッドの数を明示的に指定する場合は、ros::AsyncSpinner の引数にスレッド数を指定します。"
+msgstr ""
+
+#: ../../developer.rst:172
+msgid "明示的にスレッドの数を指定する必要が無い場合は、0 を指定すると ROS API 側で CPU の数に応じたスレッドが自動的に設定されます。"
+msgstr ""
+
+#: ../../developer.rst:174
+msgid "BodyRosItem::start() - Start ROS spinner"
+msgstr ""
+
+#: ../../developer.rst:180
+msgid "以下、103 行目の createSensors() について説明します。"
+msgstr ""
+
+#: ../../developer.rst:182
+msgid ""
+"createSensors は、このコントローラアイテムの親アイテム (BodyItem) "
+"が装備するセンサデバイスを取得し、各デバイスに対応するトピックのパブリッシャーの生成処理を実行します。"
+msgstr ""
+
+#: ../../developer.rst:184
+msgid ""
+"基本的に、引数で渡した body の devices "
+"を呼び出しセンサデバイスを取得、対応するセンサデバイスが存在する場合、それらのパブリッシャーを生成するといった処理の流れとなります。"
+msgstr ""
+
+#: ../../developer.rst:186
+msgid "BodyRosItem::createSensor() - Create publishers for force sensor devices"
+msgstr ""
+
+#: ../../developer.rst:193
+msgid "ロボットの関節に関する情報をパブリッシュする場合とは異なり、センサデバイスについては、デバイスの更新に同期したイベントシグナルが発行されるため、パブリッシュ処理を当該イベントシグナルに接続しデータ更新のタイミングでパブリッシュを実行するようにします。"
+msgstr ""
+
+#: ../../developer.rst:195
+msgid "BodyRosItem::createSensor() - sigStateChanged"
+msgstr ""
+
+#: ../../developer.rst:201
+msgid "connect の引数で渡している BodyRosItem::updateForceSensor が、パブリッシュ処理の本体です。"
+msgstr ""
+
+#: ../../developer.rst:203
+msgid ""
+"パブリッシュするメッセージ (ここでは geomerty_mesg::Wrench) "
+"にセンサのデータをコピーし、当該メッセージをパブリッシュする実装です。"
+msgstr ""
+
+#: ../../developer.rst:205
+msgid "この実装ではデータのコピーのみですが、データの変換処理やデータのチェック処理が必要な場合、ここへそれらの実装を追加します。"
+msgstr ""
+
+#: ../../developer.rst:207
+msgid "BodyRosItem::updateForceSensor()"
+msgstr ""
+
+#: ../../developer.rst:214
+msgid "シミュレーション停止時の処理"
+msgstr ""
+
+#: ../../developer.rst:216
+msgid ""
+"シミュレーション停止時に実行する必要がある処理は ControllerItem の stop() 仮想関数を実装します。 stop() "
+"はシミュレーションの停止に同期して実行されます。"
+msgstr ""
+
+#: ../../developer.rst:219
+msgid "BodyRosItem - Prototype definition of stop()"
+msgstr ""
+
+#: ../../developer.rst:226
+msgid "stop() には、トピックの停止処理 (stop_publish)、ROS ノードの停止処理を実装します。"
+msgstr ""
+
+#: ../../developer.rst:228
+msgid "また、終了時に開放処理が必要なもの等についても、ここに実装します。"
+msgstr ""
+
+#: ../../developer.rst:230
+msgid "BodyRosItem::stop"
+msgstr ""
+
+#: ../../developer.rst:237
+msgid "BodyRosItem::stop_publish"
+msgstr ""
+
+#: ../../developer.rst:244 ../../developer.rst:511
+msgid "Implement control()"
+msgstr ""
+
+#: ../../developer.rst:246
+msgid "制御処理は、ControllerItem の control() 仮想関数を実装することで実現します。"
+msgstr ""
+
+#: ../../developer.rst:248
+msgid "BodyRosItem - Prototype definition of control()"
+msgstr ""
+
+#: ../../developer.rst:255
+msgid ""
+"control() は、シミュレーションの実行周期で呼びされます。 シミュレーションの実行周期は、Choreonoid "
+"のタイムバーの設定で指定した周期となります。 以下の設定の場合、1ms 周期で control が呼び出されます。"
+msgstr ""
+
+#: ../../developer.rst:261
+msgid "BodyRosItem では、control でロボットの関節に関する情報のパブリッシュ処理を実行しています。"
+msgstr ""
+
+#: ../../developer.rst:263
+msgid ""
+"currentTime で現在のシミュレーション時間を取得し、パブリッシュの出力周期毎 (デフォルト値 10ms) "
+"に、関節角度、関節角速度、トルク値をコピーしパブリッシュ処理を実行します。"
+msgstr ""
+
+#: ../../developer.rst:267
+msgid "関節名 (joint->name()) については、先に説明した通りシミュレーション中に変更が発生しないため、コピー対象外としています。"
+msgstr ""
+
+#: ../../developer.rst:269
+msgid ""
+"なお、ここでは返り値を常に true としていますが、制御処理において動作に支障をきたすような状態となった場合は、false "
+"を返す事で、当該コントローラの動作を停止する事が可能です。"
+msgstr ""
+
+#: ../../developer.rst:271
+msgid "BodyRosItem::control()"
+msgstr ""
+
+#: ../../developer.rst:278
+msgid "Implement a other than controller"
+msgstr ""
+
+#: ../../developer.rst:280
+msgid "コントローラ以外の実装について、Choreonoid ROS プラグインの WorldRosItem の実装を元に説明を記載します。"
+msgstr ""
+
+#: ../../developer.rst:282
+msgid "WorldRosItem が提供する機能については、:ref:`manual_ros_topics` の注釈を参照してください。"
+msgstr ""
+
+#: ../../developer.rst:285
+msgid "Decide to base class"
+msgstr ""
+
+#: ../../developer.rst:287
+msgid "Choreonoid フレームワーク上で共有されるオブジェクトを実装するためのクラスとして用意された Item クラスを基底クラスとします。"
+msgstr ""
+
+#: ../../developer.rst:289
+msgid "WorldRosItem - Class definition"
+msgstr ""
+
+#: ../../developer.rst:296
+msgid "Implement processing of initialize"
+msgstr ""
+
+#: ../../developer.rst:301
+msgid ""
+"初回実行時のみ必要な処理の実装は、Implement a controller の Implement initialize() "
+"と同様ですので、そちらを参照してください。"
+msgstr ""
+
+#: ../../developer.rst:303
+msgid "WorldRosItem::initialize()"
+msgstr ""
+
+#: ../../developer.rst:311
+msgid "シミュレーション開始・終了時の処理"
+msgstr ""
+
+#: ../../developer.rst:313
+msgid ""
+"シミュレーション開始・終了時の処理について、Item クラスは ControllerItem "
+"クラスと違い、シミュレーション開始・終了時に呼び出される関数が存在しないため、同様の機能を実現するための実装が必要となります。"
+msgstr ""
+
+#: ../../developer.rst:315
+msgid ""
+"WorldRosItem の実装では、これを SimulatorItem クラスの機能である sigSimulationStarted "
+"イベントシグナル (シミュレーション開始時) および、sigSimulationFinished イベントシグナル (シミュレーション終了時) "
+"に、開始・終了処理をそれぞれ接続することで実現しています。"
+msgstr ""
+
+#: ../../developer.rst:317
+msgid "WorldRosItem - signal connections"
+msgstr ""
+
+#: ../../developer.rst:324
+msgid ""
+"接続している関数が ControllerItem 使用の場合と同名の start() および stop() となっていますが、こちらは "
+"WorldRosItem で宣言した関数である事に留意してください。"
+msgstr ""
+
+#: ../../developer.rst:326
+msgid "WorldRosItem - prototype definitions of start() and stop()"
+msgstr ""
+
+#: ../../developer.rst:333
+msgid ""
+"開始処理である WorldRosItem::start() は、ControllerItem の場合と同様に ROS ノードの生成および、ROS "
+"トピックの登録処理を実装します。"
+msgstr ""
+
+#: ../../developer.rst:335
+msgid "WorldRosItem::start()"
+msgstr ""
+
+#: ../../developer.rst:342
+msgid ""
+"終了処理である WorldRosItem::stop() も、ControllerItem の場合と同様に ROS トピックの停止処理および "
+"ROS ノードの停止処理を実装します。"
+msgstr ""
+
+#: ../../developer.rst:344
+msgid "WorldRosItem::stop()"
+msgstr ""
+
+#: ../../developer.rst:352
+msgid "Implement processing of publish"
+msgstr ""
+
+#: ../../developer.rst:354
+msgid ""
+"パブリッシュ処理についても、Item クラスには、ControllerItem の control() "
+"に相当する関数が存在しないため、こちらもシミュレーション開始・終了処理と同様に、機能を実現するための実装が必要となります。"
+msgstr ""
+
+#: ../../developer.rst:356
+msgid ""
+"WorldRosItem の実装では、SimulatorItem クラスの機能である、シミュレーション処理と同期して任意の関数を実行する機能 "
+"(フック) へ、パブリッシュ処理の関数を登録する事で実現しています。"
+msgstr ""
+
+#: ../../developer.rst:358
+msgid "WorldRosItem::start() - addPostDynamicsFunction"
+msgstr ""
+
+#: ../../developer.rst:365
+msgid ""
+"ここでは addPostDynamicsFunction を使用していますが、シミュレーション処理内 "
+"(SimulatorItem::stepSimulation()) で実行されるタイミングに応じて 3 "
+"種類のフックが用意されていますので、用途に応じて使い分ける事が可能です。"
+msgstr ""
+
+#: ../../developer.rst:367
+msgid "用意されているフックとその実行タイミングは以下の通りです。"
+msgstr ""
+
+#: ../../developer.rst:370
+msgid "フック"
+msgstr ""
+
+#: ../../developer.rst:370
+msgid "コントローラ実行"
+msgstr ""
+
+#: ../../developer.rst:370
+msgid "物理演算処理の実行"
+msgstr ""
+
+#: ../../developer.rst:372
+msgid "Immeidate"
+msgstr ""
+
+#: ../../developer.rst:372
+msgid "非 Immediate"
+msgstr ""
+
+#: ../../developer.rst:374
+msgid "addPreDynamicsFunction"
+msgstr ""
+
+#: ../../developer.rst:374 ../../developer.rst:376 ../../developer.rst:378
+msgid "Not yet"
+msgstr ""
+
+#: ../../developer.rst:376
+msgid "addMidDynamicsFunction"
+msgstr ""
+
+#: ../../developer.rst:376 ../../developer.rst:378
+msgid "Done"
+msgstr ""
+
+#: ../../developer.rst:378
+msgid "addPostDynamicsFunction"
+msgstr ""
+
+#: ../../developer.rst:381
+msgid "パブリッシュ処理の本体は WorldRosItem::publishClock() です。"
+msgstr ""
+
+#: ../../developer.rst:383
+msgid "ユーザ指定の周期毎にシミュレーション時間をパブリッシュする実装です。"
+msgstr ""
+
+#: ../../developer.rst:385
+msgid "WorldRosItem::publishClock()"
+msgstr ""
+
+#: ../../developer.rst:392
+msgid "WorldRosItem は、シミレーション開始時にフックの登録を実行する実装となっているため、シミュレーション停止時にフックの解除を実装します。"
+msgstr ""
+
+#: ../../developer.rst:394
+msgid "フックの解除に用いる関数は、フックの add を remove に置き換えた関数を使用します。"
+msgstr ""
+
+#: ../../developer.rst:396
+msgid "WorldRosItem::stop() - removePostDynamicsFunction()"
+msgstr ""
+
+#: ../../developer.rst:404
+msgid "Common matters"
+msgstr ""
+
+#: ../../developer.rst:406
+msgid "ここでは実装した機能をプラグインとして動作させる手順を説明します。"
+msgstr ""
+
+#: ../../developer.rst:409
+msgid "If you adds new feature in this plugin"
+msgstr ""
+
+#: ../../developer.rst:411
+msgid ""
+"Choreonoid ROS プラグイン本体へ機能を追加するにあたり、ソースファイルを新規に作成した場合、当該ソースファイルを "
+"choreonoid_ros_pkg/choreonoid_plugins/CMakeLists.txt の add_cnoid_plugin "
+"に追加しビルド対象とする必要があります。"
+msgstr ""
+
+#: ../../developer.rst:413
+msgid "choreonoid_plugins/CMakeLists.txt"
+msgstr ""
+
+#: ../../developer.rst:419
+msgid ""
+"また、Choreonoid ROS プラグイン本体へ機能を追加した場合、RosBodyPlugin::initialize() へ実装したクラスの"
+" initialize() 呼び出しを追加する必要があります。"
+msgstr ""
+
+#: ../../developer.rst:421
+msgid "RosBodyPlugin::initialize()"
+msgstr ""
+
+#: ../../developer.rst:427
+msgid "これらの対応がなされていない場合、追加した機能は有効になりません。"
+msgstr ""
+
+#: ../../developer.rst:430
+msgid "Definition of plugin entry"
+msgstr ""
+
+#: ../../developer.rst:432
+msgid "プラグインエントリの定義は RosBodyPlugin.cpp にあります。 この定義は変更しないでください。"
+msgstr ""
+
+#: ../../developer.rst:435
+msgid "RosBodyPlugin - Plugin entry"
+msgstr ""
+
+#: ../../developer.rst:442
+msgid "Others"
+msgstr ""
+
+#: ../../developer.rst:445
+msgid "Copy a header file not installed"
+msgstr ""
+
+#: ../../developer.rst:447
+msgid "Choreonoid のヘッダファイルの中には、インストール対象外となっているものが存在します。"
+msgstr ""
+
+#: ../../developer.rst:449
+msgid ""
+"プラグインの実装において、これらのヘッダファイルを必要とする状況となった場合、choreonoid_ros/CMakeLists.txt で "
+"install を使用し対応する事が可能です。"
+msgstr ""
+
+#: ../../developer.rst:451
+msgid "choreonoid_ros/CMakeLists.txt - Parts"
+msgstr ""
+
+#: ../../developer.rst:458
+msgid ""
+"本項は、所謂バッドノウハウと呼ばれるものであり、Choreonoid ROS プラグインの Choreonoid "
+"に限定した内容である事に留意してください。"
+msgstr ""
+
+#: ../../developer.rst:461
+msgid "Input() and output() in ControllerItem class"
+msgstr ""
+
+#: ../../developer.rst:463
+msgid ""
+"Choreonoid ROS "
+"プラグインでは使用していませんが、制御処理において、入力処理、制御処理、出力処理の流れで処理を実装する場合は、ControllerItem の "
+"input() および output() 仮想関数を実装する事で実現可能です。"
+msgstr ""
+
+#: ../../developer.rst:465
+msgid "簡単な処理である場合を除き、input()、control()、output() それぞれの実装で制御処理を実現する事を推奨します。"
+msgstr ""
+
+#: ../../developer.rst:469
+msgid "Porting Gazebo ROS plguin"
+msgstr ""
+
+#: ../../developer.rst:471
+msgid "この節では、Gazebo ROS プラグインからの移植について記載します。"
+msgstr ""
+
+#: ../../developer.rst:473
+msgid "本節の内容は、前節の説明を理解している事が前提となります。"
+msgstr ""
+
+#: ../../developer.rst:476
+msgid "Initialization"
+msgstr ""
+
+#: ../../developer.rst:479
+msgid "Porting initialization functions of Gazebo plugin"
+msgstr ""
+
+#: ../../developer.rst:481
+msgid ""
+"Gazebo ROS プラグインの実装において、初期化に関する処理は基本的に Load()、Init()、Reset() "
+"をオーバーライドした関数、コンストラクタで実行する実装となっています。"
+msgstr ""
+
+#: ../../developer.rst:483
+msgid ""
+"よって、移植の際は、これらの実装を前節で述べた "
+"initialize()、start()、コンストラクタへ適切に実装する事で、同等の機能を実現できます。"
+msgstr ""
+
+#: ../../developer.rst:486
+msgid "Initial potures of models"
+msgstr ""
+
+#: ../../developer.rst:488
+msgid ""
+"Gazebo ROS プラグインの実装において、モデルの初期姿勢を設定する処理については、start() への実装による設定ではなく "
+"Choreonoid のユーザ・インタフェース「関節スライダ」で初期姿勢を設定したプロジェクトを使用する事を推奨します。"
+msgstr ""
+
+#: ../../developer.rst:493
+msgid "Properties in the urdf or xacro files"
+msgstr ""
+
+#: ../../developer.rst:495
+msgid "現行の Choreonoid ROS プラグインでは、urdf ファイルや xacro ファイル内のプロパティによる設定をサポートしていません。"
+msgstr ""
+
+#: ../../developer.rst:497
+msgid ""
+"よって、Gazebo ROS "
+"プラグインの初期化に関する処理において、当該プロパティを使用している場合、以下のいずれかの実装で置き換える必要があります。"
+msgstr ""
+
+#: ../../developer.rst:499
+msgid "Choreonoid のプロパティとして実装する"
+msgstr ""
+
+#: ../../developer.rst:501
+msgid ""
+"`YAML による追加情報ファイル <http://choreonoid.org/ja/manuals/latest/handling-"
+"models/modelfile/modelfile-yaml.html>`_ を用意し start でこの情報を使用する"
+msgstr ""
+
+#: ../../developer.rst:504
+msgid "Finalization"
+msgstr ""
+
+#: ../../developer.rst:506
+msgid ""
+"Gazebo ROS プラグインの実装において、デストラクタで実装している停止処理については、Choreonoid ROS "
+"プラグインでは、前節で説明した stop() へ実装するようにしてください。"
+msgstr ""
+
+#: ../../developer.rst:508
+msgid "Choreonoid ROS プラグインのデストラクタへは、Choreonoid 終了時に実行する処理のみを実装するようにしてください。"
+msgstr ""
+
+#: ../../developer.rst:513
+msgid ""
+"Gazebo ROS プラグインの実装において、コントローラは基本的に `Gazebo のイベント <http://osrf-"
+"distributions.s3.amazonaws.com/gazebo/api/dev/group__gazebo__event.html>`_"
+" (例えば Events::ConnectWorldUpdateBigin 等) "
+"に、コントローラの処理を実装した関数を割り当てる実装となっています。"
+msgstr ""
+
+#: ../../developer.rst:515
+msgid ""
+"具体例としては、 `GazeboRosTemplate クラス <https://github.com/ros-"
+"simulation/gazebo_ros_pkgs/blob/kinetic-"
+"devel/gazebo_plugins/src/gazebo_ros_template.cpp>`_ の場合、UpdateChild() "
+"がコントローラの処理を実装した関数となります。"
+msgstr ""
+
+#: ../../developer.rst:517
+msgid "移植の際は、この実装を前節で述べた control() に実装する事で同等の機能を実現できます。"
+msgstr ""
+
+#: ../../developer.rst:520
+msgid "Porting functions"
+msgstr ""
+
+#: ../../developer.rst:522
+msgid ""
+"関数の移植については、 `Choreonoid が必要とするライブラリ "
+"<http://choreonoid.org/ja/manuals/latest/install/build-ubuntu.html#id5>`_"
+" と競合するライブラリを使用している場合、これを回避するための修正もしくは改修が必須となります。 "
+"また、状況によっては移植不可能となる場合もあるため、移植に際し事前に確認する事を推奨します。"
+msgstr ""
+
+#: ../../developer.rst:525
+msgid ""
+"また、 `Gazebo の Quarternion <http://osrf-"
+"distributions.s3.amazonaws.com/gazebo/api/dev/classgazebo_1_1math_1_1Quaternion.html>`_"
+" や `ROS の Vector3 "
+"<http://docs.ros.org/api/tf/html/c++/classtf_1_1Vector3.html>`_ "
+"を使用している場合、cnoid::Quaternion や cnoid::Vector3 と区別するため名前空間を正確に指定する必要があります。"
+msgstr ""
+
+#: ../../developer.rst:528
+msgid "Logging and notifications to users"
+msgstr ""
+
+#: ../../developer.rst:530
+msgid ""
+"ROS のストリーム出力 (ROS_INFO 等) は、そのままの使用で問題ありません。 Choreonoid ROS "
+"プラグインでも随所で使用しています。"
+msgstr ""
+
+#: ../../developer.rst:533
+msgid ""
+"Gazebo のストリーム出力 (gzmsg 等) については、特に理由が無ければ ROS のストリーム出力もしくは、C++ "
+"のストリーム出力への使用変更を推奨します。"
+msgstr ""
+
+#: ../../developer.rst:535
+msgid "Choreonoid を使用しているユーザに対するメッセージを出力する場合は、MessageView クラスを使用します。"
+msgstr ""
+
+#: ../../developer.rst:537
+msgid "以下のコードは、Choreonoid のメッセージビューに「An error ocurred in controller」を出力する例となります。"
+msgstr ""
+
+#: ../../developer.rst:545
+msgid "Appendix"
+msgstr ""
+
+#: ../../developer.rst:547
+msgid "本章の説明で使用したソースコードを添付します。"
+msgstr ""
+
+#: ../../developer.rst:550 ../../developer.rst:552
+msgid "BodyRosItem.h"
+msgstr ""
+
+#: ../../developer.rst:558
+msgid "BodyRosItem.cpp"
+msgstr ""
+
+#: ../../developer.rst:560
+msgid "choreonoid_ros_pkg/choreonoid_plugins/src/BodyRosItem.cpp"
+msgstr ""
+
+#: ../../developer.rst:566
+msgid "WorldRosItem.h"
+msgstr ""
+
+#: ../../developer.rst:568
+msgid "choreonoid_ros_pkg/choreonoid_plugins/src/WorldRosItem.h"
+msgstr ""
+
+#: ../../developer.rst:574
+msgid "WorldRosItem.cpp"
+msgstr ""
+
+#: ../../developer.rst:576
+msgid "choreonoid_ros_pkg/choreonoid_plugins/src/WorldRosItem.cpp"
+msgstr ""
+
+#: ../../developer.rst:582
+msgid "RosBodyPlugin.cpp"
+msgstr ""
+
+#: ../../developer.rst:584
+msgid "choreonoid_ros_pkg/choreonoid_plugins/src/RosBodyPlugin.cpp"
+msgstr ""
+
+#: ../../developer.rst:590
+msgid "CMakeLists.txt"
+msgstr ""
+
+#: ../../developer.rst:592
+msgid "choreonoid_ros_pkg/choreonoid_plugins/CMakeLists.txt"
+msgstr ""
+
+#~ msgid "説明で使用するソースコードは、Appendix に全て省略の無い状態で載せています。 必要に応じて参照してください。"
+#~ msgstr ""
+
+#~ msgid "Appendix"
+#~ msgstr ""
+
+#~ msgid "本章の説明で使用したソースコードを添付します。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem.h"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem.cpp"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem.h"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem.cpp"
+#~ msgstr ""
+
+#~ msgid "RosBodyPlugin.cpp"
+#~ msgstr ""
+
+#~ msgid "CMakeLists.txt"
+#~ msgstr ""
+
+#~ msgid "For developers information"
+#~ msgstr ""
+
+#~ msgid "本章では、Choreonoid ROS プラグインの機能拡張および、Gazebo ROS プラグインからの移植に関する内容を記載します。"
+#~ msgstr ""
+
+#~ msgid "Extend features of Choreonoid ROS plguin"
+#~ msgstr ""
+
+#~ msgid "この節では、Choreonoid ROS プラグインの機能拡張について説明します。"
+#~ msgstr ""
+
+#~ msgid "既存の実装について説明することで、機能拡張を実施する際に必要な情報を提供する事および、機能拡張ではなく新たなプラグインを実装する際の参考情報を提供する事を主旨としています。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem.h - Prototype definition of initialize"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::initialize"
+#~ msgstr ""
+
+#~ msgid "15 行目および 16 行目は ROS API の初期化処理です。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem.cpp - ROS API initialization"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem.cpp - Register own class"
+#~ msgstr ""
+
+#~ msgid "シミュレーション開始時に実行する必要がある処理は ControllerItem の start 仮想関数を実装します。"
+#~ msgstr ""
+
+#~ msgid "start はシミュレーションの開始と同期して実行されます。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem - Prototype definition of start"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "start には、各トピックでパブリッシュするメッセージの初期化処理、トピックをパブリッシュする為のインスタンス "
+#~ "(パブリッシャー) の生成処理、ROS ノードの生成および起動処理を実装します。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::start"
+#~ msgstr ""
+
+#~ msgid "取得した情報のパブリッシュ処理については「Implement processing of control」で説明します。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::start - joint_state\\_initialize"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::start - Create ROS node and topic"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::start - Start ROS spin"
+#~ msgstr ""
+
+#~ msgid "以下、103 行目の createSensors について説明します。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::createSensor - Create force sensor device"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::createSensor - sigStateChanged"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::updateForceSensor"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "シミュレーション停止時に実行する必要がある処理は ControllerItem の stop "
+#~ "仮想関数を実装します。 stop はシミュレーションの停止に同期して実行されます。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem - Prototype definition of stop"
+#~ msgstr ""
+
+#~ msgid "stop には、トピックの停止処理 (stop_publish)、ROS ノードの停止処理を実装します。"
+#~ msgstr ""
+
+#~ msgid "Implement processing of control"
+#~ msgstr ""
+
+#~ msgid "制御処理は、ControllerItem の control 仮想関数を実装することで実現します。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem - Prototype definition of control"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "control は、シミュレーションの実行周期で呼びされます。 シミュレーションの実行周期は、Choreonoid"
+#~ " のタイムバーの設定で指定した周期となります。 以下の設定の場合、1ms 周期で control"
+#~ " が呼び出されます。"
+#~ msgstr ""
+
+#~ msgid "BodyRosItem::control"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "初回実行時のみ必要な処理の実装は、Implement a controller の "
+#~ "Implement processing of initialize "
+#~ "と同様ですので、そちらを参照してください。"
+#~ msgstr ""
+
+#~ msgid "Naturally, there are differences in classes to register."
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::initialize"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::registrationNodeStartAndStop"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "接続している関数が ControllerItem 使用の場合と同名の start および"
+#~ " stop となっていますが、こちらは WorldRosItem "
+#~ "で宣言した関数である事に留意してください。"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem - definition of start and stop"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "開始処理である WorldRosItem::start は、ControllerItem の場合と同様に"
+#~ " ROS ノードの生成および、ROS トピックの登録処理を実装します。"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::start - Parts"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "終了処理である WorldRosItem::stop も、ControllerItem の場合と同様に"
+#~ " ROS トピックの停止処理および ROS ノードの停止処理を実装します。"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::stop - Parts"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "パブリッシュ処理についても、Item クラスには、ControllerItem の control"
+#~ " に相当する関数が存在しないため、こちらもシミュレーション開始・終了処理と同様に、機能を実現するための実装が必要となります。"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::start - addPostDynamicsFunction"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "ここでは addPostDynamicsFunction を使用していますが、シミュレーション処理内 "
+#~ "(SimulatorItem::stepSimulation) で実行されるタイミングに応じて 3 "
+#~ "種類のフックが用意されていますので、用途に応じて使い分ける事が可能です。"
+#~ msgstr ""
+
+#~ msgid "パブリッシュ処理の本体は WorldRosItem::publishClock です。"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::publishClock"
+#~ msgstr ""
+
+#~ msgid "WorldRosItem::stop - removePostDynamicsFunction"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "また、Choreonoid ROS "
+#~ "プラグイン本体へ機能を追加した場合、RosBodyPlugin::initialize へ実装したクラスの "
+#~ "initialize 呼び出しを追加する必要があります。"
+#~ msgstr ""
+
+#~ msgid "RosBodyPlugin::initialize"
+#~ msgstr ""
+
+#~ msgid "Input and output in ControllerItem class"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Choreonoid ROS "
+#~ "プラグインでは使用していませんが、制御処理において、入力処理、制御処理、出力処理の流れで処理を実装する場合は、ControllerItem"
+#~ " の input および output 仮想関数を実装する事で実現可能です。"
+#~ msgstr ""
+
+#~ msgid "簡単な処理である場合を除き、input、control、output それぞれの実装で制御処理を実現する事を推奨します。"
+#~ msgstr ""
+
+#~ msgid "Porting from Gazebo ROS plguin"
+#~ msgstr ""
+
+#~ msgid "Processing of start"
+#~ msgstr ""
+
+#~ msgid "When using initialization by the Gazebo's plugin function override"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Gazebo ROS プラグインの実装において、初期化に関する処理は基本的に "
+#~ "Load、Init、Reset をオーバーライドした関数、コンストラクタで実行する実装となっています。"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "よって、移植の際は、これらの実装を前節で述べた "
+#~ "initialize、start、コンストラクタへ適切に実装する事で、同等の機能を実現できます。"
+#~ msgstr ""
+
+#~ msgid "Initial attitude of models"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Gazebo ROS プラグインの実装において、モデルの初期姿勢を設定する処理については、start "
+#~ "への実装による設定ではなく Choreonoid "
+#~ "のユーザ・インタフェース「関節スライダ」で初期姿勢を設定したプロジェクトを使用する事を推奨します。"
+#~ msgstr ""
+
+#~ msgid "モデルをロードした時の姿勢から、設定するモデルの初期姿勢へ動かした場合の運動量が小さい場合は、この限りではありませんが、運動量が大きくなる場合、シミュレーション開始と同時にモデルが予期しない動作となる可能性があります。"
+#~ msgstr ""
+
+#~ msgid "When using property of the urdf or xacro file"
+#~ msgstr ""
+
+#~ msgid "Processing of end"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Gazebo ROS プラグインの実装において、デストラクタで実装している停止処理については、Choreonoid"
+#~ " ROS プラグインでは、前節で説明した stop へ実装するようにしてください。"
+#~ msgstr ""
+
+#~ msgid "Processing of control"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "具体例としては、 `GazeboRosTemplate クラス <https://github.com"
+#~ "/ros-simulation/gazebo_ros_pkgs/blob/kinetic-"
+#~ "devel/gazebo_plugins/src/gazebo_ros_template.cpp>`_ "
+#~ "の場合、UpdateChild がコントローラの処理を実装した関数となります。"
+#~ msgstr ""
+
+#~ msgid "移植の際は、この実装を前節で述べた control に実装する事で同等の機能を実現できます。"
+#~ msgstr ""
+
+#~ msgid "Porting function"
+#~ msgstr ""
+
+#~ msgid "Logging and notify users"
+#~ msgstr ""
+
+#~ msgid "以下のコードは、Choreonoid のメッセージビューに「Occured error in controller」を出力する例となります。"
+#~ msgstr ""
+
