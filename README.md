@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/fkanehiro/choreonoid-editor-doc.svg?branch=master)](https://travis-ci.org/fkanehiro/choreonoid-editor-doc)
+[![Build Status](https://travis-ci.org/fkanehiro/choreonoid_ros_pkg_doc.svg?branch=master)](https://travis-ci.org/fkanehiro/choreonoid_ros_pkg_doc)
 
-Documentation project for choreonoid editor
+Documentation project for choreonoid_ros_pkg
 
 To generate the document:
 
