@@ -14,6 +14,7 @@ Contents:
    install
    manual
    tutorial
+   developer
 
 
 Indices and tables
